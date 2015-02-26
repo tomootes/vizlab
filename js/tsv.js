@@ -1,4 +1,5 @@
 function Tsv(path){
+  
   this.path = path;
 
   this.getFile = function(){

@@ -31,7 +31,7 @@
   				<button type="button" class="btn btn-default">
   					<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
   				</button>
-  				<button type="button" class="btn btn-default">
+  				<button id="play-button" type="button" class="btn btn-default">
   					<span id="play-icon" class="glyphicon glyphicon-play" aria-hidden="true"></span>
   				</button>
   				<button type="button" class="btn btn-default">
@@ -75,7 +75,7 @@
 
 			function init(){
 
-				$( ".glyphicon-play" ).click(function() {
+				$( "#play-button" ).click(function() {
   				if(paused != true){
   					paused = true;
   					document.getElementById("play-icon").className = "glyphicon glyphicon-pause";
