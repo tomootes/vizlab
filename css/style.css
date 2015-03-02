@@ -20,11 +20,12 @@ canvas {
 }
 
 #slider{
-  width: 70%;
+  width: 100%;
   background: white;
   border: 1px solid #adadad;
   float: right;
   height: 10px;
+  margin-top: 10px;
 }
 
 #controls{
@@ -59,4 +60,12 @@ canvas {
   display: block;
   border: 0;
   background-position: 0 0;
+}
+
+#buttons-holder{
+  float: left;
+}
+
+#slider-holder{
+  margin-left: 220px;
 }
