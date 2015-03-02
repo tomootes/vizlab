@@ -96,8 +96,14 @@
             min: 0,
             max: ( coordinates.length -2),
             step: 1,
-            slide: function( event, ui ) {
-               iteration = ui.value;
+            slide: function(event, ui) {
+            	paused = true;
+              iteration = ui.value;
+              controls.enabled = false;
+            },
+            stop: function(event, ui) {
+            		paused = false;
+               	controls.enabled = true;
             }
 					}
 				);
