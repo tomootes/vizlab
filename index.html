@@ -34,7 +34,7 @@
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 						</button>
 						<button id="play-button" type="button" class="btn btn-default">
-							<span id="play-icon" class="glyphicon glyphicon-play" aria-hidden="true"></span>
+							<span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 						</button>
 						<button type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
@@ -80,13 +80,25 @@
 
 			function init(){
 
+				var ws=new WebSocket("ws://localhost:27016", ['binary','base64']);
+		    ws.onopen = function() {
+        	console.log("WebSockets connection opened");
+        	ws.send("a test message");
+    		}
+				ws.onmessage = function(e) {
+					console.log(e.data);
+				
+    		}
+
+    		console.log(ws);
+
 				$( "#play-button" ).click(function() {
   				if(paused != true){
   					paused = true;
-  					document.getElementById("play-icon").className = "glyphicon glyphicon-pause";
+  					document.getElementById("play-icon").className = "glyphicon glyphicon-play";
   				}else{
   					paused = false
-  					document.getElementById("play-icon").className = "glyphicon glyphicon-play";
+  					document.getElementById("play-icon").className = "glyphicon glyphicon-pause";
   				}
 				});
 
