@@ -1,0 +1,2053 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install', 'websockify' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 silly cache add args [ 'websockify', null ]
+5 verbose cache add spec websockify
+6 silly cache add parsed spec { raw: 'websockify',
+6 silly cache add   scope: null,
+6 silly cache add   name: 'websockify',
+6 silly cache add   rawSpec: '',
+6 silly cache add   spec: '*',
+6 silly cache add   type: 'range' }
+7 verbose addNamed websockify@*
+8 silly addNamed semver.valid null
+9 silly addNamed semver.validRange *
+10 silly addNameRange { name: 'websockify', range: '*', hasData: false }
+11 silly mapToRegistry name websockify
+12 silly mapToRegistry using default registry
+13 silly mapToRegistry registry https://registry.npmjs.org/
+14 silly mapToRegistry uri https://registry.npmjs.org/websockify
+15 verbose addNameRange registry:https://registry.npmjs.org/websockify not in flight; fetching
+16 verbose request uri https://registry.npmjs.org/websockify
+17 verbose request no auth needed
+18 info attempt registry request try #1 at 1:37:52 PM
+19 verbose request id 5a6f446b8ea9d533
+20 verbose etag "9AKTXEHBEUGE84REOCLN08JZB"
+21 http request GET https://registry.npmjs.org/websockify
+22 http 304 https://registry.npmjs.org/websockify
+23 silly get cb [ 304,
+23 silly get   { date: 'Mon, 02 Mar 2015 12:37:53 GMT',
+23 silly get     server: 'Apache',
+23 silly get     via: '1.1 varnish',
+23 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:53 GMT',
+23 silly get     'cache-control': 'max-age=60',
+23 silly get     etag: '"9AKTXEHBEUGE84REOCLN08JZB"',
+23 silly get     age: '0',
+23 silly get     'x-served-by': 'cache-fra1248-FRA',
+23 silly get     'x-cache': 'MISS',
+23 silly get     'x-cache-hits': '0',
+23 silly get     'x-timer': 'S1425299873.096969,VS0,VE691',
+23 silly get     vary: 'Accept',
+23 silly get     'content-length': '0',
+23 silly get     'keep-alive': 'timeout=10, max=50',
+23 silly get     connection: 'Keep-Alive' } ]
+24 verbose etag https://registry.npmjs.org/websockify from cache
+25 verbose get saving websockify to /Users/Tom/.npm/registry.npmjs.org/websockify/.cache.json
+26 silly addNameRange number 2 { name: 'websockify', range: '*', hasData: true }
+27 silly addNameRange versions [ 'websockify',
+27 silly addNameRange   [ '0.5.0-pre', '0.5.0', '0.5.1', '0.6.1', '0.6.2' ] ]
+28 verbose addNamed websockify@0.6.2
+29 silly addNamed semver.valid 0.6.2
+30 silly addNamed semver.validRange 0.6.2
+31 silly cache afterAdd websockify@0.6.2
+32 verbose afterAdd /Users/Tom/.npm/websockify/0.6.2/package/package.json not in flight; writing
+33 verbose afterAdd /Users/Tom/.npm/websockify/0.6.2/package/package.json written
+34 silly install resolved [ { author:
+34 silly install resolved      { name: 'Joel Martin',
+34 silly install resolved        email: 'github@martintribe.org',
+34 silly install resolved        url: 'http://github.com/kanaka' },
+34 silly install resolved     name: 'websockify',
+34 silly install resolved     description: 'websockify is a WebSocket-to-TCP proxy/bridge',
+34 silly install resolved     license: 'LGPL-3',
+34 silly install resolved     version: '0.6.2',
+34 silly install resolved     repository: { type: 'git', url: 'git://github.com/kanaka/websockify.git' },
+34 silly install resolved     files: [ '../../docs/LICENSE.LGPL-3', 'websockify.js' ],
+34 silly install resolved     bin: { websockify: './websockify.js' },
+34 silly install resolved     engines: { node: '>=0.8.9' },
+34 silly install resolved     dependencies:
+34 silly install resolved      { ws: '>=0.4.27',
+34 silly install resolved        base64: 'latest',
+34 silly install resolved        optimist: 'latest',
+34 silly install resolved        policyfile: 'latest' },
+34 silly install resolved     bugs: { url: 'https://github.com/kanaka/websockify/issues' },
+34 silly install resolved     homepage: 'https://github.com/kanaka/websockify',
+34 silly install resolved     _id: 'websockify@0.6.2',
+34 silly install resolved     scripts: {},
+34 silly install resolved     _shasum: 'a8729abfe67eee94ae58f375e0be0691fa688945',
+34 silly install resolved     _from: 'websockify@*',
+34 silly install resolved     _npmVersion: '2.1.8',
+34 silly install resolved     _nodeVersion: '0.11.13',
+34 silly install resolved     _npmUser: { name: 'directxman12', email: 'directxman12+npm@gmail.com' },
+34 silly install resolved     maintainers: [ [Object], [Object] ],
+34 silly install resolved     dist:
+34 silly install resolved      { shasum: 'a8729abfe67eee94ae58f375e0be0691fa688945',
+34 silly install resolved        tarball: 'http://registry.npmjs.org/websockify/-/websockify-0.6.2.tgz' },
+34 silly install resolved     directories: {},
+34 silly install resolved     _resolved: 'https://registry.npmjs.org/websockify/-/websockify-0.6.2.tgz',
+34 silly install resolved     readme: 'ERROR: No README data found!' } ]
+35 info install websockify@0.6.2 into /Users/Tom/Sites/vizlab/server
+36 info installOne websockify@0.6.2
+37 verbose installOne of websockify to /Users/Tom/Sites/vizlab/server not in flight; installing
+38 verbose lock using /Users/Tom/.npm/_locks/websockify-3fedd862dd857e52.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify
+39 silly install write writing websockify 0.6.2 to /Users/Tom/Sites/vizlab/server/node_modules/websockify
+40 silly cache addNamed cb websockify@0.6.2
+41 verbose unbuild node_modules/websockify
+42 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify
+43 verbose tar unpack /Users/Tom/.npm/websockify/0.6.2/package.tgz
+44 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify
+45 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify
+46 silly gunzTarPerm modes [ '755', '644' ]
+47 silly gunzTarPerm extractEntry package.json
+48 silly gunzTarPerm extractEntry README.md
+49 silly gunzTarPerm extractEntry websockify.js
+50 info preinstall websockify@0.6.2
+51 silly prepareForInstallMany adding ws@>=0.4.27 from websockify dependencies
+52 silly prepareForInstallMany adding base64@latest from websockify dependencies
+53 silly prepareForInstallMany adding optimist@latest from websockify dependencies
+54 silly prepareForInstallMany adding policyfile@latest from websockify dependencies
+55 silly cache add args [ 'base64@latest', null ]
+56 verbose cache add spec base64@latest
+57 silly cache add args [ 'optimist@latest', null ]
+58 verbose cache add spec optimist@latest
+59 silly cache add args [ 'policyfile@latest', null ]
+60 verbose cache add spec policyfile@latest
+61 silly cache add args [ 'ws@>=0.4.27', null ]
+62 verbose cache add spec ws@>=0.4.27
+63 silly cache add parsed spec { raw: 'ws@>=0.4.27',
+63 silly cache add   scope: null,
+63 silly cache add   name: 'ws',
+63 silly cache add   rawSpec: '>=0.4.27',
+63 silly cache add   spec: '>=0.4.27',
+63 silly cache add   type: 'range' }
+64 verbose addNamed ws@>=0.4.27
+65 silly addNamed semver.valid null
+66 silly addNamed semver.validRange >=0.4.27
+67 silly addNameRange { name: 'ws', range: '>=0.4.27', hasData: false }
+68 silly mapToRegistry name ws
+69 silly mapToRegistry using default registry
+70 silly mapToRegistry registry https://registry.npmjs.org/
+71 silly mapToRegistry uri https://registry.npmjs.org/ws
+72 verbose addNameRange registry:https://registry.npmjs.org/ws not in flight; fetching
+73 silly cache add parsed spec { raw: 'base64@latest',
+73 silly cache add   scope: null,
+73 silly cache add   name: 'base64',
+73 silly cache add   rawSpec: 'latest',
+73 silly cache add   spec: 'latest',
+73 silly cache add   type: 'tag' }
+74 verbose addNamed base64@latest
+75 silly addNamed semver.valid null
+76 silly addNamed semver.validRange null
+77 info addNameTag [ 'base64', 'latest' ]
+78 silly mapToRegistry name base64
+79 silly mapToRegistry using default registry
+80 silly mapToRegistry registry https://registry.npmjs.org/
+81 silly mapToRegistry uri https://registry.npmjs.org/base64
+82 verbose addNameTag registry:https://registry.npmjs.org/base64 not in flight; fetching
+83 silly cache add parsed spec { raw: 'optimist@latest',
+83 silly cache add   scope: null,
+83 silly cache add   name: 'optimist',
+83 silly cache add   rawSpec: 'latest',
+83 silly cache add   spec: 'latest',
+83 silly cache add   type: 'tag' }
+84 verbose addNamed optimist@latest
+85 silly addNamed semver.valid null
+86 silly addNamed semver.validRange null
+87 info addNameTag [ 'optimist', 'latest' ]
+88 silly mapToRegistry name optimist
+89 silly mapToRegistry using default registry
+90 silly mapToRegistry registry https://registry.npmjs.org/
+91 silly mapToRegistry uri https://registry.npmjs.org/optimist
+92 verbose addNameTag registry:https://registry.npmjs.org/optimist not in flight; fetching
+93 silly cache add parsed spec { raw: 'policyfile@latest',
+93 silly cache add   scope: null,
+93 silly cache add   name: 'policyfile',
+93 silly cache add   rawSpec: 'latest',
+93 silly cache add   spec: 'latest',
+93 silly cache add   type: 'tag' }
+94 verbose addNamed policyfile@latest
+95 silly addNamed semver.valid null
+96 silly addNamed semver.validRange null
+97 info addNameTag [ 'policyfile', 'latest' ]
+98 silly mapToRegistry name policyfile
+99 silly mapToRegistry using default registry
+100 silly mapToRegistry registry https://registry.npmjs.org/
+101 silly mapToRegistry uri https://registry.npmjs.org/policyfile
+102 verbose addNameTag registry:https://registry.npmjs.org/policyfile not in flight; fetching
+103 verbose request uri https://registry.npmjs.org/base64
+104 verbose request no auth needed
+105 info attempt registry request try #1 at 1:37:54 PM
+106 verbose etag "DLCHGEV3VY79FBVH84IETZ2EM"
+107 http request GET https://registry.npmjs.org/base64
+108 verbose request uri https://registry.npmjs.org/ws
+109 verbose request no auth needed
+110 info attempt registry request try #1 at 1:37:54 PM
+111 verbose etag "4OTZN2S9HUZXZ94LI4DQLLYZH"
+112 http request GET https://registry.npmjs.org/ws
+113 verbose request uri https://registry.npmjs.org/policyfile
+114 verbose request no auth needed
+115 info attempt registry request try #1 at 1:37:54 PM
+116 verbose etag "46LRKXS9DOLIBAF16D6ORCPPU"
+117 http request GET https://registry.npmjs.org/policyfile
+118 verbose request uri https://registry.npmjs.org/optimist
+119 verbose request no auth needed
+120 info attempt registry request try #1 at 1:37:54 PM
+121 verbose etag "3V5Q1FVXCIHNB0OVFO0QGGQ7U"
+122 http request GET https://registry.npmjs.org/optimist
+123 http 304 https://registry.npmjs.org/ws
+124 silly get cb [ 304,
+124 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+124 silly get     server: 'Apache',
+124 silly get     via: '1.1 varnish',
+124 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:40 GMT',
+124 silly get     'cache-control': 'max-age=60',
+124 silly get     etag: '"4OTZN2S9HUZXZ94LI4DQLLYZH"',
+124 silly get     age: '34',
+124 silly get     'x-served-by': 'cache-fra1223-FRA',
+124 silly get     'x-cache': 'HIT',
+124 silly get     'x-cache-hits': '2',
+124 silly get     'x-timer': 'S1425299874.102524,VS0,VE0',
+124 silly get     vary: 'Accept',
+124 silly get     'content-length': '0',
+124 silly get     'keep-alive': 'timeout=10, max=50',
+124 silly get     connection: 'Keep-Alive' } ]
+125 verbose etag https://registry.npmjs.org/ws from cache
+126 verbose get saving ws to /Users/Tom/.npm/registry.npmjs.org/ws/.cache.json
+127 http 304 https://registry.npmjs.org/policyfile
+128 silly get cb [ 304,
+128 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+128 silly get     server: 'Apache',
+128 silly get     via: '1.1 varnish',
+128 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:54 GMT',
+128 silly get     'cache-control': 'max-age=60',
+128 silly get     etag: '"46LRKXS9DOLIBAF16D6ORCPPU"',
+128 silly get     age: '24',
+128 silly get     'x-served-by': 'cache-fra1237-FRA',
+128 silly get     'x-cache': 'HIT',
+128 silly get     'x-cache-hits': '1',
+128 silly get     'x-timer': 'S1425299874.111408,VS0,VE0',
+128 silly get     vary: 'Accept',
+128 silly get     'content-length': '0',
+128 silly get     'keep-alive': 'timeout=10, max=50',
+128 silly get     connection: 'Keep-Alive' } ]
+129 verbose etag https://registry.npmjs.org/policyfile from cache
+130 verbose get saving policyfile to /Users/Tom/.npm/registry.npmjs.org/policyfile/.cache.json
+131 silly addNameRange number 2 { name: 'ws', range: '>=0.4.27', hasData: true }
+132 silly addNameRange versions [ 'ws',
+132 silly addNameRange   [ '0.2.6',
+132 silly addNameRange     '0.2.8',
+132 silly addNameRange     '0.2.9',
+132 silly addNameRange     '0.3.0',
+132 silly addNameRange     '0.3.1',
+132 silly addNameRange     '0.3.2',
+132 silly addNameRange     '0.3.3',
+132 silly addNameRange     '0.3.4',
+132 silly addNameRange     '0.3.4-2',
+132 silly addNameRange     '0.3.5',
+132 silly addNameRange     '0.3.5-2',
+132 silly addNameRange     '0.3.5-3',
+132 silly addNameRange     '0.3.5-4',
+132 silly addNameRange     '0.3.6',
+132 silly addNameRange     '0.3.7',
+132 silly addNameRange     '0.3.8',
+132 silly addNameRange     '0.3.9',
+132 silly addNameRange     '0.4.0',
+132 silly addNameRange     '0.4.1',
+132 silly addNameRange     '0.4.2',
+132 silly addNameRange     '0.4.3',
+132 silly addNameRange     '0.4.5',
+132 silly addNameRange     '0.4.6',
+132 silly addNameRange     '0.4.7',
+132 silly addNameRange     '0.4.8',
+132 silly addNameRange     '0.4.9',
+132 silly addNameRange     '0.4.10',
+132 silly addNameRange     '0.4.11',
+132 silly addNameRange     '0.4.12',
+132 silly addNameRange     '0.4.13',
+132 silly addNameRange     '0.4.14',
+132 silly addNameRange     '0.4.15',
+132 silly addNameRange     '0.4.16',
+132 silly addNameRange     '0.4.17',
+132 silly addNameRange     '0.4.18',
+132 silly addNameRange     '0.4.19',
+132 silly addNameRange     '0.4.20',
+132 silly addNameRange     '0.4.21',
+132 silly addNameRange     '0.4.22',
+132 silly addNameRange     '0.4.23',
+132 silly addNameRange     '0.4.24',
+132 silly addNameRange     '0.4.25',
+132 silly addNameRange     '0.4.27',
+132 silly addNameRange     '0.4.28',
+132 silly addNameRange     '0.4.29',
+132 silly addNameRange     '0.4.30',
+132 silly addNameRange     '0.4.31',
+132 silly addNameRange     '0.4.32',
+132 silly addNameRange     '0.5.0',
+132 silly addNameRange     '0.6.0',
+132 silly addNameRange     '0.6.1',
+132 silly addNameRange     '0.6.2',
+132 silly addNameRange     '0.6.3',
+132 silly addNameRange     '0.6.4',
+132 silly addNameRange     '0.6.5',
+132 silly addNameRange     '0.7.0',
+132 silly addNameRange     '0.7.1' ] ]
+133 verbose addNamed ws@0.7.1
+134 silly addNamed semver.valid 0.7.1
+135 silly addNamed semver.validRange 0.7.1
+136 silly cache afterAdd ws@0.7.1
+137 verbose afterAdd /Users/Tom/.npm/ws/0.7.1/package/package.json not in flight; writing
+138 silly addNameTag next cb for policyfile with tag latest
+139 verbose addNamed policyfile@0.0.5
+140 silly addNamed semver.valid 0.0.5
+141 silly addNamed semver.validRange 0.0.5
+142 verbose afterAdd /Users/Tom/.npm/ws/0.7.1/package/package.json written
+143 silly cache afterAdd policyfile@0.0.5
+144 verbose afterAdd /Users/Tom/.npm/policyfile/0.0.5/package/package.json not in flight; writing
+145 verbose afterAdd /Users/Tom/.npm/policyfile/0.0.5/package/package.json written
+146 http 304 https://registry.npmjs.org/optimist
+147 silly get cb [ 304,
+147 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+147 silly get     server: 'Apache',
+147 silly get     via: '1.1 varnish',
+147 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:54 GMT',
+147 silly get     'cache-control': 'max-age=60',
+147 silly get     etag: '"3V5Q1FVXCIHNB0OVFO0QGGQ7U"',
+147 silly get     age: '0',
+147 silly get     'x-served-by': 'cache-fra1234-FRA',
+147 silly get     'x-cache': 'HIT',
+147 silly get     'x-cache-hits': '1',
+147 silly get     'x-timer': 'S1425299874.099104,VS0,VE93',
+147 silly get     vary: 'Accept',
+147 silly get     'content-length': '0',
+147 silly get     'keep-alive': 'timeout=10, max=50',
+147 silly get     connection: 'Keep-Alive' } ]
+148 verbose etag https://registry.npmjs.org/optimist from cache
+149 verbose get saving optimist to /Users/Tom/.npm/registry.npmjs.org/optimist/.cache.json
+150 silly addNameTag next cb for optimist with tag latest
+151 verbose addNamed optimist@0.6.1
+152 silly addNamed semver.valid 0.6.1
+153 silly addNamed semver.validRange 0.6.1
+154 silly cache afterAdd optimist@0.6.1
+155 verbose afterAdd /Users/Tom/.npm/optimist/0.6.1/package/package.json not in flight; writing
+156 verbose afterAdd /Users/Tom/.npm/optimist/0.6.1/package/package.json written
+157 http 304 https://registry.npmjs.org/base64
+158 silly get cb [ 304,
+158 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+158 silly get     server: 'Apache',
+158 silly get     via: '1.1 varnish',
+158 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:54 GMT',
+158 silly get     'cache-control': 'max-age=60',
+158 silly get     etag: '"DLCHGEV3VY79FBVH84IETZ2EM"',
+158 silly get     age: '0',
+158 silly get     'x-served-by': 'cache-fra1233-FRA',
+158 silly get     'x-cache': 'MISS',
+158 silly get     'x-cache-hits': '0',
+158 silly get     'x-timer': 'S1425299874.097746,VS0,VE170',
+158 silly get     vary: 'Accept',
+158 silly get     'content-length': '0',
+158 silly get     'keep-alive': 'timeout=10, max=50',
+158 silly get     connection: 'Keep-Alive' } ]
+159 verbose etag https://registry.npmjs.org/base64 from cache
+160 verbose get saving base64 to /Users/Tom/.npm/registry.npmjs.org/base64/.cache.json
+161 silly addNameTag next cb for base64 with tag latest
+162 verbose addNamed base64@2.1.0
+163 silly addNamed semver.valid 2.1.0
+164 silly addNamed semver.validRange 2.1.0
+165 silly cache afterAdd base64@2.1.0
+166 verbose afterAdd /Users/Tom/.npm/base64/2.1.0/package/package.json not in flight; writing
+167 verbose afterAdd /Users/Tom/.npm/base64/2.1.0/package/package.json written
+168 silly install resolved [ { author:
+168 silly install resolved      { name: 'Einar Otto Stangvik',
+168 silly install resolved        email: 'einaros@gmail.com',
+168 silly install resolved        url: 'http://2x.io' },
+168 silly install resolved     name: 'ws',
+168 silly install resolved     description: 'simple to use, blazing fast and thoroughly tested websocket client, server and console for node.js, up-to-date against RFC-6455',
+168 silly install resolved     version: '0.7.1',
+168 silly install resolved     license: 'MIT',
+168 silly install resolved     keywords:
+168 silly install resolved      [ 'Hixie',
+168 silly install resolved        'HyBi',
+168 silly install resolved        'Push',
+168 silly install resolved        'RFC-6455',
+168 silly install resolved        'WebSocket',
+168 silly install resolved        'WebSockets',
+168 silly install resolved        'real-time' ],
+168 silly install resolved     repository: { type: 'git', url: 'git://github.com/websockets/ws.git' },
+168 silly install resolved     scripts: { test: 'make test' },
+168 silly install resolved     dependencies:
+168 silly install resolved      { options: '>=0.0.5',
+168 silly install resolved        ultron: '1.0.x',
+168 silly install resolved        bufferutil: '1.0.x',
+168 silly install resolved        'utf-8-validate': '1.0.x' },
+168 silly install resolved     optionalDependencies: { bufferutil: '1.0.x', 'utf-8-validate': '1.0.x' },
+168 silly install resolved     devDependencies:
+168 silly install resolved      { ansi: '0.3.x',
+168 silly install resolved        benchmark: '0.3.x',
+168 silly install resolved        'expect.js': '0.3.x',
+168 silly install resolved        mocha: '2.0.x',
+168 silly install resolved        should: '4.3.x',
+168 silly install resolved        tinycolor: '0.0.x' },
+168 silly install resolved     browser: './lib/browser.js',
+168 silly install resolved     component: { scripts: [Object] },
+168 silly install resolved     gypfile: true,
+168 silly install resolved     gitHead: '608df82a333de45905f05ca60f18a625b4c3293b',
+168 silly install resolved     bugs: { url: 'https://github.com/websockets/ws/issues' },
+168 silly install resolved     homepage: 'https://github.com/websockets/ws',
+168 silly install resolved     _id: 'ws@0.7.1',
+168 silly install resolved     _shasum: '8f1c7864ca08081be3cd0ac330df0d29c5fcd0da',
+168 silly install resolved     _from: 'ws@>=0.4.27',
+168 silly install resolved     _npmVersion: '2.3.0',
+168 silly install resolved     _nodeVersion: '0.10.35',
+168 silly install resolved     _npmUser: { name: '3rdeden', email: 'npm@3rd-Eden.com' },
+168 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+168 silly install resolved     dist:
+168 silly install resolved      { shasum: '8f1c7864ca08081be3cd0ac330df0d29c5fcd0da',
+168 silly install resolved        tarball: 'http://registry.npmjs.org/ws/-/ws-0.7.1.tgz' },
+168 silly install resolved     directories: {},
+168 silly install resolved     _resolved: 'https://registry.npmjs.org/ws/-/ws-0.7.1.tgz',
+168 silly install resolved     readme: 'ERROR: No README data found!' },
+168 silly install resolved   { name: 'policyfile',
+168 silly install resolved     version: '0.0.5',
+168 silly install resolved     author: { name: 'Arnout Kazemier' },
+168 silly install resolved     description: 'Flash Socket Policy File Server. A server to respond to Flash Socket Policy requests, both inline and through a dedicated server instance.',
+168 silly install resolved     main: 'index',
+168 silly install resolved     keywords:
+168 silly install resolved      [ 'flash',
+168 silly install resolved        'socket',
+168 silly install resolved        'policy',
+168 silly install resolved        'file',
+168 silly install resolved        'server',
+168 silly install resolved        'Flash Socket Policy File Server',
+168 silly install resolved        'cross domain' ],
+168 silly install resolved     directories: { lib: './lib' },
+168 silly install resolved     maintainers: [ [Object] ],
+168 silly install resolved     license:
+168 silly install resolved      { type: 'MIT',
+168 silly install resolved        url: 'https://github.com/3rd-Eden/FlashPolicyFileServer/blob/master/LICENSE' },
+168 silly install resolved     repository:
+168 silly install resolved      { type: 'git',
+168 silly install resolved        url: 'git://github.com/3rd-Eden/FlashPolicyFileServer.git' },
+168 silly install resolved     _npmUser: { name: 'V1', email: 'info@3rd-Eden.com' },
+168 silly install resolved     _id: 'policyfile@0.0.5',
+168 silly install resolved     dependencies: {},
+168 silly install resolved     devDependencies: {},
+168 silly install resolved     engines: { node: '*' },
+168 silly install resolved     _engineSupported: true,
+168 silly install resolved     _npmVersion: '1.0.101',
+168 silly install resolved     _nodeVersion: 'v0.5.10',
+168 silly install resolved     _defaultsLoaded: true,
+168 silly install resolved     dist:
+168 silly install resolved      { shasum: '67afb4b15c90951663cfe75006df036683fad06f',
+168 silly install resolved        tarball: 'http://registry.npmjs.org/policyfile/-/policyfile-0.0.5.tgz' },
+168 silly install resolved     _shasum: '67afb4b15c90951663cfe75006df036683fad06f',
+168 silly install resolved     _resolved: 'https://registry.npmjs.org/policyfile/-/policyfile-0.0.5.tgz',
+168 silly install resolved     _from: 'policyfile@latest',
+168 silly install resolved     bugs: { url: 'https://github.com/3rd-Eden/FlashPolicyFileServer/issues' },
+168 silly install resolved     readme: 'ERROR: No README data found!',
+168 silly install resolved     homepage: 'https://github.com/3rd-Eden/FlashPolicyFileServer' },
+168 silly install resolved   { name: 'optimist',
+168 silly install resolved     version: '0.6.1',
+168 silly install resolved     description: 'Light-weight option parsing with an argv hash. No optstrings attached.',
+168 silly install resolved     main: './index.js',
+168 silly install resolved     dependencies: { wordwrap: '~0.0.2', minimist: '~0.0.1' },
+168 silly install resolved     devDependencies: { hashish: '~0.0.4', tap: '~0.4.0' },
+168 silly install resolved     scripts: { test: 'tap ./test/*.js' },
+168 silly install resolved     repository:
+168 silly install resolved      { type: 'git',
+168 silly install resolved        url: 'http://github.com/substack/node-optimist.git' },
+168 silly install resolved     keywords:
+168 silly install resolved      [ 'argument',
+168 silly install resolved        'args',
+168 silly install resolved        'option',
+168 silly install resolved        'parser',
+168 silly install resolved        'parsing',
+168 silly install resolved        'cli',
+168 silly install resolved        'command' ],
+168 silly install resolved     author:
+168 silly install resolved      { name: 'James Halliday',
+168 silly install resolved        email: 'mail@substack.net',
+168 silly install resolved        url: 'http://substack.net' },
+168 silly install resolved     license: 'MIT/X11',
+168 silly install resolved     engine: { node: '>=0.4' },
+168 silly install resolved     bugs: { url: 'https://github.com/substack/node-optimist/issues' },
+168 silly install resolved     homepage: 'https://github.com/substack/node-optimist',
+168 silly install resolved     _id: 'optimist@0.6.1',
+168 silly install resolved     dist:
+168 silly install resolved      { shasum: 'da3ea74686fa21a19a111c326e90eb15a0196686',
+168 silly install resolved        tarball: 'http://registry.npmjs.org/optimist/-/optimist-0.6.1.tgz' },
+168 silly install resolved     _from: 'optimist@latest',
+168 silly install resolved     _npmVersion: '1.3.21',
+168 silly install resolved     _npmUser: { name: 'substack', email: 'mail@substack.net' },
+168 silly install resolved     maintainers: [ [Object] ],
+168 silly install resolved     directories: {},
+168 silly install resolved     _shasum: 'da3ea74686fa21a19a111c326e90eb15a0196686',
+168 silly install resolved     _resolved: 'https://registry.npmjs.org/optimist/-/optimist-0.6.1.tgz',
+168 silly install resolved     readme: 'ERROR: No README data found!' },
+168 silly install resolved   { name: 'base64',
+168 silly install resolved     version: '2.1.0',
+168 silly install resolved     main: 'base64',
+168 silly install resolved     description: 'A C++ module for node-js that does base64 encoding and decoding.',
+168 silly install resolved     keywords:
+168 silly install resolved      [ 'base conversion',
+168 silly install resolved        'base64',
+168 silly install resolved        'base64 encode',
+168 silly install resolved        'base64 decode',
+168 silly install resolved        'base64_encode',
+168 silly install resolved        'base64_decode',
+168 silly install resolved        'encode',
+168 silly install resolved        'decode' ],
+168 silly install resolved     author:
+168 silly install resolved      { name: 'Peteris Krumins',
+168 silly install resolved        email: 'peteris.krumins@gmail.com',
+168 silly install resolved        url: 'http://www.catonmat.net' },
+168 silly install resolved     contributors: [ [Object] ],
+168 silly install resolved     license: 'MIT',
+168 silly install resolved     repository:
+168 silly install resolved      { type: 'git',
+168 silly install resolved        url: 'http://github.com/pkrumins/node-base64.git' },
+168 silly install resolved     directories: { tests: 'tests' },
+168 silly install resolved     engines: { node: '>=0.8.0' },
+168 silly install resolved     scripts: { install: 'node-gyp rebuild' },
+168 silly install resolved     gypfile: true,
+168 silly install resolved     _id: 'base64@2.1.0',
+168 silly install resolved     dist:
+168 silly install resolved      { shasum: 'c2663daf069203b758fb12b91c516fae87963314',
+168 silly install resolved        tarball: 'http://registry.npmjs.org/base64/-/base64-2.1.0.tgz' },
+168 silly install resolved     _from: 'base64@latest',
+168 silly install resolved     _npmVersion: '1.2.14',
+168 silly install resolved     _npmUser: { name: 'pkrumins', email: 'peteris.krumins@gmail.com' },
+168 silly install resolved     maintainers: [ [Object] ],
+168 silly install resolved     _shasum: 'c2663daf069203b758fb12b91c516fae87963314',
+168 silly install resolved     _resolved: 'https://registry.npmjs.org/base64/-/base64-2.1.0.tgz',
+168 silly install resolved     bugs: { url: 'https://github.com/pkrumins/node-base64/issues' },
+168 silly install resolved     readme: 'ERROR: No README data found!',
+168 silly install resolved     homepage: 'https://github.com/pkrumins/node-base64' } ]
+169 info install ws@0.7.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify
+170 info install policyfile@0.0.5 into /Users/Tom/Sites/vizlab/server/node_modules/websockify
+171 info install optimist@0.6.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify
+172 info install base64@2.1.0 into /Users/Tom/Sites/vizlab/server/node_modules/websockify
+173 info installOne ws@0.7.1
+174 verbose installOne of ws to /Users/Tom/Sites/vizlab/server/node_modules/websockify not in flight; installing
+175 info installOne policyfile@0.0.5
+176 verbose installOne of policyfile to /Users/Tom/Sites/vizlab/server/node_modules/websockify not in flight; installing
+177 info installOne optimist@0.6.1
+178 verbose installOne of optimist to /Users/Tom/Sites/vizlab/server/node_modules/websockify not in flight; installing
+179 info installOne base64@2.1.0
+180 verbose installOne of base64 to /Users/Tom/Sites/vizlab/server/node_modules/websockify not in flight; installing
+181 verbose lock using /Users/Tom/.npm/_locks/ws-fc5490fadfa0bd7b.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+182 verbose lock using /Users/Tom/.npm/_locks/optimist-b0a1ad06743fe5fd.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+183 silly install write writing ws 0.7.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+184 silly cache addNamed cb ws@0.7.1
+185 verbose unbuild node_modules/websockify/node_modules/ws
+186 silly install write writing optimist 0.6.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+187 silly cache addNamed cb optimist@0.6.1
+188 verbose unbuild node_modules/websockify/node_modules/optimist
+189 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+190 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+191 verbose tar unpack /Users/Tom/.npm/ws/0.7.1/package.tgz
+192 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+193 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+194 verbose tar unpack /Users/Tom/.npm/optimist/0.6.1/package.tgz
+195 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+196 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+197 silly gunzTarPerm modes [ '755', '644' ]
+198 silly gunzTarPerm modes [ '755', '644' ]
+199 verbose lock using /Users/Tom/.npm/_locks/base64-f0fdcf340af9c45f.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+200 verbose lock using /Users/Tom/.npm/_locks/policyfile-88719b8cdfc11fc3.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+201 silly install write writing base64 2.1.0 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+202 silly cache addNamed cb base64@2.1.0
+203 verbose unbuild node_modules/websockify/node_modules/base64
+204 silly install write writing policyfile 0.0.5 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+205 silly cache addNamed cb policyfile@0.0.5
+206 verbose unbuild node_modules/websockify/node_modules/policyfile
+207 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+208 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+209 silly gunzTarPerm extractEntry package.json
+210 verbose tar unpack /Users/Tom/.npm/base64/2.1.0/package.tgz
+211 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+212 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+213 verbose tar unpack /Users/Tom/.npm/policyfile/0.0.5/package.tgz
+214 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+215 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+216 silly gunzTarPerm modes [ '755', '644' ]
+217 silly gunzTarPerm extractEntry package.json
+218 silly gunzTarPerm modes [ '755', '644' ]
+219 silly gunzTarPerm extractEntry .npmignore
+220 silly gunzTarPerm extractEntry README.md
+221 silly gunzTarPerm extractEntry LICENSE
+222 silly gunzTarPerm extractEntry index.js
+223 silly gunzTarPerm extractEntry package.json
+224 silly gunzTarPerm extractEntry .gitignore
+225 silly gunzTarPerm extractEntry index.js
+226 silly gunzTarPerm extractEntry LICENSE
+227 silly gunzTarPerm extractEntry .npmignore
+228 silly gunzTarPerm extractEntry base64.cc
+229 silly gunzTarPerm extractEntry index.js
+230 silly gunzTarPerm extractEntry .travis.yml
+231 silly gunzTarPerm extractEntry .travis.yml
+232 silly gunzTarPerm extractEntry example/bool.js
+233 silly gunzTarPerm extractEntry Makefile
+234 silly gunzTarPerm extractEntry package.json
+235 silly gunzTarPerm extractEntry Makefile
+236 silly gunzTarPerm extractEntry lib/BufferPool.js
+237 silly gunzTarPerm extractEntry readme.txt
+238 silly gunzTarPerm extractEntry test/encode.js
+239 silly gunzTarPerm extractEntry example/default_singles.js
+240 silly gunzTarPerm extractEntry example/divide.js
+241 silly gunzTarPerm extractEntry example/line_count.js
+242 silly gunzTarPerm extractEntry example/default_hash.js
+243 silly gunzTarPerm extractEntry example/line_count_wrap.js
+244 silly gunzTarPerm extractEntry example/nonopt.js
+245 silly gunzTarPerm extractEntry example/reflect.js
+246 silly gunzTarPerm extractEntry example/short.js
+247 silly gunzTarPerm extractEntry example/string.js
+248 silly gunzTarPerm extractEntry example/boolean_single.js
+249 silly gunzTarPerm extractEntry example/usage-options.js
+250 silly gunzTarPerm extractEntry example/boolean_double.js
+251 silly gunzTarPerm extractEntry example/xup.js
+252 silly gunzTarPerm extractEntry example/line_count_options.js
+253 silly gunzTarPerm extractEntry readme.markdown
+254 silly gunzTarPerm extractEntry test/_.js
+255 silly gunzTarPerm extractEntry test/dash.js
+256 silly gunzTarPerm extractEntry test/parse.js
+257 silly gunzTarPerm extractEntry test/parse_modified.js
+258 silly gunzTarPerm extractEntry test/short.js
+259 silly gunzTarPerm extractEntry test/usage.js
+260 silly gunzTarPerm extractEntry test/whitespace.js
+261 silly gunzTarPerm extractEntry test/_/argv.js
+262 silly gunzTarPerm extractEntry test/_/bin.js
+263 silly gunzTarPerm extractEntry README.md
+264 silly gunzTarPerm extractEntry doc/index.html
+265 silly gunzTarPerm extractEntry test/test.sh
+266 silly gunzTarPerm extractEntry test/perl-base64-encode.pl
+267 silly gunzTarPerm extractEntry examples/basic.fallback.js
+268 silly gunzTarPerm extractEntry lib/Extensions.js
+269 silly gunzTarPerm extractEntry lib/PerMessageDeflate.js
+270 silly gunzTarPerm extractEntry lib/Receiver.hixie.js
+271 silly gunzTarPerm extractEntry lib/ErrorCodes.js
+272 silly gunzTarPerm extractEntry lib/Sender.hixie.js
+273 silly gunzTarPerm extractEntry lib/Sender.js
+274 silly gunzTarPerm extractEntry lib/Validation.fallback.js
+275 silly gunzTarPerm extractEntry lib/Validation.js
+276 silly gunzTarPerm extractEntry lib/WebSocket.js
+277 silly gunzTarPerm extractEntry lib/BufferUtil.js
+278 silly gunzTarPerm extractEntry lib/WebSocketServer.js
+279 silly gunzTarPerm extractEntry lib/BufferUtil.fallback.js
+280 silly gunzTarPerm extractEntry lib/browser.js
+281 silly gunzTarPerm extractEntry lib/Receiver.js
+282 silly gunzTarPerm extractEntry test/hashes.json
+283 silly gunzTarPerm extractEntry examples/basic.js
+284 silly gunzTarPerm extractEntry lib/server.js
+285 silly gunzTarPerm extractEntry test/data/data-rand-11
+286 silly gunzTarPerm extractEntry tests/unit.test.js
+287 silly gunzTarPerm extractEntry tests/ssl/ssl.crt
+288 silly gunzTarPerm extractEntry test/data/data-rand-06
+289 silly gunzTarPerm extractEntry test/data/data-png.png
+290 silly gunzTarPerm extractEntry tests/ssl/ssl.private.key
+291 silly gunzTarPerm extractEntry test/data/data-rand-09
+292 silly gunzTarPerm extractEntry test/data/data-rand-08
+293 silly gunzTarPerm extractEntry test/data/data-rand-05
+294 silly gunzTarPerm extractEntry test/data/data-rand-03
+295 silly gunzTarPerm extractEntry test/data/data-rand-10
+296 silly gunzTarPerm extractEntry test/data/data-rand-13
+297 silly gunzTarPerm extractEntry test/data/data-rand-14
+298 silly gunzTarPerm extractEntry test/data/data-rand-20
+299 silly gunzTarPerm extractEntry test/data/data-source-code.c
+300 silly gunzTarPerm extractEntry test/data/data-rand-07
+301 silly gunzTarPerm extractEntry test/data/data-rand-02
+302 silly gunzTarPerm extractEntry test/data/data-rand-01
+303 silly gunzTarPerm extractEntry test/data/data-rand-15
+304 silly gunzTarPerm extractEntry test/data/data-rand-18
+305 silly gunzTarPerm extractEntry test/data/data-rand-04
+306 silly gunzTarPerm extractEntry test/data/data-rand-17
+307 silly gunzTarPerm extractEntry test/data/data-rand-12
+308 silly gunzTarPerm extractEntry test/data/data-rand-19
+309 silly gunzTarPerm extractEntry test/data/data-rand-16
+310 silly gunzTarPerm extractEntry package.json~
+311 silly gunzTarPerm extractEntry binding.gyp
+312 info preinstall policyfile@0.0.5
+313 silly install resolved []
+314 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+315 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+316 verbose linkStuff [ false,
+316 verbose linkStuff   false,
+316 verbose linkStuff   false,
+316 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules' ]
+317 info linkStuff policyfile@0.0.5
+318 verbose linkBins policyfile@0.0.5
+319 verbose linkMans policyfile@0.0.5
+320 verbose rebuildBundles policyfile@0.0.5
+321 info install policyfile@0.0.5
+322 info postinstall policyfile@0.0.5
+323 verbose unlock done using /Users/Tom/.npm/_locks/policyfile-88719b8cdfc11fc3.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/policyfile
+324 info preinstall optimist@0.6.1
+325 silly prepareForInstallMany adding wordwrap@~0.0.2 from optimist dependencies
+326 silly prepareForInstallMany adding minimist@~0.0.1 from optimist dependencies
+327 silly cache add args [ 'wordwrap@~0.0.2', null ]
+328 verbose cache add spec wordwrap@~0.0.2
+329 silly cache add args [ 'minimist@~0.0.1', null ]
+330 verbose cache add spec minimist@~0.0.1
+331 silly cache add parsed spec { raw: 'wordwrap@~0.0.2',
+331 silly cache add   scope: null,
+331 silly cache add   name: 'wordwrap',
+331 silly cache add   rawSpec: '~0.0.2',
+331 silly cache add   spec: '>=0.0.2 <0.1.0',
+331 silly cache add   type: 'range' }
+332 verbose addNamed wordwrap@>=0.0.2 <0.1.0
+333 silly addNamed semver.valid null
+334 silly addNamed semver.validRange >=0.0.2 <0.1.0
+335 silly addNameRange { name: 'wordwrap', range: '>=0.0.2 <0.1.0', hasData: false }
+336 silly mapToRegistry name wordwrap
+337 silly mapToRegistry using default registry
+338 silly mapToRegistry registry https://registry.npmjs.org/
+339 silly mapToRegistry uri https://registry.npmjs.org/wordwrap
+340 verbose addNameRange registry:https://registry.npmjs.org/wordwrap not in flight; fetching
+341 silly cache add parsed spec { raw: 'minimist@~0.0.1',
+341 silly cache add   scope: null,
+341 silly cache add   name: 'minimist',
+341 silly cache add   rawSpec: '~0.0.1',
+341 silly cache add   spec: '>=0.0.1 <0.1.0',
+341 silly cache add   type: 'range' }
+342 verbose addNamed minimist@>=0.0.1 <0.1.0
+343 silly addNamed semver.valid null
+344 silly addNamed semver.validRange >=0.0.1 <0.1.0
+345 silly addNameRange { name: 'minimist', range: '>=0.0.1 <0.1.0', hasData: false }
+346 silly mapToRegistry name minimist
+347 silly mapToRegistry using default registry
+348 silly mapToRegistry registry https://registry.npmjs.org/
+349 silly mapToRegistry uri https://registry.npmjs.org/minimist
+350 verbose addNameRange registry:https://registry.npmjs.org/minimist not in flight; fetching
+351 verbose request uri https://registry.npmjs.org/wordwrap
+352 verbose request no auth needed
+353 info attempt registry request try #1 at 1:37:54 PM
+354 verbose etag "ALYDR9120G3MFMF3HT2W8TQOT"
+355 http request GET https://registry.npmjs.org/wordwrap
+356 verbose request uri https://registry.npmjs.org/minimist
+357 verbose request no auth needed
+358 info attempt registry request try #1 at 1:37:54 PM
+359 verbose etag "84PJAJ7W87OWC8VJHJ5KHM3ZN"
+360 http request GET https://registry.npmjs.org/minimist
+361 info preinstall ws@0.7.1
+362 silly prepareForInstallMany adding options@>=0.0.5 from ws dependencies
+363 silly prepareForInstallMany adding ultron@1.0.x from ws dependencies
+364 silly prepareForInstallMany adding bufferutil@1.0.x from ws dependencies
+365 silly prepareForInstallMany adding utf-8-validate@1.0.x from ws dependencies
+366 silly cache add args [ 'options@>=0.0.5', null ]
+367 verbose cache add spec options@>=0.0.5
+368 silly cache add args [ 'ultron@1.0.x', null ]
+369 verbose cache add spec ultron@1.0.x
+370 silly cache add parsed spec { raw: 'options@>=0.0.5',
+370 silly cache add   scope: null,
+370 silly cache add   name: 'options',
+370 silly cache add   rawSpec: '>=0.0.5',
+370 silly cache add   spec: '>=0.0.5',
+370 silly cache add   type: 'range' }
+371 verbose addNamed options@>=0.0.5
+372 silly addNamed semver.valid null
+373 silly addNamed semver.validRange >=0.0.5
+374 silly addNameRange { name: 'options', range: '>=0.0.5', hasData: false }
+375 silly mapToRegistry name options
+376 silly mapToRegistry using default registry
+377 silly mapToRegistry registry https://registry.npmjs.org/
+378 silly mapToRegistry uri https://registry.npmjs.org/options
+379 verbose addNameRange registry:https://registry.npmjs.org/options not in flight; fetching
+380 silly cache add parsed spec { raw: 'ultron@1.0.x',
+380 silly cache add   scope: null,
+380 silly cache add   name: 'ultron',
+380 silly cache add   rawSpec: '1.0.x',
+380 silly cache add   spec: '>=1.0.0 <1.1.0',
+380 silly cache add   type: 'range' }
+381 verbose addNamed ultron@>=1.0.0 <1.1.0
+382 silly addNamed semver.valid null
+383 silly addNamed semver.validRange >=1.0.0 <1.1.0
+384 silly addNameRange { name: 'ultron', range: '>=1.0.0 <1.1.0', hasData: false }
+385 silly mapToRegistry name ultron
+386 silly mapToRegistry using default registry
+387 silly mapToRegistry registry https://registry.npmjs.org/
+388 silly mapToRegistry uri https://registry.npmjs.org/ultron
+389 verbose addNameRange registry:https://registry.npmjs.org/ultron not in flight; fetching
+390 silly cache add args [ 'bufferutil@1.0.x', null ]
+391 verbose cache add spec bufferutil@1.0.x
+392 silly cache add parsed spec { raw: 'bufferutil@1.0.x',
+392 silly cache add   scope: null,
+392 silly cache add   name: 'bufferutil',
+392 silly cache add   rawSpec: '1.0.x',
+392 silly cache add   spec: '>=1.0.0 <1.1.0',
+392 silly cache add   type: 'range' }
+393 verbose addNamed bufferutil@>=1.0.0 <1.1.0
+394 silly addNamed semver.valid null
+395 silly addNamed semver.validRange >=1.0.0 <1.1.0
+396 silly addNameRange { name: 'bufferutil', range: '>=1.0.0 <1.1.0', hasData: false }
+397 silly mapToRegistry name bufferutil
+398 silly mapToRegistry using default registry
+399 silly mapToRegistry registry https://registry.npmjs.org/
+400 silly mapToRegistry uri https://registry.npmjs.org/bufferutil
+401 verbose addNameRange registry:https://registry.npmjs.org/bufferutil not in flight; fetching
+402 silly cache add args [ 'utf-8-validate@1.0.x', null ]
+403 verbose cache add spec utf-8-validate@1.0.x
+404 silly cache add parsed spec { raw: 'utf-8-validate@1.0.x',
+404 silly cache add   scope: null,
+404 silly cache add   name: 'utf-8-validate',
+404 silly cache add   rawSpec: '1.0.x',
+404 silly cache add   spec: '>=1.0.0 <1.1.0',
+404 silly cache add   type: 'range' }
+405 verbose addNamed utf-8-validate@>=1.0.0 <1.1.0
+406 silly addNamed semver.valid null
+407 silly addNamed semver.validRange >=1.0.0 <1.1.0
+408 silly addNameRange { name: 'utf-8-validate',
+408 silly addNameRange   range: '>=1.0.0 <1.1.0',
+408 silly addNameRange   hasData: false }
+409 silly mapToRegistry name utf-8-validate
+410 silly mapToRegistry using default registry
+411 silly mapToRegistry registry https://registry.npmjs.org/
+412 silly mapToRegistry uri https://registry.npmjs.org/utf-8-validate
+413 verbose addNameRange registry:https://registry.npmjs.org/utf-8-validate not in flight; fetching
+414 verbose request uri https://registry.npmjs.org/options
+415 verbose request no auth needed
+416 info attempt registry request try #1 at 1:37:54 PM
+417 verbose etag "7Q0ONS9FUL7IDSKPPR7G9Y7BT"
+418 http request GET https://registry.npmjs.org/options
+419 verbose request uri https://registry.npmjs.org/ultron
+420 verbose request no auth needed
+421 info attempt registry request try #1 at 1:37:54 PM
+422 verbose etag "D5N2CWMGILWMMVYVPGJLI8F9P"
+423 http request GET https://registry.npmjs.org/ultron
+424 verbose request uri https://registry.npmjs.org/bufferutil
+425 verbose request no auth needed
+426 info attempt registry request try #1 at 1:37:54 PM
+427 verbose etag "5MJNEEK9O7EO9M3D01XNPOXB6"
+428 http request GET https://registry.npmjs.org/bufferutil
+429 verbose request uri https://registry.npmjs.org/utf-8-validate
+430 verbose request no auth needed
+431 info attempt registry request try #1 at 1:37:54 PM
+432 verbose etag "DXCX18O2RD2Z8PRY4SVZYU9Z9"
+433 http request GET https://registry.npmjs.org/utf-8-validate
+434 info preinstall base64@2.1.0
+435 silly install resolved []
+436 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+437 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+438 verbose linkStuff [ false,
+438 verbose linkStuff   false,
+438 verbose linkStuff   false,
+438 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules' ]
+439 info linkStuff base64@2.1.0
+440 verbose linkBins base64@2.1.0
+441 verbose linkMans base64@2.1.0
+442 verbose rebuildBundles base64@2.1.0
+443 info install base64@2.1.0
+444 verbose unsafe-perm in lifecycle false
+445 http 304 https://registry.npmjs.org/minimist
+446 silly get cb [ 304,
+446 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+446 silly get     server: 'Apache',
+446 silly get     via: '1.1 varnish',
+446 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:54 GMT',
+446 silly get     'cache-control': 'max-age=60',
+446 silly get     etag: '"84PJAJ7W87OWC8VJHJ5KHM3ZN"',
+446 silly get     age: '18',
+446 silly get     'x-served-by': 'cache-fra1242-FRA',
+446 silly get     'x-cache': 'HIT',
+446 silly get     'x-cache-hits': '1',
+446 silly get     'x-timer': 'S1425299874.774979,VS0,VE0',
+446 silly get     vary: 'Accept',
+446 silly get     'content-length': '0',
+446 silly get     'keep-alive': 'timeout=10, max=50',
+446 silly get     connection: 'Keep-Alive' } ]
+447 verbose etag https://registry.npmjs.org/minimist from cache
+448 verbose get saving minimist to /Users/Tom/.npm/registry.npmjs.org/minimist/.cache.json
+449 http 304 https://registry.npmjs.org/wordwrap
+450 silly get cb [ 304,
+450 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+450 silly get     server: 'Apache',
+450 silly get     via: '1.1 varnish',
+450 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:52 GMT',
+450 silly get     'cache-control': 'max-age=60',
+450 silly get     etag: '"ALYDR9120G3MFMF3HT2W8TQOT"',
+450 silly get     age: '2',
+450 silly get     'x-served-by': 'cache-fra1241-FRA',
+450 silly get     'x-cache': 'HIT',
+450 silly get     'x-cache-hits': '2',
+450 silly get     'x-timer': 'S1425299874.778321,VS0,VE0',
+450 silly get     vary: 'Accept',
+450 silly get     'content-length': '0',
+450 silly get     'keep-alive': 'timeout=10, max=50',
+450 silly get     connection: 'Keep-Alive' } ]
+451 verbose etag https://registry.npmjs.org/wordwrap from cache
+452 verbose get saving wordwrap to /Users/Tom/.npm/registry.npmjs.org/wordwrap/.cache.json
+453 silly addNameRange number 2 { name: 'minimist', range: '>=0.0.1 <0.1.0', hasData: true }
+454 silly addNameRange versions [ 'minimist',
+454 silly addNameRange   [ '0.0.0',
+454 silly addNameRange     '0.0.1',
+454 silly addNameRange     '0.0.2',
+454 silly addNameRange     '0.0.3',
+454 silly addNameRange     '0.0.4',
+454 silly addNameRange     '0.0.5',
+454 silly addNameRange     '0.0.6',
+454 silly addNameRange     '0.0.7',
+454 silly addNameRange     '0.0.8',
+454 silly addNameRange     '0.0.9',
+454 silly addNameRange     '0.0.10',
+454 silly addNameRange     '0.1.0',
+454 silly addNameRange     '0.2.0',
+454 silly addNameRange     '1.0.0',
+454 silly addNameRange     '1.1.0' ] ]
+455 verbose addNamed minimist@0.0.10
+456 silly addNamed semver.valid 0.0.10
+457 silly addNamed semver.validRange 0.0.10
+458 silly addNameRange number 2 { name: 'wordwrap', range: '>=0.0.2 <0.1.0', hasData: true }
+459 silly addNameRange versions [ 'wordwrap', [ '0.0.1', '0.0.2' ] ]
+460 verbose addNamed wordwrap@0.0.2
+461 silly addNamed semver.valid 0.0.2
+462 silly addNamed semver.validRange 0.0.2
+463 silly cache afterAdd minimist@0.0.10
+464 verbose afterAdd /Users/Tom/.npm/minimist/0.0.10/package/package.json not in flight; writing
+465 http 304 https://registry.npmjs.org/options
+466 silly get cb [ 304,
+466 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+466 silly get     server: 'Apache',
+466 silly get     via: '1.1 varnish',
+466 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:20 GMT',
+466 silly get     'cache-control': 'max-age=60',
+466 silly get     etag: '"7Q0ONS9FUL7IDSKPPR7G9Y7BT"',
+466 silly get     age: '57',
+466 silly get     'x-served-by': 'cache-fra1245-FRA',
+466 silly get     'x-cache': 'HIT',
+466 silly get     'x-cache-hits': '2',
+466 silly get     'x-timer': 'S1425299874.801161,VS0,VE0',
+466 silly get     vary: 'Accept',
+466 silly get     'content-length': '0',
+466 silly get     'keep-alive': 'timeout=10, max=50',
+466 silly get     connection: 'Keep-Alive' } ]
+467 verbose etag https://registry.npmjs.org/options from cache
+468 verbose get saving options to /Users/Tom/.npm/registry.npmjs.org/options/.cache.json
+469 silly cache afterAdd wordwrap@0.0.2
+470 verbose afterAdd /Users/Tom/.npm/wordwrap/0.0.2/package/package.json not in flight; writing
+471 verbose afterAdd /Users/Tom/.npm/minimist/0.0.10/package/package.json written
+472 verbose afterAdd /Users/Tom/.npm/wordwrap/0.0.2/package/package.json written
+473 silly install resolved [ { name: 'minimist',
+473 silly install resolved     version: '0.0.10',
+473 silly install resolved     description: 'parse argument options',
+473 silly install resolved     main: 'index.js',
+473 silly install resolved     devDependencies: { tape: '~1.0.4', tap: '~0.4.0' },
+473 silly install resolved     scripts: { test: 'tap test/*.js' },
+473 silly install resolved     testling: { files: 'test/*.js', browsers: [Object] },
+473 silly install resolved     repository: { type: 'git', url: 'git://github.com/substack/minimist.git' },
+473 silly install resolved     homepage: 'https://github.com/substack/minimist',
+473 silly install resolved     keywords: [ 'argv', 'getopt', 'parser', 'optimist' ],
+473 silly install resolved     author:
+473 silly install resolved      { name: 'James Halliday',
+473 silly install resolved        email: 'mail@substack.net',
+473 silly install resolved        url: 'http://substack.net' },
+473 silly install resolved     license: 'MIT',
+473 silly install resolved     bugs: { url: 'https://github.com/substack/minimist/issues' },
+473 silly install resolved     _id: 'minimist@0.0.10',
+473 silly install resolved     dist:
+473 silly install resolved      { shasum: 'de3f98543dbf96082be48ad1a0c7cda836301dcf',
+473 silly install resolved        tarball: 'http://registry.npmjs.org/minimist/-/minimist-0.0.10.tgz' },
+473 silly install resolved     _from: 'minimist@>=0.0.1 <0.1.0',
+473 silly install resolved     _npmVersion: '1.4.3',
+473 silly install resolved     _npmUser: { name: 'substack', email: 'mail@substack.net' },
+473 silly install resolved     maintainers: [ [Object] ],
+473 silly install resolved     directories: {},
+473 silly install resolved     _shasum: 'de3f98543dbf96082be48ad1a0c7cda836301dcf',
+473 silly install resolved     _resolved: 'https://registry.npmjs.org/minimist/-/minimist-0.0.10.tgz',
+473 silly install resolved     readme: 'ERROR: No README data found!' },
+473 silly install resolved   { name: 'wordwrap',
+473 silly install resolved     description: 'Wrap those words. Show them at what columns to start and stop.',
+473 silly install resolved     version: '0.0.2',
+473 silly install resolved     repository:
+473 silly install resolved      { type: 'git',
+473 silly install resolved        url: 'git://github.com/substack/node-wordwrap.git' },
+473 silly install resolved     main: './index.js',
+473 silly install resolved     keywords: [ 'word', 'wrap', 'rule', 'format', 'column' ],
+473 silly install resolved     directories: { lib: '.', example: 'example', test: 'test' },
+473 silly install resolved     scripts: { test: 'expresso' },
+473 silly install resolved     devDependencies: { expresso: '=0.7.x' },
+473 silly install resolved     engines: { node: '>=0.4.0' },
+473 silly install resolved     license: 'MIT/X11',
+473 silly install resolved     author:
+473 silly install resolved      { name: 'James Halliday',
+473 silly install resolved        email: 'mail@substack.net',
+473 silly install resolved        url: 'http://substack.net' },
+473 silly install resolved     _id: 'wordwrap@0.0.2',
+473 silly install resolved     dependencies: {},
+473 silly install resolved     _engineSupported: true,
+473 silly install resolved     _npmVersion: '1.0.10',
+473 silly install resolved     _nodeVersion: 'v0.5.0-pre',
+473 silly install resolved     _defaultsLoaded: true,
+473 silly install resolved     dist:
+473 silly install resolved      { shasum: 'b79669bb42ecb409f83d583cad52ca17eaa1643f',
+473 silly install resolved        tarball: 'http://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz' },
+473 silly install resolved     maintainers: [ [Object] ],
+473 silly install resolved     _shasum: 'b79669bb42ecb409f83d583cad52ca17eaa1643f',
+473 silly install resolved     _resolved: 'https://registry.npmjs.org/wordwrap/-/wordwrap-0.0.2.tgz',
+473 silly install resolved     _from: 'wordwrap@>=0.0.2 <0.1.0',
+473 silly install resolved     bugs: { url: 'https://github.com/substack/node-wordwrap/issues' },
+473 silly install resolved     readme: 'ERROR: No README data found!',
+473 silly install resolved     homepage: 'https://github.com/substack/node-wordwrap' } ]
+474 info install minimist@0.0.10 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+475 info install wordwrap@0.0.2 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+476 info installOne minimist@0.0.10
+477 verbose installOne of minimist to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist not in flight; installing
+478 info installOne wordwrap@0.0.2
+479 verbose installOne of wordwrap to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist not in flight; installing
+480 http 304 https://registry.npmjs.org/ultron
+481 silly get cb [ 304,
+481 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+481 silly get     server: 'Apache',
+481 silly get     via: '1.1 varnish',
+481 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:54 GMT',
+481 silly get     'cache-control': 'max-age=60',
+481 silly get     etag: '"D5N2CWMGILWMMVYVPGJLI8F9P"',
+481 silly get     age: '4',
+481 silly get     'x-served-by': 'cache-fra1236-FRA',
+481 silly get     'x-cache': 'HIT',
+481 silly get     'x-cache-hits': '1',
+481 silly get     'x-timer': 'S1425299874.809467,VS0,VE0',
+481 silly get     vary: 'Accept',
+481 silly get     'content-length': '0',
+481 silly get     'keep-alive': 'timeout=10, max=50',
+481 silly get     connection: 'Keep-Alive' } ]
+482 verbose etag https://registry.npmjs.org/ultron from cache
+483 verbose get saving ultron to /Users/Tom/.npm/registry.npmjs.org/ultron/.cache.json
+484 silly addNameRange number 2 { name: 'options', range: '>=0.0.5', hasData: true }
+485 silly addNameRange versions [ 'options',
+485 silly addNameRange   [ '0.0.1', '0.0.2', '0.0.3', '0.0.4', '0.0.5', '0.0.6' ] ]
+486 verbose addNamed options@0.0.6
+487 silly addNamed semver.valid 0.0.6
+488 silly addNamed semver.validRange 0.0.6
+489 verbose lock using /Users/Tom/.npm/_locks/minimist-461877a9f03e7882.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+490 verbose lock using /Users/Tom/.npm/_locks/wordwrap-c2d2567228d38c53.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+491 silly install write writing wordwrap 0.0.2 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+492 silly cache addNamed cb wordwrap@0.0.2
+493 verbose unbuild node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+494 silly cache afterAdd options@0.0.6
+495 verbose afterAdd /Users/Tom/.npm/options/0.0.6/package/package.json not in flight; writing
+496 silly install write writing minimist 0.0.10 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+497 silly cache addNamed cb minimist@0.0.10
+498 verbose unbuild node_modules/websockify/node_modules/optimist/node_modules/minimist
+499 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+500 silly addNameRange number 2 { name: 'ultron', range: '>=1.0.0 <1.1.0', hasData: true }
+501 silly addNameRange versions [ 'ultron', [ '0.0.0', '1.0.0', '1.0.1' ] ]
+502 verbose addNamed ultron@1.0.1
+503 silly addNamed semver.valid 1.0.1
+504 silly addNamed semver.validRange 1.0.1
+505 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+506 verbose tar unpack /Users/Tom/.npm/wordwrap/0.0.2/package.tgz
+507 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+508 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+509 verbose tar unpack /Users/Tom/.npm/minimist/0.0.10/package.tgz
+510 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+511 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+512 silly gunzTarPerm modes [ '755', '644' ]
+513 silly gunzTarPerm modes [ '755', '644' ]
+514 verbose afterAdd /Users/Tom/.npm/options/0.0.6/package/package.json written
+515 silly cache afterAdd ultron@1.0.1
+516 verbose afterAdd /Users/Tom/.npm/ultron/1.0.1/package/package.json not in flight; writing
+517 silly gunzTarPerm extractEntry index.js
+518 silly gunzTarPerm extractEntry package.json
+519 silly gunzTarPerm extractEntry .npmignore
+520 silly gunzTarPerm extractEntry package.json
+521 verbose afterAdd /Users/Tom/.npm/ultron/1.0.1/package/package.json written
+522 silly gunzTarPerm extractEntry LICENSE
+523 silly gunzTarPerm extractEntry index.js
+524 silly gunzTarPerm extractEntry README.markdown
+525 silly gunzTarPerm extractEntry example/center.js
+526 silly gunzTarPerm extractEntry .travis.yml
+527 silly gunzTarPerm extractEntry example/parse.js
+528 silly gunzTarPerm extractEntry example/meat.js
+529 silly gunzTarPerm extractEntry test/wrap.js
+530 silly gunzTarPerm extractEntry readme.markdown
+531 silly gunzTarPerm extractEntry test/bool.js
+532 silly gunzTarPerm extractEntry test/break.js
+533 silly gunzTarPerm extractEntry test/idleness.txt
+534 silly gunzTarPerm extractEntry test/dash.js
+535 silly gunzTarPerm extractEntry test/default_bool.js
+536 silly gunzTarPerm extractEntry test/dotted.js
+537 silly gunzTarPerm extractEntry test/long.js
+538 silly gunzTarPerm extractEntry test/num.js
+539 silly gunzTarPerm extractEntry test/parse.js
+540 silly gunzTarPerm extractEntry test/parse_modified.js
+541 silly gunzTarPerm extractEntry test/short.js
+542 silly gunzTarPerm extractEntry test/whitespace.js
+543 info preinstall wordwrap@0.0.2
+544 silly install resolved []
+545 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+546 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+547 verbose linkStuff [ false,
+547 verbose linkStuff   false,
+547 verbose linkStuff   false,
+547 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules' ]
+548 info linkStuff wordwrap@0.0.2
+549 verbose linkBins wordwrap@0.0.2
+550 verbose linkMans wordwrap@0.0.2
+551 verbose rebuildBundles wordwrap@0.0.2
+552 info install wordwrap@0.0.2
+553 info postinstall wordwrap@0.0.2
+554 verbose unlock done using /Users/Tom/.npm/_locks/wordwrap-c2d2567228d38c53.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/wordwrap
+555 info preinstall minimist@0.0.10
+556 silly install resolved []
+557 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+558 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+559 verbose linkStuff [ false,
+559 verbose linkStuff   false,
+559 verbose linkStuff   false,
+559 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules' ]
+560 info linkStuff minimist@0.0.10
+561 verbose linkBins minimist@0.0.10
+562 verbose linkMans minimist@0.0.10
+563 verbose rebuildBundles minimist@0.0.10
+564 info install minimist@0.0.10
+565 info postinstall minimist@0.0.10
+566 verbose unlock done using /Users/Tom/.npm/_locks/minimist-461877a9f03e7882.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist/node_modules/minimist
+567 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+568 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+569 verbose linkStuff [ false,
+569 verbose linkStuff   false,
+569 verbose linkStuff   false,
+569 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules' ]
+570 info linkStuff optimist@0.6.1
+571 verbose linkBins optimist@0.6.1
+572 verbose linkMans optimist@0.6.1
+573 verbose rebuildBundles optimist@0.6.1
+574 verbose rebuildBundles [ 'minimist', 'wordwrap' ]
+575 info install optimist@0.6.1
+576 info postinstall optimist@0.6.1
+577 verbose unlock done using /Users/Tom/.npm/_locks/optimist-b0a1ad06743fe5fd.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/optimist
+578 http 304 https://registry.npmjs.org/bufferutil
+579 silly get cb [ 304,
+579 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+579 silly get     server: 'Apache',
+579 silly get     via: '1.1 varnish',
+579 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:55 GMT',
+579 silly get     'cache-control': 'max-age=60',
+579 silly get     etag: '"5MJNEEK9O7EO9M3D01XNPOXB6"',
+579 silly get     age: '0',
+579 silly get     'x-served-by': 'cache-fra1239-FRA',
+579 silly get     'x-cache': 'HIT',
+579 silly get     'x-cache-hits': '1',
+579 silly get     'x-timer': 'S1425299874.829765,VS0,VE421',
+579 silly get     vary: 'Accept',
+579 silly get     'content-length': '0',
+579 silly get     'keep-alive': 'timeout=10, max=50',
+579 silly get     connection: 'Keep-Alive' } ]
+580 verbose etag https://registry.npmjs.org/bufferutil from cache
+581 verbose get saving bufferutil to /Users/Tom/.npm/registry.npmjs.org/bufferutil/.cache.json
+582 silly addNameRange number 2 { name: 'bufferutil', range: '>=1.0.0 <1.1.0', hasData: true }
+583 silly addNameRange versions [ 'bufferutil', [ '1.0.0', '1.0.1' ] ]
+584 verbose addNamed bufferutil@1.0.1
+585 silly addNamed semver.valid 1.0.1
+586 silly addNamed semver.validRange 1.0.1
+587 silly cache afterAdd bufferutil@1.0.1
+588 verbose afterAdd /Users/Tom/.npm/bufferutil/1.0.1/package/package.json not in flight; writing
+589 verbose afterAdd /Users/Tom/.npm/bufferutil/1.0.1/package/package.json written
+590 http 304 https://registry.npmjs.org/utf-8-validate
+591 silly get cb [ 304,
+591 silly get   { date: 'Mon, 02 Mar 2015 12:37:54 GMT',
+591 silly get     server: 'Apache',
+591 silly get     via: '1.1 varnish',
+591 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:55 GMT',
+591 silly get     'cache-control': 'max-age=60',
+591 silly get     etag: '"DXCX18O2RD2Z8PRY4SVZYU9Z9"',
+591 silly get     age: '0',
+591 silly get     'x-served-by': 'cache-fra1225-FRA',
+591 silly get     'x-cache': 'HIT',
+591 silly get     'x-cache-hits': '1',
+591 silly get     'x-timer': 'S1425299874.810352,VS0,VE698',
+591 silly get     vary: 'Accept',
+591 silly get     'content-length': '0',
+591 silly get     'keep-alive': 'timeout=10, max=50',
+591 silly get     connection: 'Keep-Alive' } ]
+592 verbose etag https://registry.npmjs.org/utf-8-validate from cache
+593 verbose get saving utf-8-validate to /Users/Tom/.npm/registry.npmjs.org/utf-8-validate/.cache.json
+594 silly addNameRange number 2 { name: 'utf-8-validate',
+594 silly addNameRange   range: '>=1.0.0 <1.1.0',
+594 silly addNameRange   hasData: true }
+595 silly addNameRange versions [ 'utf-8-validate', [ '1.0.0', '1.0.1' ] ]
+596 verbose addNamed utf-8-validate@1.0.1
+597 silly addNamed semver.valid 1.0.1
+598 silly addNamed semver.validRange 1.0.1
+599 silly cache afterAdd utf-8-validate@1.0.1
+600 verbose afterAdd /Users/Tom/.npm/utf-8-validate/1.0.1/package/package.json not in flight; writing
+601 verbose afterAdd /Users/Tom/.npm/utf-8-validate/1.0.1/package/package.json written
+602 silly install resolved [ { author:
+602 silly install resolved      { name: 'Einar Otto Stangvik',
+602 silly install resolved        email: 'einaros@gmail.com',
+602 silly install resolved        url: 'http://2x.io' },
+602 silly install resolved     name: 'options',
+602 silly install resolved     description: 'A very light-weight in-code option parsers for node.js.',
+602 silly install resolved     version: '0.0.6',
+602 silly install resolved     repository: { type: 'git', url: 'git://github.com/einaros/options.js.git' },
+602 silly install resolved     main: 'lib/options',
+602 silly install resolved     scripts: { test: 'make test' },
+602 silly install resolved     engines: { node: '>=0.4.0' },
+602 silly install resolved     dependencies: {},
+602 silly install resolved     devDependencies: { mocha: 'latest' },
+602 silly install resolved     gitHead: 'ff53d0a092c897cb95964232a96fe17da65c11af',
+602 silly install resolved     bugs: { url: 'https://github.com/einaros/options.js/issues' },
+602 silly install resolved     homepage: 'https://github.com/einaros/options.js',
+602 silly install resolved     _id: 'options@0.0.6',
+602 silly install resolved     _shasum: 'ec22d312806bb53e731773e7cdaefcf1c643128f',
+602 silly install resolved     _from: 'options@>=0.0.5',
+602 silly install resolved     _npmVersion: '1.4.21',
+602 silly install resolved     _npmUser: { name: 'einaros', email: 'einaros@gmail.com' },
+602 silly install resolved     maintainers: [ [Object] ],
+602 silly install resolved     dist:
+602 silly install resolved      { shasum: 'ec22d312806bb53e731773e7cdaefcf1c643128f',
+602 silly install resolved        tarball: 'http://registry.npmjs.org/options/-/options-0.0.6.tgz' },
+602 silly install resolved     directories: {},
+602 silly install resolved     _resolved: 'https://registry.npmjs.org/options/-/options-0.0.6.tgz',
+602 silly install resolved     readme: 'ERROR: No README data found!' },
+602 silly install resolved   { name: 'ultron',
+602 silly install resolved     version: '1.0.1',
+602 silly install resolved     description: 'Ultron is high-intelligence robot. It gathers intel so it can start improving upon his rudimentary design',
+602 silly install resolved     main: 'index.js',
+602 silly install resolved     scripts:
+602 silly install resolved      { test: 'mocha --reporter spec --ui bdd test.js',
+602 silly install resolved        watch: 'mocha --watch --reporter spec --ui bdd test.js',
+602 silly install resolved        coverage: 'istanbul cover ./node_modules/.bin/_mocha -- --reporter spec --ui bdd test.js',
+602 silly install resolved        'test-travis': 'istanbul cover node_modules/.bin/_mocha --report lcovonly -- --reporter spec --ui bdd test.js' },
+602 silly install resolved     repository: { type: 'git', url: 'https://github.com/unshiftio/ultron' },
+602 silly install resolved     keywords:
+602 silly install resolved      [ 'Ultron',
+602 silly install resolved        'robot',
+602 silly install resolved        'gather',
+602 silly install resolved        'intelligence',
+602 silly install resolved        'event',
+602 silly install resolved        'events',
+602 silly install resolved        'eventemitter',
+602 silly install resolved        'emitter',
+602 silly install resolved        'cleanup' ],
+602 silly install resolved     author: { name: 'Arnout Kazemier' },
+602 silly install resolved     license: 'MIT',
+602 silly install resolved     devDependencies:
+602 silly install resolved      { assume: '0.0.x',
+602 silly install resolved        eventemitter3: '0.1.x',
+602 silly install resolved        istanbul: '0.3.x',
+602 silly install resolved        mocha: '2.0.x',
+602 silly install resolved        'pre-commit': '0.0.x' },
+602 silly install resolved     bugs: { url: 'https://github.com/unshiftio/ultron/issues' },
+602 silly install resolved     homepage: 'https://github.com/unshiftio/ultron',
+602 silly install resolved     gitHead: '1aae6f07661ebb69a60c466ef50b9798cfb7f631',
+602 silly install resolved     _id: 'ultron@1.0.1',
+602 silly install resolved     _shasum: 'c9d8d86c9cf2823028eb45629ab725897dd65dc5',
+602 silly install resolved     _from: 'ultron@>=1.0.0 <1.1.0',
+602 silly install resolved     _npmVersion: '1.4.28',
+602 silly install resolved     _npmUser: { name: 'V1', email: 'info@3rd-Eden.com' },
+602 silly install resolved     maintainers: [ [Object], [Object] ],
+602 silly install resolved     dist:
+602 silly install resolved      { shasum: 'c9d8d86c9cf2823028eb45629ab725897dd65dc5',
+602 silly install resolved        tarball: 'http://registry.npmjs.org/ultron/-/ultron-1.0.1.tgz' },
+602 silly install resolved     directories: {},
+602 silly install resolved     _resolved: 'https://registry.npmjs.org/ultron/-/ultron-1.0.1.tgz',
+602 silly install resolved     readme: 'ERROR: No README data found!' },
+602 silly install resolved   { name: 'bufferutil',
+602 silly install resolved     version: '1.0.1',
+602 silly install resolved     description: 'WebSocket buffer utils',
+602 silly install resolved     main: 'index.js',
+602 silly install resolved     scripts:
+602 silly install resolved      { test: 'echo "Error: no test specified" && exit 1',
+602 silly install resolved        install: 'node-gyp rebuild' },
+602 silly install resolved     repository: { type: 'git', url: 'https://github.com/websockets/bufferutil' },
+602 silly install resolved     keywords: [ 'bufferutil' ],
+602 silly install resolved     author:
+602 silly install resolved      { name: 'Einar Otto Stangvik',
+602 silly install resolved        email: 'einaros@gmail.com',
+602 silly install resolved        url: 'http://2x.io' },
+602 silly install resolved     license: 'MIT',
+602 silly install resolved     bugs: { url: 'https://github.com/websockets/bufferutil/issues' },
+602 silly install resolved     homepage: 'https://github.com/websockets/bufferutil',
+602 silly install resolved     dependencies: { bindings: '1.2.x', nan: '1.6.x' },
+602 silly install resolved     gypfile: true,
+602 silly install resolved     gitHead: '3bbb6f23193fae7683b61e2cae1f85ede5fb4469',
+602 silly install resolved     _id: 'bufferutil@1.0.1',
+602 silly install resolved     _shasum: '0c53a9ffe8d616c4e2df27d00b808f7a25501e3b',
+602 silly install resolved     _from: 'bufferutil@>=1.0.0 <1.1.0',
+602 silly install resolved     _npmVersion: '2.3.0',
+602 silly install resolved     _nodeVersion: '0.10.35',
+602 silly install resolved     _npmUser: { name: '3rdeden', email: 'npm@3rd-Eden.com' },
+602 silly install resolved     maintainers: [ [Object] ],
+602 silly install resolved     dist:
+602 silly install resolved      { shasum: '0c53a9ffe8d616c4e2df27d00b808f7a25501e3b',
+602 silly install resolved        tarball: 'http://registry.npmjs.org/bufferutil/-/bufferutil-1.0.1.tgz' },
+602 silly install resolved     directories: {},
+602 silly install resolved     _resolved: 'https://registry.npmjs.org/bufferutil/-/bufferutil-1.0.1.tgz',
+602 silly install resolved     readme: 'ERROR: No README data found!' },
+602 silly install resolved   { name: 'utf-8-validate',
+602 silly install resolved     version: '1.0.1',
+602 silly install resolved     description: 'Validate UTF-8 for Web',
+602 silly install resolved     main: 'index.js',
+602 silly install resolved     scripts:
+602 silly install resolved      { test: 'echo "Error: no test specified" && exit 1',
+602 silly install resolved        install: 'node-gyp rebuild' },
+602 silly install resolved     repository:
+602 silly install resolved      { type: 'git',
+602 silly install resolved        url: 'https://github.com/websockets/utf-8-validate' },
+602 silly install resolved     keywords: [ 'utf-8-validate' ],
+602 silly install resolved     author:
+602 silly install resolved      { name: 'Einar Otto Stangvik',
+602 silly install resolved        email: 'einaros@gmail.com',
+602 silly install resolved        url: 'http://2x.io' },
+602 silly install resolved     license: 'MIT',
+602 silly install resolved     bugs: { url: 'https://github.com/websockets/utf-8-validate/issues' },
+602 silly install resolved     homepage: 'https://github.com/websockets/utf-8-validate',
+602 silly install resolved     dependencies: { bindings: '1.2.x', nan: '1.6.x' },
+602 silly install resolved     gypfile: true,
+602 silly install resolved     gitHead: '1c0a74c3f2a8bb9e5b14df235404faa3760abce3',
+602 silly install resolved     _id: 'utf-8-validate@1.0.1',
+602 silly install resolved     _shasum: 'd15eb67e28f6bb93c9401eeb7eac7030a183e8d1',
+602 silly install resolved     _from: 'utf-8-validate@>=1.0.0 <1.1.0',
+602 silly install resolved     _npmVersion: '2.3.0',
+602 silly install resolved     _nodeVersion: '0.10.35',
+602 silly install resolved     _npmUser: { name: '3rdeden', email: 'npm@3rd-Eden.com' },
+602 silly install resolved     maintainers: [ [Object], [Object], [Object] ],
+602 silly install resolved     dist:
+602 silly install resolved      { shasum: 'd15eb67e28f6bb93c9401eeb7eac7030a183e8d1',
+602 silly install resolved        tarball: 'http://registry.npmjs.org/utf-8-validate/-/utf-8-validate-1.0.1.tgz' },
+602 silly install resolved     directories: {},
+602 silly install resolved     _resolved: 'https://registry.npmjs.org/utf-8-validate/-/utf-8-validate-1.0.1.tgz',
+602 silly install resolved     readme: 'ERROR: No README data found!' } ]
+603 info install options@0.0.6 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+604 info install ultron@1.0.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+605 info install bufferutil@1.0.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+606 info install utf-8-validate@1.0.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+607 info installOne options@0.0.6
+608 verbose installOne of options to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws not in flight; installing
+609 info installOne ultron@1.0.1
+610 verbose installOne of ultron to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws not in flight; installing
+611 info installOne bufferutil@1.0.1
+612 verbose installOne of bufferutil to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws not in flight; installing
+613 info installOne utf-8-validate@1.0.1
+614 verbose installOne of utf-8-validate to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws not in flight; installing
+615 verbose lock using /Users/Tom/.npm/_locks/options-bbe3fcbd83042caf.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+616 verbose lock using /Users/Tom/.npm/_locks/ultron-116535bef7027aae.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+617 verbose lock using /Users/Tom/.npm/_locks/bufferutil-9dcad54c64833665.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+618 verbose lock using /Users/Tom/.npm/_locks/utf-8-validate-0d10c6b7ae5a422c.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+619 silly install write writing options 0.0.6 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+620 silly cache addNamed cb options@0.0.6
+621 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/options
+622 silly install write writing ultron 1.0.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+623 silly cache addNamed cb ultron@1.0.1
+624 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/ultron
+625 silly install write writing bufferutil 1.0.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+626 silly cache addNamed cb bufferutil@1.0.1
+627 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/bufferutil
+628 silly install write writing utf-8-validate 1.0.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+629 silly cache addNamed cb utf-8-validate@1.0.1
+630 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+631 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+632 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+633 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+634 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+635 verbose tar unpack /Users/Tom/.npm/options/0.0.6/package.tgz
+636 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+637 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+638 verbose tar unpack /Users/Tom/.npm/ultron/1.0.1/package.tgz
+639 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+640 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+641 verbose tar unpack /Users/Tom/.npm/bufferutil/1.0.1/package.tgz
+642 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+643 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+644 verbose tar unpack /Users/Tom/.npm/utf-8-validate/1.0.1/package.tgz
+645 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+646 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+647 silly gunzTarPerm modes [ '755', '644' ]
+648 silly gunzTarPerm modes [ '755', '644' ]
+649 silly gunzTarPerm modes [ '755', '644' ]
+650 silly gunzTarPerm modes [ '755', '644' ]
+651 silly gunzTarPerm extractEntry package.json
+652 silly gunzTarPerm extractEntry package.json
+653 silly gunzTarPerm extractEntry package.json
+654 silly gunzTarPerm extractEntry package.json
+655 silly gunzTarPerm extractEntry .npmignore
+656 silly gunzTarPerm extractEntry README.md
+657 silly gunzTarPerm extractEntry .npmignore
+658 silly gunzTarPerm extractEntry README.md
+659 silly gunzTarPerm extractEntry .npmignore
+660 silly gunzTarPerm extractEntry fallback.js
+661 silly gunzTarPerm extractEntry .npmignore
+662 silly gunzTarPerm extractEntry fallback.js
+663 silly gunzTarPerm extractEntry Makefile
+664 silly gunzTarPerm extractEntry lib/options.js
+665 silly gunzTarPerm extractEntry index.js
+666 silly gunzTarPerm extractEntry binding.gyp
+667 silly gunzTarPerm extractEntry index.js
+668 silly gunzTarPerm extractEntry test.js
+669 silly gunzTarPerm extractEntry index.js
+670 silly gunzTarPerm extractEntry binding.gyp
+671 silly gunzTarPerm extractEntry src/validation.cc
+672 silly gunzTarPerm extractEntry src/bufferutil.cc
+673 silly gunzTarPerm extractEntry .travis.yml
+674 info preinstall options@0.0.6
+675 silly install resolved []
+676 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+677 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+678 verbose linkStuff [ false,
+678 verbose linkStuff   false,
+678 verbose linkStuff   false,
+678 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules' ]
+679 info linkStuff options@0.0.6
+680 verbose linkBins options@0.0.6
+681 verbose linkMans options@0.0.6
+682 verbose rebuildBundles options@0.0.6
+683 info preinstall utf-8-validate@1.0.1
+684 info install options@0.0.6
+685 info preinstall bufferutil@1.0.1
+686 info postinstall options@0.0.6
+687 silly prepareForInstallMany adding bindings@1.2.x from utf-8-validate dependencies
+688 silly prepareForInstallMany adding nan@1.6.x from utf-8-validate dependencies
+689 silly prepareForInstallMany adding bindings@1.2.x from bufferutil dependencies
+690 silly prepareForInstallMany adding nan@1.6.x from bufferutil dependencies
+691 verbose unlock done using /Users/Tom/.npm/_locks/options-bbe3fcbd83042caf.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/options
+692 silly cache add args [ 'bindings@1.2.x', null ]
+693 verbose cache add spec bindings@1.2.x
+694 silly cache add args [ 'nan@1.6.x', null ]
+695 verbose cache add spec nan@1.6.x
+696 silly cache add parsed spec { raw: 'bindings@1.2.x',
+696 silly cache add   scope: null,
+696 silly cache add   name: 'bindings',
+696 silly cache add   rawSpec: '1.2.x',
+696 silly cache add   spec: '>=1.2.0 <1.3.0',
+696 silly cache add   type: 'range' }
+697 verbose addNamed bindings@>=1.2.0 <1.3.0
+698 silly addNamed semver.valid null
+699 silly addNamed semver.validRange >=1.2.0 <1.3.0
+700 silly addNameRange { name: 'bindings', range: '>=1.2.0 <1.3.0', hasData: false }
+701 silly mapToRegistry name bindings
+702 silly mapToRegistry using default registry
+703 silly mapToRegistry registry https://registry.npmjs.org/
+704 silly mapToRegistry uri https://registry.npmjs.org/bindings
+705 verbose addNameRange registry:https://registry.npmjs.org/bindings not in flight; fetching
+706 silly cache add parsed spec { raw: 'nan@1.6.x',
+706 silly cache add   scope: null,
+706 silly cache add   name: 'nan',
+706 silly cache add   rawSpec: '1.6.x',
+706 silly cache add   spec: '>=1.6.0 <1.7.0',
+706 silly cache add   type: 'range' }
+707 verbose addNamed nan@>=1.6.0 <1.7.0
+708 silly addNamed semver.valid null
+709 silly addNamed semver.validRange >=1.6.0 <1.7.0
+710 silly addNameRange { name: 'nan', range: '>=1.6.0 <1.7.0', hasData: false }
+711 silly mapToRegistry name nan
+712 silly mapToRegistry using default registry
+713 silly mapToRegistry registry https://registry.npmjs.org/
+714 silly mapToRegistry uri https://registry.npmjs.org/nan
+715 verbose addNameRange registry:https://registry.npmjs.org/nan not in flight; fetching
+716 silly cache add args [ 'bindings@1.2.x', null ]
+717 verbose cache add spec bindings@1.2.x
+718 silly cache add parsed spec { raw: 'bindings@1.2.x',
+718 silly cache add   scope: null,
+718 silly cache add   name: 'bindings',
+718 silly cache add   rawSpec: '1.2.x',
+718 silly cache add   spec: '>=1.2.0 <1.3.0',
+718 silly cache add   type: 'range' }
+719 verbose addNamed bindings@>=1.2.0 <1.3.0
+720 silly addNamed semver.valid null
+721 silly addNamed semver.validRange >=1.2.0 <1.3.0
+722 silly addNameRange { name: 'bindings', range: '>=1.2.0 <1.3.0', hasData: false }
+723 silly mapToRegistry name bindings
+724 silly mapToRegistry using default registry
+725 silly mapToRegistry registry https://registry.npmjs.org/
+726 silly mapToRegistry uri https://registry.npmjs.org/bindings
+727 verbose addNameRange registry:https://registry.npmjs.org/bindings already in flight; waiting
+728 silly cache add args [ 'nan@1.6.x', null ]
+729 verbose cache add spec nan@1.6.x
+730 silly cache add parsed spec { raw: 'nan@1.6.x',
+730 silly cache add   scope: null,
+730 silly cache add   name: 'nan',
+730 silly cache add   rawSpec: '1.6.x',
+730 silly cache add   spec: '>=1.6.0 <1.7.0',
+730 silly cache add   type: 'range' }
+731 verbose addNamed nan@>=1.6.0 <1.7.0
+732 silly addNamed semver.valid null
+733 silly addNamed semver.validRange >=1.6.0 <1.7.0
+734 silly addNameRange { name: 'nan', range: '>=1.6.0 <1.7.0', hasData: false }
+735 silly mapToRegistry name nan
+736 silly mapToRegistry using default registry
+737 silly mapToRegistry registry https://registry.npmjs.org/
+738 silly mapToRegistry uri https://registry.npmjs.org/nan
+739 verbose addNameRange registry:https://registry.npmjs.org/nan already in flight; waiting
+740 verbose request uri https://registry.npmjs.org/bindings
+741 verbose request no auth needed
+742 info attempt registry request try #1 at 1:37:55 PM
+743 verbose etag "BJGP1201ZXLWX88VO1W0N0YSR"
+744 http request GET https://registry.npmjs.org/bindings
+745 verbose request uri https://registry.npmjs.org/nan
+746 verbose request no auth needed
+747 info attempt registry request try #1 at 1:37:55 PM
+748 verbose etag "12EHA1PNRCCAOAQY0AIBQ9ET9"
+749 http request GET https://registry.npmjs.org/nan
+750 info preinstall ultron@1.0.1
+751 silly install resolved []
+752 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+753 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+754 verbose linkStuff [ false,
+754 verbose linkStuff   false,
+754 verbose linkStuff   false,
+754 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules' ]
+755 info linkStuff ultron@1.0.1
+756 verbose linkBins ultron@1.0.1
+757 verbose linkMans ultron@1.0.1
+758 verbose rebuildBundles ultron@1.0.1
+759 info install ultron@1.0.1
+760 info postinstall ultron@1.0.1
+761 verbose unlock done using /Users/Tom/.npm/_locks/ultron-116535bef7027aae.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/ultron
+762 http 304 https://registry.npmjs.org/nan
+763 silly get cb [ 304,
+763 silly get   { date: 'Mon, 02 Mar 2015 12:37:55 GMT',
+763 silly get     server: 'Apache',
+763 silly get     via: '1.1 varnish',
+763 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:55 GMT',
+763 silly get     'cache-control': 'max-age=60',
+763 silly get     etag: '"12EHA1PNRCCAOAQY0AIBQ9ET9"',
+763 silly get     age: '8',
+763 silly get     'x-served-by': 'cache-fra1237-FRA',
+763 silly get     'x-cache': 'HIT',
+763 silly get     'x-cache-hits': '1',
+763 silly get     'x-timer': 'S1425299875.797287,VS0,VE0',
+763 silly get     vary: 'Accept',
+763 silly get     'content-length': '0',
+763 silly get     'keep-alive': 'timeout=10, max=50',
+763 silly get     connection: 'Keep-Alive' } ]
+764 verbose etag https://registry.npmjs.org/nan from cache
+765 verbose get saving nan to /Users/Tom/.npm/registry.npmjs.org/nan/.cache.json
+766 http 304 https://registry.npmjs.org/bindings
+767 silly get cb [ 304,
+767 silly get   { date: 'Mon, 02 Mar 2015 12:37:55 GMT',
+767 silly get     server: 'Apache',
+767 silly get     via: '1.1 varnish',
+767 silly get     'last-modified': 'Mon, 02 Mar 2015 12:37:30 GMT',
+767 silly get     'cache-control': 'max-age=60',
+767 silly get     etag: '"BJGP1201ZXLWX88VO1W0N0YSR"',
+767 silly get     age: '37',
+767 silly get     'x-served-by': 'cache-fra1243-FRA',
+767 silly get     'x-cache': 'HIT',
+767 silly get     'x-cache-hits': '2',
+767 silly get     'x-timer': 'S1425299875.801282,VS0,VE0',
+767 silly get     vary: 'Accept',
+767 silly get     'content-length': '0',
+767 silly get     'keep-alive': 'timeout=10, max=50',
+767 silly get     connection: 'Keep-Alive' } ]
+768 verbose etag https://registry.npmjs.org/bindings from cache
+769 verbose get saving bindings to /Users/Tom/.npm/registry.npmjs.org/bindings/.cache.json
+770 silly addNameRange number 2 { name: 'nan', range: '>=1.6.0 <1.7.0', hasData: true }
+771 silly addNameRange versions [ 'nan',
+771 silly addNameRange   [ '0.3.0-wip',
+771 silly addNameRange     '0.3.0-wip2',
+771 silly addNameRange     '0.3.0',
+771 silly addNameRange     '0.3.1',
+771 silly addNameRange     '0.3.2',
+771 silly addNameRange     '0.4.0',
+771 silly addNameRange     '0.4.1',
+771 silly addNameRange     '0.4.2',
+771 silly addNameRange     '0.4.3',
+771 silly addNameRange     '0.4.4',
+771 silly addNameRange     '0.5.0',
+771 silly addNameRange     '0.5.1',
+771 silly addNameRange     '0.5.2',
+771 silly addNameRange     '0.6.0',
+771 silly addNameRange     '0.7.0',
+771 silly addNameRange     '0.7.1',
+771 silly addNameRange     '0.8.0',
+771 silly addNameRange     '1.0.0',
+771 silly addNameRange     '1.1.0',
+771 silly addNameRange     '1.1.1',
+771 silly addNameRange     '1.1.2',
+771 silly addNameRange     '1.2.0',
+771 silly addNameRange     '1.3.0',
+771 silly addNameRange     '1.4.0',
+771 silly addNameRange     '1.4.1',
+771 silly addNameRange     '1.5.0',
+771 silly addNameRange     '1.4.2',
+771 silly addNameRange     '1.4.3',
+771 silly addNameRange     '1.5.1',
+771 silly addNameRange     '1.5.2',
+771 silly addNameRange     '1.6.0',
+771 silly addNameRange     '1.5.3',
+771 silly addNameRange     '1.6.1',
+771 silly addNameRange     '1.6.2',
+771 silly addNameRange     '1.7.0' ] ]
+772 verbose addNamed nan@1.6.2
+773 silly addNamed semver.valid 1.6.2
+774 silly addNamed semver.validRange 1.6.2
+775 silly addNameRange number 2 { name: 'nan', range: '>=1.6.0 <1.7.0', hasData: true }
+776 silly addNameRange versions [ 'nan',
+776 silly addNameRange   [ '0.3.0-wip',
+776 silly addNameRange     '0.3.0-wip2',
+776 silly addNameRange     '0.3.0',
+776 silly addNameRange     '0.3.1',
+776 silly addNameRange     '0.3.2',
+776 silly addNameRange     '0.4.0',
+776 silly addNameRange     '0.4.1',
+776 silly addNameRange     '0.4.2',
+776 silly addNameRange     '0.4.3',
+776 silly addNameRange     '0.4.4',
+776 silly addNameRange     '0.5.0',
+776 silly addNameRange     '0.5.1',
+776 silly addNameRange     '0.5.2',
+776 silly addNameRange     '0.6.0',
+776 silly addNameRange     '0.7.0',
+776 silly addNameRange     '0.7.1',
+776 silly addNameRange     '0.8.0',
+776 silly addNameRange     '1.0.0',
+776 silly addNameRange     '1.1.0',
+776 silly addNameRange     '1.1.1',
+776 silly addNameRange     '1.1.2',
+776 silly addNameRange     '1.2.0',
+776 silly addNameRange     '1.3.0',
+776 silly addNameRange     '1.4.0',
+776 silly addNameRange     '1.4.1',
+776 silly addNameRange     '1.5.0',
+776 silly addNameRange     '1.4.2',
+776 silly addNameRange     '1.4.3',
+776 silly addNameRange     '1.5.1',
+776 silly addNameRange     '1.5.2',
+776 silly addNameRange     '1.6.0',
+776 silly addNameRange     '1.5.3',
+776 silly addNameRange     '1.6.1',
+776 silly addNameRange     '1.6.2',
+776 silly addNameRange     '1.7.0' ] ]
+777 verbose addNamed nan@1.6.2
+778 silly addNamed semver.valid 1.6.2
+779 silly addNamed semver.validRange 1.6.2
+780 silly addNameRange number 2 { name: 'bindings', range: '>=1.2.0 <1.3.0', hasData: true }
+781 silly addNameRange versions [ 'bindings',
+781 silly addNameRange   [ '0.0.1',
+781 silly addNameRange     '0.1.0',
+781 silly addNameRange     '0.1.1',
+781 silly addNameRange     '0.2.0',
+781 silly addNameRange     '0.2.1',
+781 silly addNameRange     '0.2.2',
+781 silly addNameRange     '0.2.3',
+781 silly addNameRange     '0.2.4',
+781 silly addNameRange     '0.3.0',
+781 silly addNameRange     '0.4.0',
+781 silly addNameRange     '1.0.0',
+781 silly addNameRange     '1.1.0',
+781 silly addNameRange     '1.1.1',
+781 silly addNameRange     '1.2.0',
+781 silly addNameRange     '1.2.1' ] ]
+782 verbose addNamed bindings@1.2.1
+783 silly addNamed semver.valid 1.2.1
+784 silly addNamed semver.validRange 1.2.1
+785 silly addNameRange number 2 { name: 'bindings', range: '>=1.2.0 <1.3.0', hasData: true }
+786 silly addNameRange versions [ 'bindings',
+786 silly addNameRange   [ '0.0.1',
+786 silly addNameRange     '0.1.0',
+786 silly addNameRange     '0.1.1',
+786 silly addNameRange     '0.2.0',
+786 silly addNameRange     '0.2.1',
+786 silly addNameRange     '0.2.2',
+786 silly addNameRange     '0.2.3',
+786 silly addNameRange     '0.2.4',
+786 silly addNameRange     '0.3.0',
+786 silly addNameRange     '0.4.0',
+786 silly addNameRange     '1.0.0',
+786 silly addNameRange     '1.1.0',
+786 silly addNameRange     '1.1.1',
+786 silly addNameRange     '1.2.0',
+786 silly addNameRange     '1.2.1' ] ]
+787 verbose addNamed bindings@1.2.1
+788 silly addNamed semver.valid 1.2.1
+789 silly addNamed semver.validRange 1.2.1
+790 silly cache afterAdd nan@1.6.2
+791 verbose afterAdd /Users/Tom/.npm/nan/1.6.2/package/package.json not in flight; writing
+792 silly cache afterAdd nan@1.6.2
+793 verbose afterAdd /Users/Tom/.npm/nan/1.6.2/package/package.json already in flight; not writing
+794 silly cache afterAdd bindings@1.2.1
+795 verbose afterAdd /Users/Tom/.npm/bindings/1.2.1/package/package.json not in flight; writing
+796 silly cache afterAdd bindings@1.2.1
+797 verbose afterAdd /Users/Tom/.npm/bindings/1.2.1/package/package.json already in flight; not writing
+798 verbose afterAdd /Users/Tom/.npm/nan/1.6.2/package/package.json written
+799 verbose afterAdd /Users/Tom/.npm/bindings/1.2.1/package/package.json written
+800 silly install resolved [ { name: 'nan',
+800 silly install resolved     version: '1.6.2',
+800 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+800 silly install resolved     main: 'include_dirs.js',
+800 silly install resolved     repository: { type: 'git', url: 'git://github.com/rvagg/nan.git' },
+800 silly install resolved     scripts:
+800 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+800 silly install resolved        'rebuild-tests': 'pangyp rebuild --directory test' },
+800 silly install resolved     contributors:
+800 silly install resolved      [ [Object],
+800 silly install resolved        [Object],
+800 silly install resolved        [Object],
+800 silly install resolved        [Object],
+800 silly install resolved        [Object],
+800 silly install resolved        [Object],
+800 silly install resolved        [Object] ],
+800 silly install resolved     devDependencies:
+800 silly install resolved      { bindings: '~1.2.1',
+800 silly install resolved        'node-gyp': '~1.0.2',
+800 silly install resolved        pangyp: '~2.0.1',
+800 silly install resolved        tap: '~0.5.0',
+800 silly install resolved        xtend: '~4.0.0' },
+800 silly install resolved     license: 'MIT',
+800 silly install resolved     gitHead: 'ab0e5eed8d4aa36111bf8f44cf75644ece327e98',
+800 silly install resolved     bugs: { url: 'https://github.com/rvagg/nan/issues' },
+800 silly install resolved     homepage: 'https://github.com/rvagg/nan',
+800 silly install resolved     _id: 'nan@1.6.2',
+800 silly install resolved     _shasum: '2657d1c43b00f1e847e083832285b7d8f5ba8ec8',
+800 silly install resolved     _from: 'nan@>=1.6.0 <1.7.0',
+800 silly install resolved     _npmVersion: '2.0.0',
+800 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+800 silly install resolved     maintainers: [ [Object], [Object] ],
+800 silly install resolved     dist:
+800 silly install resolved      { shasum: '2657d1c43b00f1e847e083832285b7d8f5ba8ec8',
+800 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-1.6.2.tgz' },
+800 silly install resolved     directories: {},
+800 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-1.6.2.tgz',
+800 silly install resolved     readme: 'ERROR: No README data found!' },
+800 silly install resolved   { name: 'bindings',
+800 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+800 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+800 silly install resolved     version: '1.2.1',
+800 silly install resolved     author:
+800 silly install resolved      { name: 'Nathan Rajlich',
+800 silly install resolved        email: 'nathan@tootallnate.net',
+800 silly install resolved        url: 'http://tootallnate.net' },
+800 silly install resolved     repository:
+800 silly install resolved      { type: 'git',
+800 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+800 silly install resolved     main: './bindings.js',
+800 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+800 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+800 silly install resolved     license: 'MIT',
+800 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+800 silly install resolved     _id: 'bindings@1.2.1',
+800 silly install resolved     scripts: {},
+800 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+800 silly install resolved     _from: 'bindings@>=1.2.0 <1.3.0',
+800 silly install resolved     _npmVersion: '1.4.14',
+800 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+800 silly install resolved     maintainers: [ [Object], [Object] ],
+800 silly install resolved     dist:
+800 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+800 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+800 silly install resolved     directories: {},
+800 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+800 silly install resolved     readme: 'ERROR: No README data found!' } ]
+801 info install nan@1.6.2 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+802 info install bindings@1.2.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+803 info installOne nan@1.6.2
+804 verbose installOne of nan to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil not in flight; installing
+805 info installOne bindings@1.2.1
+806 verbose installOne of bindings to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil not in flight; installing
+807 silly install resolved [ { name: 'nan',
+807 silly install resolved     version: '1.6.2',
+807 silly install resolved     description: 'Native Abstractions for Node.js: C++ header for Node 0.8->0.12 compatibility',
+807 silly install resolved     main: 'include_dirs.js',
+807 silly install resolved     repository: { type: 'git', url: 'git://github.com/rvagg/nan.git' },
+807 silly install resolved     scripts:
+807 silly install resolved      { test: 'tap --gc test/js/*-test.js',
+807 silly install resolved        'rebuild-tests': 'pangyp rebuild --directory test' },
+807 silly install resolved     contributors:
+807 silly install resolved      [ [Object],
+807 silly install resolved        [Object],
+807 silly install resolved        [Object],
+807 silly install resolved        [Object],
+807 silly install resolved        [Object],
+807 silly install resolved        [Object],
+807 silly install resolved        [Object] ],
+807 silly install resolved     devDependencies:
+807 silly install resolved      { bindings: '~1.2.1',
+807 silly install resolved        'node-gyp': '~1.0.2',
+807 silly install resolved        pangyp: '~2.0.1',
+807 silly install resolved        tap: '~0.5.0',
+807 silly install resolved        xtend: '~4.0.0' },
+807 silly install resolved     license: 'MIT',
+807 silly install resolved     gitHead: 'ab0e5eed8d4aa36111bf8f44cf75644ece327e98',
+807 silly install resolved     bugs: { url: 'https://github.com/rvagg/nan/issues' },
+807 silly install resolved     homepage: 'https://github.com/rvagg/nan',
+807 silly install resolved     _id: 'nan@1.6.2',
+807 silly install resolved     _shasum: '2657d1c43b00f1e847e083832285b7d8f5ba8ec8',
+807 silly install resolved     _from: 'nan@>=1.6.0 <1.7.0',
+807 silly install resolved     _npmVersion: '2.0.0',
+807 silly install resolved     _npmUser: { name: 'kkoopa', email: 'bbyholm@abo.fi' },
+807 silly install resolved     maintainers: [ [Object], [Object] ],
+807 silly install resolved     dist:
+807 silly install resolved      { shasum: '2657d1c43b00f1e847e083832285b7d8f5ba8ec8',
+807 silly install resolved        tarball: 'http://registry.npmjs.org/nan/-/nan-1.6.2.tgz' },
+807 silly install resolved     directories: {},
+807 silly install resolved     _resolved: 'https://registry.npmjs.org/nan/-/nan-1.6.2.tgz',
+807 silly install resolved     readme: 'ERROR: No README data found!' },
+807 silly install resolved   { name: 'bindings',
+807 silly install resolved     description: 'Helper module for loading your native module\'s .node file',
+807 silly install resolved     keywords: [ 'native', 'addon', 'bindings', 'gyp', 'waf', 'c', 'c++' ],
+807 silly install resolved     version: '1.2.1',
+807 silly install resolved     author:
+807 silly install resolved      { name: 'Nathan Rajlich',
+807 silly install resolved        email: 'nathan@tootallnate.net',
+807 silly install resolved        url: 'http://tootallnate.net' },
+807 silly install resolved     repository:
+807 silly install resolved      { type: 'git',
+807 silly install resolved        url: 'git://github.com/TooTallNate/node-bindings.git' },
+807 silly install resolved     main: './bindings.js',
+807 silly install resolved     bugs: { url: 'https://github.com/TooTallNate/node-bindings/issues' },
+807 silly install resolved     homepage: 'https://github.com/TooTallNate/node-bindings',
+807 silly install resolved     license: 'MIT',
+807 silly install resolved     gitHead: 'e404152ee27f8478ccbc7122ee051246e8e5ec02',
+807 silly install resolved     _id: 'bindings@1.2.1',
+807 silly install resolved     scripts: {},
+807 silly install resolved     _shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+807 silly install resolved     _from: 'bindings@>=1.2.0 <1.3.0',
+807 silly install resolved     _npmVersion: '1.4.14',
+807 silly install resolved     _npmUser: { name: 'tootallnate', email: 'nathan@tootallnate.net' },
+807 silly install resolved     maintainers: [ [Object], [Object] ],
+807 silly install resolved     dist:
+807 silly install resolved      { shasum: '14ad6113812d2d37d72e67b4cacb4bb726505f11',
+807 silly install resolved        tarball: 'http://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz' },
+807 silly install resolved     directories: {},
+807 silly install resolved     _resolved: 'https://registry.npmjs.org/bindings/-/bindings-1.2.1.tgz',
+807 silly install resolved     readme: 'ERROR: No README data found!' } ]
+808 info install nan@1.6.2 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+809 info install bindings@1.2.1 into /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+810 info installOne nan@1.6.2
+811 verbose installOne of nan to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate not in flight; installing
+812 info installOne bindings@1.2.1
+813 verbose installOne of bindings to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate not in flight; installing
+814 verbose lock using /Users/Tom/.npm/_locks/nan-5bc456e33f3ae731.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+815 verbose lock using /Users/Tom/.npm/_locks/bindings-07149972c5167832.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+816 verbose lock using /Users/Tom/.npm/_locks/nan-5854694d9f37ae95.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+817 silly install write writing nan 1.6.2 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+818 silly cache addNamed cb nan@1.6.2
+819 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+820 silly install write writing bindings 1.2.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+821 silly cache addNamed cb bindings@1.2.1
+822 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+823 silly install write writing nan 1.6.2 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+824 silly cache addNamed cb nan@1.6.2
+825 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+826 verbose lock using /Users/Tom/.npm/_locks/bindings-b211ea0e2ab7caa1.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+827 silly install write writing bindings 1.2.1 to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+828 silly cache addNamed cb bindings@1.2.1
+829 verbose unbuild node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+830 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+831 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+832 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+833 verbose tar unpack /Users/Tom/.npm/nan/1.6.2/package.tgz
+834 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+835 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+836 verbose tar unpack /Users/Tom/.npm/bindings/1.2.1/package.tgz
+837 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+838 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+839 verbose tar unpack /Users/Tom/.npm/nan/1.6.2/package.tgz
+840 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+841 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+842 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+843 silly gunzTarPerm modes [ '755', '644' ]
+844 silly gunzTarPerm modes [ '755', '644' ]
+845 silly gunzTarPerm modes [ '755', '644' ]
+846 verbose tar unpack /Users/Tom/.npm/bindings/1.2.1/package.tgz
+847 verbose tar unpacking to /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+848 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+849 silly gunzTarPerm modes [ '755', '644' ]
+850 silly gunzTarPerm extractEntry package.json
+851 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+852 silly gunzTarPerm extractEntry package.json
+853 silly gunzTarPerm modified mode [ 'package.json', 436, 420 ]
+854 silly gunzTarPerm extractEntry package.json
+855 silly gunzTarPerm extractEntry package.json
+856 silly gunzTarPerm extractEntry include_dirs.js
+857 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+858 silly gunzTarPerm extractEntry LICENSE.md
+859 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+860 silly gunzTarPerm extractEntry include_dirs.js
+861 silly gunzTarPerm modified mode [ 'include_dirs.js', 436, 420 ]
+862 silly gunzTarPerm extractEntry LICENSE.md
+863 silly gunzTarPerm modified mode [ 'LICENSE.md', 436, 420 ]
+864 silly gunzTarPerm extractEntry README.md
+865 silly gunzTarPerm extractEntry bindings.js
+866 silly gunzTarPerm extractEntry README.md
+867 silly gunzTarPerm extractEntry bindings.js
+868 silly gunzTarPerm extractEntry .dntrc
+869 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+870 silly gunzTarPerm extractEntry appveyor.yml
+871 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+872 silly gunzTarPerm extractEntry .dntrc
+873 silly gunzTarPerm modified mode [ '.dntrc', 436, 420 ]
+874 silly gunzTarPerm extractEntry appveyor.yml
+875 silly gunzTarPerm modified mode [ 'appveyor.yml', 436, 420 ]
+876 silly gunzTarPerm extractEntry nan.h
+877 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+878 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+879 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+880 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+881 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+882 silly gunzTarPerm extractEntry nan_new.h
+883 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+884 silly gunzTarPerm extractEntry nan_string_bytes.h
+885 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+886 silly gunzTarPerm extractEntry CHANGELOG.md
+887 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+888 silly gunzTarPerm extractEntry nan.h
+889 silly gunzTarPerm modified mode [ 'nan.h', 436, 420 ]
+890 silly gunzTarPerm extractEntry nan_implementation_12_inl.h
+891 silly gunzTarPerm modified mode [ 'nan_implementation_12_inl.h', 436, 420 ]
+892 silly gunzTarPerm extractEntry nan_implementation_pre_12_inl.h
+893 silly gunzTarPerm modified mode [ 'nan_implementation_pre_12_inl.h', 436, 420 ]
+894 silly gunzTarPerm extractEntry nan_new.h
+895 silly gunzTarPerm modified mode [ 'nan_new.h', 436, 420 ]
+896 silly gunzTarPerm extractEntry nan_string_bytes.h
+897 silly gunzTarPerm modified mode [ 'nan_string_bytes.h', 436, 420 ]
+898 silly gunzTarPerm extractEntry CHANGELOG.md
+899 silly gunzTarPerm modified mode [ 'CHANGELOG.md', 436, 420 ]
+900 info preinstall bindings@1.2.1
+901 info preinstall bindings@1.2.1
+902 silly install resolved []
+903 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+904 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+905 verbose linkStuff [ false,
+905 verbose linkStuff   false,
+905 verbose linkStuff   false,
+905 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules' ]
+906 info linkStuff bindings@1.2.1
+907 verbose linkBins bindings@1.2.1
+908 verbose linkMans bindings@1.2.1
+909 verbose rebuildBundles bindings@1.2.1
+910 silly install resolved []
+911 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+912 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+913 verbose linkStuff [ false,
+913 verbose linkStuff   false,
+913 verbose linkStuff   false,
+913 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules' ]
+914 info linkStuff bindings@1.2.1
+915 info install bindings@1.2.1
+916 verbose linkBins bindings@1.2.1
+917 verbose linkMans bindings@1.2.1
+918 verbose rebuildBundles bindings@1.2.1
+919 info postinstall bindings@1.2.1
+920 info install bindings@1.2.1
+921 info postinstall bindings@1.2.1
+922 verbose unlock done using /Users/Tom/.npm/_locks/bindings-07149972c5167832.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/bindings
+923 verbose unlock done using /Users/Tom/.npm/_locks/bindings-b211ea0e2ab7caa1.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/bindings
+924 info preinstall nan@1.6.2
+925 info preinstall nan@1.6.2
+926 silly install resolved []
+927 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+928 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+929 verbose linkStuff [ false,
+929 verbose linkStuff   false,
+929 verbose linkStuff   false,
+929 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules' ]
+930 info linkStuff nan@1.6.2
+931 silly install resolved []
+932 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+933 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+934 verbose linkStuff [ false,
+934 verbose linkStuff   false,
+934 verbose linkStuff   false,
+934 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules' ]
+935 info linkStuff nan@1.6.2
+936 verbose linkBins nan@1.6.2
+937 verbose linkMans nan@1.6.2
+938 verbose rebuildBundles nan@1.6.2
+939 verbose linkBins nan@1.6.2
+940 verbose linkMans nan@1.6.2
+941 verbose rebuildBundles nan@1.6.2
+942 info install nan@1.6.2
+943 info install nan@1.6.2
+944 info postinstall nan@1.6.2
+945 info postinstall nan@1.6.2
+946 verbose unlock done using /Users/Tom/.npm/_locks/nan-5bc456e33f3ae731.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil/node_modules/nan
+947 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+948 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+949 verbose linkStuff [ false,
+949 verbose linkStuff   false,
+949 verbose linkStuff   false,
+949 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules' ]
+950 info linkStuff bufferutil@1.0.1
+951 verbose unlock done using /Users/Tom/.npm/_locks/nan-5854694d9f37ae95.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate/node_modules/nan
+952 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+953 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+954 verbose linkStuff [ false,
+954 verbose linkStuff   false,
+954 verbose linkStuff   false,
+954 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules' ]
+955 info linkStuff utf-8-validate@1.0.1
+956 verbose linkBins bufferutil@1.0.1
+957 verbose linkMans bufferutil@1.0.1
+958 verbose rebuildBundles bufferutil@1.0.1
+959 verbose linkBins utf-8-validate@1.0.1
+960 verbose linkMans utf-8-validate@1.0.1
+961 verbose rebuildBundles utf-8-validate@1.0.1
+962 verbose rebuildBundles [ 'bindings', 'nan' ]
+963 info install bufferutil@1.0.1
+964 verbose rebuildBundles [ 'bindings', 'nan' ]
+965 info install utf-8-validate@1.0.1
+966 info base64@2.1.0 Failed to exec install script
+967 verbose unsafe-perm in lifecycle false
+968 verbose unlock done using /Users/Tom/.npm/_locks/base64-f0fdcf340af9c45f.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+969 verbose unsafe-perm in lifecycle false
+970 info postinstall bufferutil@1.0.1
+971 verbose unlock done using /Users/Tom/.npm/_locks/bufferutil-9dcad54c64833665.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/bufferutil
+972 info postinstall utf-8-validate@1.0.1
+973 verbose unlock done using /Users/Tom/.npm/_locks/utf-8-validate-0d10c6b7ae5a422c.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws/node_modules/utf-8-validate
+974 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+975 info build /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+976 verbose linkStuff [ false,
+976 verbose linkStuff   false,
+976 verbose linkStuff   false,
+976 verbose linkStuff   '/Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules' ]
+977 info linkStuff ws@0.7.1
+978 verbose linkBins ws@0.7.1
+979 verbose linkMans ws@0.7.1
+980 verbose rebuildBundles ws@0.7.1
+981 verbose rebuildBundles [ 'bufferutil', 'options', 'ultron', 'utf-8-validate' ]
+982 info install ws@0.7.1
+983 info postinstall ws@0.7.1
+984 verbose unlock done using /Users/Tom/.npm/_locks/ws-fc5490fadfa0bd7b.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/ws
+985 verbose about to build /Users/Tom/Sites/vizlab/server/node_modules/websockify
+986 verbose unlock done using /Users/Tom/.npm/_locks/websockify-3fedd862dd857e52.lock for /Users/Tom/Sites/vizlab/server/node_modules/websockify
+987 verbose stack Error: base64@2.1.0 install: `node-gyp rebuild`
+987 verbose stack Exit status 1
+987 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:213:16)
+987 verbose stack     at EventEmitter.emit (events.js:110:17)
+987 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:14:12)
+987 verbose stack     at ChildProcess.emit (events.js:110:17)
+987 verbose stack     at maybeClose (child_process.js:1008:16)
+987 verbose stack     at Process.ChildProcess._handle.onexit (child_process.js:1080:5)
+988 verbose pkgid base64@2.1.0
+989 verbose cwd /Users/Tom/Sites/vizlab/server
+990 error Darwin 14.1.0
+991 error argv "node" "/usr/local/bin/npm" "install" "websockify"
+992 error node v0.12.0
+993 error npm  v2.5.1
+994 error code ELIFECYCLE
+995 error base64@2.1.0 install: `node-gyp rebuild`
+995 error Exit status 1
+996 error Failed at the base64@2.1.0 install script 'node-gyp rebuild'.
+996 error This is most likely a problem with the base64 package,
+996 error not with npm itself.
+996 error Tell the author that this fails on your system:
+996 error     node-gyp rebuild
+996 error You can get their info via:
+996 error     npm owner ls base64
+996 error There is likely additional logging output above.
+997 verbose exit [ 1, true ]
+998 verbose unbuild node_modules/websockify/node_modules/base64
+999 info preuninstall base64@2.1.0
+1000 info uninstall base64@2.1.0
+1001 verbose unbuild rmStuff base64@2.1.0 from /Users/Tom/Sites/vizlab/server/node_modules
+1002 verbose unbuild rmStuff in /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules
+1003 info postuninstall base64@2.1.0
+1004 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+1005 silly gentlyRm purging /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules/base64
+1006 silly gentlyRm quitting because other entries in /Users/Tom/Sites/vizlab/server/node_modules/websockify/node_modules
+1007 verbose unbuild node_modules/websockify
+1008 info preuninstall websockify@0.6.2
+1009 info uninstall websockify@0.6.2
+1010 verbose unbuild rmStuff websockify@0.6.2 from /Users/Tom/Sites/vizlab/server/node_modules
+1011 verbose gentlyRm verifying that /Users/Tom/Sites/vizlab/server is managed by npm
+1012 silly isManaged /Users/Tom/Sites/vizlab/server is not inside /Users/Tom/Sites/vizlab/server/node_modules
+1013 silly isManaged /Users/Tom/Sites/vizlab/server is not inside /Users/Tom/Sites/vizlab/server/node_modules
+1014 silly isManaged /Users/Tom/Sites/vizlab/server is inside /Users/Tom/Sites/vizlab/server
+1015 silly gentlyRm /Users/Tom/Sites/vizlab/server is managed by npm
+1016 silly gentlyRm /Users/Tom/Sites/vizlab/server/node_modules/.bin/websockify is under /Users/Tom/Sites/vizlab/server
+1017 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/.bin/websockify up to /Users/Tom/Sites/vizlab/server
+1018 info postuninstall websockify@0.6.2
+1019 verbose gentlyRm vacuuming /Users/Tom/Sites/vizlab/server/node_modules/websockify
+1020 silly gentlyRm purging /Users/Tom/Sites/vizlab/server/node_modules/websockify
+1021 silly gentlyRm removing /Users/Tom/Sites/vizlab/server/node_modules
+1022 silly gentlyRm finished vacuuming up to /Users/Tom/Sites/vizlab/server
