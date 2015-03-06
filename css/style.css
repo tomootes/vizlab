@@ -28,6 +28,13 @@ canvas {
   margin-top: 10px;
 }
 
+#draw-controls{
+  position: absolute;
+  bottom: 60px;
+  padding: 10px;
+  background: rgba(0,0,0,0.1);
+}
+
 #controls{
   position: absolute;
   bottom: 0px;

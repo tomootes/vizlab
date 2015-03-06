@@ -1,6 +1,0 @@
-function tsv() {
-  // constructor
-  (function() {
-    
-  })();
-}
