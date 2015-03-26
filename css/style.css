@@ -25,7 +25,7 @@ canvas {
   border: 1px solid #adadad;
   float: right;
   height: 10px;
-  margin-top: 10px;
+  margin-top: 8px;
 }
 
 #draw-controls{
@@ -41,6 +41,10 @@ canvas {
   width: 100%;
   padding: 10px;
   background: rgba(0,0,0,0.1);
+}
+
+#controls-container{
+  position: relative;
 }
 
 .ui-slider {
@@ -75,4 +79,23 @@ canvas {
 
 #slider-holder{
   margin-left: 220px;
+  margin-right: 115px;
 }
+
+.iteration-label{
+  float: right;
+  display: inline-block;
+  height: 28px;
+  font-size: 15px;
+  line-height: 28px;
+}
+
+#animation-speed-label{
+  float: left;
+  display: inline-block;
+  height: 28px;
+  margin-left: 10px;
+  font-size: 15px;
+  line-height: 28px;  
+}
+

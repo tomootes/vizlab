@@ -7,10 +7,11 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
 
-		<script src="js/stats.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
 		<script src="js/tsv.js"></script>
 		<script src="js/marker.js"></script>
-				<script src="js/connector.js"></script>
+		<script src="js/controls.js"></script>
+		<script src="js/connection.js"></script>
 		<script src="js/controls/OrbitalControls.js"></script>
 
 		<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -24,42 +25,48 @@
 		-->
 		<div class="container">
 			<div id="draw-controls">
-				<button type="button" class="btn btn-default">
-					<span id="add-connector" class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-				</button>	
-				<button type="button" class="btn btn-default">
-					<span id="delete-connector" class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-				</button>	
-				<button type="button" class="btn btn-default">	
-					<span id="delete-connectors" class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
-				</button>
-				<button type="button" class="btn btn-default">	
-					<span id="delete-connectors" class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+				<div class="btn-group btn-group-md" role="group" aria-label="...">
+					<button id="add-connection" type="button" class="btn btn-default">
+						<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+					</button>	
+					<button type="button" id="delete" class="btn btn-default">
+						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+					</button>	
+				</div>
+
+				<div class="btn-group btn-group-md" role="group" aria-label="...">
+					<button type="button" class="btn btn-default" id="selected-larger">
+						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+					</button>
+					<button type="button" class="btn btn-default" id="selected-smaller">	
+						<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
+					</button>
+				</div>
+				<button id="toggle-skeleton" type="button" class="btn btn-default" id="selected-smaller">	
+					<span id="skeleton-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 				</button>
 			</div>
 		</div>
 		<div id="controls">
-			<div class="container">
+			<div class="container" id="controls-container">
 
 				<div id="buttons-holder">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button type="button" class="btn btn-default">
-							<span class="glyphicon glyphicon-fast-backward" aria-hidden="true"></span>
-						</button>
-						<button type="button" class="btn btn-default">
+						<button id="slowdown-animation" type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 						</button>
 						<button id="play-button" type="button" class="btn btn-default">
 							<span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
 						</button>
-						<button type="button" class="btn btn-default">
+						<button  id="speedup-animation" type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
-						</button>
-						<button type="button" class="btn btn-default">
-							<span class="glyphicon glyphicon-fast-forward" aria-hidden="true"></span>
 						</button>
 					</div>
 				</div>
+
+				<span id="animation-speed-label">Default</span>
+
+				<span class="iteration-label" id="iteration">Default</span>
 
 				<div id="slider-holder">
 					<div id="slider"></div>
@@ -76,78 +83,49 @@
 
 			var container, mesh, geometry, light, plane;
 
-			var colors=["green","green","orange","orange","red","blue","blue","blue","blue","black","black","black","black","black","black","black","black","black","black","black","black"];
 			var markers = [];
-			var connectors = [];
+			var marker_radius = 10;
+			var marker_objects = [];
+
+			var connections = [];
+			var connection_radius = 10;
 			var selected = [];
 
 			var windowHalfX = window.innerWidth / 2;
 			var windowHalfY = window.innerHeight / 2;
 
 			var mouse = new THREE.Vector2(), intersected;
-
 			var iteration = 0;
+			var animation_speed = 1;
 
-			var tsv = new Tsv('data/waving.tsv');
+			var tsv = new Tsv('data/angry.tsv');
 			var s = tsv.getFile();
-			var coordinates = tsv.toArray(s);
 
+			var coordinates = tsv.toArray(s, 10);
+
+			var number_of_coordinates = ( coordinates.length - 2 );
+
+			var selected_marker_color = "#72D874";
+			var marker_color = "#000000";
+			var connection_color = "#000000";
+			var skeleton_visible = true;
 			var paused = false;
 
+			var stats = new Stats();
+  		stats.setMode(0); // 0: fps, 1: ms
+
+  		// align top-left
+  		stats.domElement.style.position = 'absolute';
+  		stats.domElement.style.left = '0px';
+  		stats.domElement.style.top = '0px';
+
+  		document.body.appendChild( stats.domElement );
+
 			init();
-			
 			animate();
 
 			function init(){
-
-			var ws=new WebSocket("ws://localhost:27016", ['binary','base64']);
-		    ws.onopen = function() {
-        	console.log("WebSockets connection opened");
-        	ws.send("a test message");
-    		}
-				ws.onmessage = function(e) {
-					console.log(e.data);
-				
-    		}
-
-    		console.log(ws);
-
-				$( "#play-button" ).click(function() {
-	  				if(paused != true){
-	  					paused = true;
-	  					document.getElementById("play-icon").className = "glyphicon glyphicon-play";
-	  				}else{
-	  					paused = false
-	  					document.getElementById("play-icon").className = "glyphicon glyphicon-pause";
-	  				}
-				});
-
-				// Create a connector, to do so, pass selected points
-				$( "#add-connector" ).click(function() {
-					var connector = new Connector(selected[0].index, selected[1].index);
-					connector.draw(markers,scene);
-					connectors.push(connector);
-					console.log(connectors);
-				});
-
-
-				$("#slider").slider(
-					{
-						value:iteration,
-						min: 0,
-						max: ( coordinates.length -2),
-						step: 1,
-						slide: function(event, ui) {
-							paused = true;
-							iteration = ui.value;
-							controls.enabled = false;
-						},
-						stop: function(event, ui) {
-							paused = false;
-							controls.enabled = true;
-						}
-					}
-				);
+				initUI();
 
 				container = document.createElement('div');
 				$('body').prepend(container);
@@ -159,16 +137,16 @@
 				camera.position.z = 300;
 			 	camera.up = new THREE.Vector3( 0, 0, 1 );
 
-			  	// Create a new scene
+			  // Create a new scene
 				scene = new THREE.Scene();
 
 				// Create grey floor
 				var groundMaterial = new THREE.MeshPhongMaterial({
-					color: 0x444444
+					color: "#ff0000"
 				});
 				plane = new THREE.Mesh(new THREE.PlaneGeometry(1500, 1500), groundMaterial);
 				plane.receiveShadow = true;
-				scene.add(plane);
+				// scene.add(plane);
 
 				// Setup lights and add to scene
 				light = new THREE.DirectionalLight(0xdfebff, 1.75);
@@ -176,17 +154,16 @@
 				light.position.multiplyScalar(1.3);
 				scene.add(light);
 
-				var tsv = new Tsv('data/waving.tsv');
-
 				// Draw markers for the first line in coordinates[]
 				for(var i=0;i<coordinates[0].length;i++){
-					marker = new Marker(i,colors[i],coordinates[0][i][0],coordinates[0][i][0],coordinates[0][i][0],25);	
-					markers[i] = marker.draw();
-					scene.add(markers[i]);
+					marker = new Marker(i,coordinates[0][i][0],coordinates[0][i][0],coordinates[0][i][0],25);	
+					marker.draw(marker_radius);
+					markers.push(marker);
+					scene.add(marker.object);
 				}
 
 				// RENDERER
-				webglRenderer = new THREE.WebGLRenderer();
+				webglRenderer = new THREE.WebGLRenderer({antialias : true});
 				webglRenderer.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 				webglRenderer.setClearColor( 0xffffff, 1);
 				webglRenderer.domElement.style.position = "relative";
@@ -206,103 +183,39 @@
 				document.addEventListener( 'mousedown', onDocumentMouseDown, false );
 			}
 
-			function onKeyDown(e) {
-				if (e.keyCode == 0 || e.keyCode == 32) {
-    				if(paused != true){
-	  					paused = true;
-	  					document.getElementById("play-icon").className = "glyphicon glyphicon-play";
-	  				}else{
-	  					paused = false
-	  					document.getElementById("play-icon").className = "glyphicon glyphicon-pause";
-	  				}
-  				}
-			}
-
-			function onWindowResize() {
-				windowHalfX = window.innerWidth / 2;
-				windowHalfY = window.innerHeight / 2;
-
-				camera.aspect = window.innerWidth / window.innerHeight;
-				camera.updateProjectionMatrix();
-
-				webglRenderer.setSize(window.innerWidth, window.innerHeight);
-			}
-
-			function onDocumentMouseDown( event ) {
-
-				event.preventDefault();
-
-				mouse.x = ( event.clientX / window.innerWidth ) * 2 - 1;
-				mouse.y = - ( event.clientY / window.innerHeight ) * 2 + 1;
-
-				// find intersections
-
-				raycaster.setFromCamera( mouse, camera );
-
-				var intersects = raycaster.intersectObjects( scene.children );
-
-				if ( intersects.length > 0 ) {
-
-					if ( intersected != intersects[ 0 ].object ) {
-
-						if ( intersected ) intersected.material.emissive.setHex( intersected.currentHex );
-						intersected = intersects[ 0 ].object;
-						
-						// If there are to selected, shift second to first place, add new one
-						if(selected.length == 2){
-							selected[0].selected = false;
-							selected[0] = selected[1];
-							selected[1] = intersected;
-						}else{
-							selected.push(intersected);
-						}
-						
-						intersected.selected = true;
-						intersected.currentHex = intersected.material.emissive.getHex();
-						intersected.material.emissive.setHex( 0xff0000 );
-					}
-				} else {
-					if ( intersected ) intersected.material.emissive.setHex( intersected.currentHex );
-					intersected = null;
-				}
-
-			}
-
 			function animate(){	
+
+				stats.begin();
 
 				$('#slider').slider('value', iteration);
 
 				// Updates markers
 				for(var i = 0; i < markers.length; i++){
-					markers[i].position.set(coordinates[iteration][i][0], coordinates[iteration][i][1], coordinates[iteration][i][2]);
-					if(markers[i].selected == true){
-						markers[i].material.color.setHex( 0xffffff );
-					}else{
-						markers[i].material.color.set( colors[i] );
-					}
+					markers[i].update();
 				}
-				for(var i = 0; i < connectors.length; i++){
-					connectors[i].update;
-					console.log(connectors[i]);
+
+				// Update connections
+				for(var i = 0; i < connections.length; i++){
+					connections[i].update();
 				}
+
 				requestAnimationFrame(animate);
+
+				// Update frames in interface
+				$('#iteration').html(iteration + " / " + number_of_coordinates );
+
+				// Iterate of not paused
+				if(iteration < ( number_of_coordinates - animation_speed ) && paused == false){
+					iteration = iteration + (1 * animation_speed );
+				}
 
 				render();
 
+				stats.end();
 			}
 
 			function render() {
 				webglRenderer.render(scene, camera);
-
-				// find intersections
-
-				camera.updateMatrixWorld();
-
-
-				if(iteration < (coordinates.length-2) && paused == false){
-					iteration = iteration + 1;	
-				}
-
 			}
 
 		</script>
