@@ -93,73 +93,7 @@
       var coordinate_strings = [];
       var marker_coordinates = [];
 
-      var initiated = false;
-
-      var ws = new WebSocket("ws://localhost:27016", ['binary','base64']);
-      ws.binaryType = 'arraybuffer';
-      console.log(ws);
-
-      ws.onopen = function() {
-        console.log("WebSockets connection opened");
-        ws.send("a test message");
-      }
-
-      ws.onmessage = function(e) {
-        var buffer = new Uint8Array(e.data);
-        var str = String.fromCharCode.apply(null, buffer);
-
-        console.log(str);
-
-        var c_array = toArray(str);
-
-        marker_coordinates.push(c_array);     
-
-        // var current_coordinates = toCoordinates(cArray);
-
-        // coordinates.push(current_coordinates);
-
-        if(initiated == false){
-          init();     
-          animate();
-          initiated = true;
-        }
-
-      }    
-
-      function toArray(s){
-        var arr = s.split('\t');
-        console.log(arr);
-        var iterator = 0;
-        var temp_array = [];
-        return_arr = [];
-
-        for(i=0;i<arr.length;i++){
-          console.log(i);
-          temp_array.push(arr[i]);
-          console.log(temp_array);
-          if(temp_array.length == 3){
-            console.log(temp_array);
-            return_arr.push(temp_array);
-            temp_array = [];
-          }
-        }
-        return return_arr;
-      }
-
-      function toCoordinates(a){
-        var arr = a;
-        var current_coordinates = [];
-        var newArray = [];
-
-        for(i=0;arr.length;i++){
-          current_coordinates.push(arr[i]);
-          if(current_coordinates.length == 3){
-            newArray.push(current_coordinates);
-            current_coordinates = [];
-          }
-        }
-        return newArray;
-      }
+      var initiated = false;    
       
       function init(){
 

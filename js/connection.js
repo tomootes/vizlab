@@ -1,89 +1,91 @@
-function Connection(m1, m2, color){
-    this.m1 = m1;
-    this.m2 = m2;
-    this.index = connections.length;
+function Connection(m1, m2){
+  this.m1 = m1;
+  this.m2 = m2;
+  this.index = connections.length;
 
-    this.draw = function(){
+  this.draw = function(){
+    var x1 = markers[m1].object.position.x;
+    var y1 = markers[m1].object.position.y;
+    var z1 = markers[m1].object.position.z;
+    var x2 = markers[m2].object.position.x;
+    var y2 = markers[m2].object.position.y;
+    var z2 = markers[m2].object.position.z;
 
-      var curve = new THREE.SplineCurve3([
-        new THREE.Vector3(markers[m1].object.position.x,markers[m1].object.position.y,markers[m1].object.position.z), 
-        new THREE.Vector3(markers[m2].object.position.x,markers[m2].object.position.y,markers[m2].object.position.z)
-      ]);
+    var material = new THREE.LineBasicMaterial({
+        color: connectionColor,
+        linewidth: connectionWidth
+    });
 
-      var line = new THREE.LineCurve3(
-        new THREE.Vector3(markers[m1].object.position.x,markers[m1].object.position.y,markers[m1].object.position.z), 
-        new THREE.Vector3(markers[m2].object.position.x,markers[m2].object.position.y,markers[m2].object.position.z)
-      );
+    var v1 = new THREE.Vector3(x1, y1, z1);
+    var v2 = new THREE.Vector3(x2, y2, z2);
 
-      var geometry = new THREE.TubeGeometry(
-          curve,  //path
-          5,    //segments
-          connection_radius,     //radius
-          5,     //radiusSegments
-          false  //closed
-      );
-      geometry.dynamic = true;
-      geometry.verticesNeedUpdate = true;
+    var geometry = new THREE.Geometry();
+    geometry.vertices.push(v1, v2);
+    geometry.dynamic = true;
+    geometry.verticesNeedUpdate = true;
 
-      var material = new THREE.MeshPhongMaterial( {color: color} );
+    var connection = new THREE.Line(geometry, material);
 
-      var connection = new THREE.SkinnedMesh( geometry, material, true );
-      connection.matrixAutoUpdate = true;
-      connection.index = this.index;
-      connection.type = "connection";
-      this.object = connection;
-      scene.add(this.object);
+    connection.matrixAutoUpdate = true;
+    connection.index = this.index;
+    connection.type = "connection";
+    this.object = connection;
+    scene.add(this.object);
+  }
+
+  this.update = function(selected, markers){
+    var x1 = markers[m1].object.position.x;
+    var y1 = markers[m1].object.position.y;
+    var z1 = markers[m1].object.position.z;
+    var x2 = markers[m2].object.position.x;
+    var y2 = markers[m2].object.position.y;
+    var z2 = markers[m2].object.position.z;
+  
+    // Update the vertices of the object    
+    this.object.geometry.vertices[0].x = x1;
+    this.object.geometry.vertices[0].y = y1;
+    this.object.geometry.vertices[0].z = z1; 
+    this.object.geometry.vertices[1].x = x2;
+    this.object.geometry.vertices[1].y = y2;
+    this.object.geometry.vertices[1].z = z2; 
+    this.object.geometry.verticesNeedUpdate = true;
+
+    // Update widt of the line
+    this.object.material.linewidth = connectionWidth;
+
+    // Check if selected via selected() 
+    var selected = this.selected();
+
+    if(selected == true){
+      this.object.material.color.set( selectedConnectionColor );
+    }else{
+      this.object.material.color.set( connectionColor );
     }
+  }
 
-    this.update = function(){
+  this.remove = function(){
+    scene.remove(this.object);
+  }
 
-      var curve = new THREE.SplineCurve3([
-        new THREE.Vector3(markers[m1].object.position.x,markers[m1].object.position.y,markers[m1].object.position.z), 
-        new THREE.Vector3(markers[m2].object.position.x,markers[m2].object.position.y,markers[m2].object.position.z)
-      ]);
+  this.selected = function(){
+    var r = false;
+    if(selected.length > 0){
 
-      var geometry = new THREE.TubeGeometry(
-          curve,  //path
-          5,    //segments
-          connection_radius,     //radius
-          5,     //radiusSegments
-          false  //closed
-      );
-
-      // Update geometry
-      this.object.geometry = geometry;
-
-      var selected = this.selected();
-
-      if(selected == true){
-        this.object.material.color.set( selected_marker_color );
-      }else{
-        this.object.material.color.set( marker_color );
-      }
-    }
-
-    this.remove = function(){
-      scene.remove(this.object);
-    }
-
-    this.selected = function(){
-      var r = false;
-      if(selected.length > 0){
-
-        for(i=0;i<selected.length;i++){
+      for(i=0;i<selected.length;i++){
+        
+        if(selected[i].type == "connection"){
           
-          if(selected[i].type == "connection"){
-            
-            if(selected[i].index == this.index){
+          if(selected[i].index == this.index){
 
-              r = true;
+            r = true;
 
-            }
           }
         }
-        return r
-      }else{
-        return false
       }
+      return r
+    }else{
+      return false
     }
+  }
+
 }

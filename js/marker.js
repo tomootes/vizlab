@@ -1,24 +1,21 @@
-function Marker(index, x, y, z){
+function Marker(index){
     this.index = index;
-    this.x = x;
-    this.y = y;
-    this.z = z;
     
-    this.draw = function(radius){
-      var geometry = new THREE.SphereGeometry(radius , 16, 16 );
-      var color;
-      
-      var selected = this.selected();
+    this.draw = function(){
+      var geometry = new THREE.SphereGeometry(markerRadius , 16, 16 );
+      var is_selected = this.isSelected(selected);
 
       if(selected){
-        color = selected_marker_color;
+        var color = selectedMarkerColor;
       }else{
-        color = marker_color;
+        var color = markerColor;
       }
 
       var material = new THREE.MeshPhongMaterial( {color: color } );
       var marker = new THREE.Mesh( geometry, material );
-      marker.position.set(this.x,this.y,this.z);
+      
+      marker.position.set(coordinates[0][this.index][0],coordinates[0][this.index][1],coordinates[0][this.index][2]);
+
       marker.type = "marker";
       marker.receiveShadow = true;
       marker.castShadow = true;
@@ -27,29 +24,28 @@ function Marker(index, x, y, z){
       scene.add(this.object);
     }
 
-    this.update = function(){
-         
+    this.update = function(selected, coordinates, iteration){
       this.object.position.set(coordinates[iteration][index][0], coordinates[iteration][index][1], coordinates[iteration][index][2]);
-
-      var selected = this.selected();
+      var selected = this.isSelected(selected);
       if(selected){
-        this.object.material.color.set( selected_marker_color );
+        this.object.material.color.set( selectedMarkerColor );
       }else{
-        this.object.material.color.set( marker_color );
+        this.object.material.color.set( markerColor );
       }
-
     }
 
     this.remove = function(){
       scene.remove(this.object);
     }
 
-    this.selected = function(){
+    this.isSelected = function(selected){
       var r = false;
       if(selected.length > 0){
         for(i=0;i<selected.length;i++){
-          if(selected[i].index == this.index){
-            r = true;
+          if( selected[i].type == "marker" ){
+            if( selected[i].index == this.index ){
+              r = true;
+            }
           }
         }
         return r
