@@ -1,5 +1,14 @@
 body { 
   margin: 0; 
+  overflow:hidden;
+  background: #ddd;
+}
+.overlay{
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
 }
 canvas { 
   width: 100%; height: 100% 
@@ -17,6 +26,12 @@ a{
   display: none;
   margin: 10px;
 }
+.btn-group-md button img{
+  height: 14px;
+}
+.btn-group-lg button img{
+  height: 18px;
+}
 #loader{
   position: absolute;
   left: 0px;
@@ -33,12 +48,17 @@ a{
 }
 
 .file-title-holder{
-  position: absolute;
-  top: 0px;
+  display: inline-block;
   width: 100%;
-  padding: 10px;
+  padding: 4px;
   background: rgba(0,0,0,0.1);
   text-align: center;
+}
+
+.file-title-holder .instructions{
+  float: right;
+  display: inline-block;
+  font-size: 25px;
 }
 
 .active{
@@ -46,31 +66,57 @@ a{
 }
 
 .file-title-holder h1{
+  display: inline-block;
   margin: 0px !important;
   font-size: 20px;
 }
 
 #slider{
   width: 100%;
-  background: white;
-  border: 1px solid #adadad;
+  background: darkgrey;
+  /* border: 1px solid darkgrey; */
   float: right;
-  height: 10px;
-  margin-top: 8px;
+  height: 11px;
+  margin-top: 9px;
 }
 
-#draw-controls{
-  position: absolute;
-  bottom: 60px;
-  padding: 10px;
-  background: rgba(0,0,0,0.1);
+#draw-controls-container{
+  border: 1px solid rgba(0,0,0,0.2);
+  display: inline-block;
+  float: left;
+  margin: 5px;
+}
+#draw-controls-container .draw-controls:first-child{
+  margin: 5px 5px 5px;
+}
+
+.draw-controls{
+  padding: 0px 5px;
+  margin: 0px 5px 5px;
+  display: inline-block;
+  text-align: center;
+  float: left;
+  clear: both;
+  width: 90px;
+}
+
+.draw-controls .btn-row{
+  margin: 5px 0px;
+}
+
+.skeleton-controls{
+  background: rgba(136, 136, 136, 0.2);
+}
+
+.selected-controls{
+  background: rgba(114, 216, 116, 0.2);
 }
 
 #controls{
   position: absolute;
   bottom: 0px;
   width: 100%;
-  padding: 10px;
+  padding: 5px 10px;
   background: rgba(0,0,0,0.1);
 }
 
@@ -93,7 +139,7 @@ a{
   cursor: pointer;
   -ms-touch-action: none;
   touch-action: none;
-  margin: -5px;
+  margin: -5px 0px 0px -10px;
 }
 .ui-slider .ui-slider-range {
   position: absolute;
@@ -109,8 +155,8 @@ a{
 }
 
 #slider-holder{
-  margin-left: 220px;
-  margin-right: 115px;
+  margin-left: 260px;
+  margin-right: 120px;
 }
 
 .iteration-label{
@@ -134,3 +180,83 @@ a{
   margin: 10px 0px;
   text-align: center;
 }
+
+
+.function-container{
+}
+
+.function-container .function-block{
+  padding: 5px;
+  background:#E4E4E4;
+  display: inline-block;
+  border-radius: 4px;
+  vertical-align: top;
+  margin: 2px 20px;
+}
+
+.function-container .function-block .function{
+  clear: both;
+  float: left;
+  width: 100%;
+  margin: 2px 0px;
+}
+
+.function-container .function{
+  border: 1px solid #646464;
+  border-radius: 2px;
+  padding: 3px 5px;
+  vertical-align: top;
+  font-size: 12px;
+  display: inline-block;
+}
+
+.function-container .function .icon{
+  width: 10px;
+  height: 10px;
+}
+
+.function-container .function .icon img{
+  height: 100%;
+}
+
+.function-container .function-row{
+  text-align: center;
+  margin: 10px;
+}
+
+.function-container .function-row .first-function{
+  /* margin: -10px 0px 0px 0px; */
+}
+
+.function-container .function-row .row-container{
+  display: inline-block;
+}
+
+.function-container .arrow{
+  position: relative;
+  display: inline-block;
+}
+
+.function-container .arrow-to-side{
+  margin: 20px 0px 0px 0px;
+}
+
+.function-container .arrow-left{
+  width: 80px;
+}
+
+.function-container .arrow-right{
+  width: 80px;
+}
+
+.function-container .converge{
+  width: 260px;
+}
+
+.function-container .arrow img{  
+  width: 100%;
+}
+
+.function-container .arrow .function{
+}
+ 

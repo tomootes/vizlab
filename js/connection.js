@@ -1,7 +1,6 @@
 function Connection(m1, m2){
   this.m1 = m1;
   this.m2 = m2;
-  this.index = connections.length;
 
   this.draw = function(){
     var x1 = markers[m1].object.position.x;
@@ -12,8 +11,8 @@ function Connection(m1, m2){
     var z2 = markers[m2].object.position.z;
 
     var material = new THREE.LineBasicMaterial({
-        color: connectionColor,
-        linewidth: connectionWidth
+      color: connectionColor,
+      linewidth: connectionWidth
     });
 
     var v1 = new THREE.Vector3(x1, y1, z1);
@@ -34,6 +33,7 @@ function Connection(m1, m2){
   }
 
   this.update = function(selected, markers){
+    // Create variables with 
     var x1 = markers[m1].object.position.x;
     var y1 = markers[m1].object.position.y;
     var z1 = markers[m1].object.position.z;
@@ -54,38 +54,35 @@ function Connection(m1, m2){
     this.object.material.linewidth = connectionWidth;
 
     // Check if selected via selected() 
-    var selected = this.selected();
-
-    if(selected == true){
+    var s = this.isSelected();
+    if(s == true){
       this.object.material.color.set( selectedConnectionColor );
     }else{
       this.object.material.color.set( connectionColor );
     }
   }
 
-  this.remove = function(){
-    scene.remove(this.object);
+  this.isSelected = function(){
+    var s = false;
+    for(o=0;o<selected.length;o++){
+      var suuid = selected[o].uuid;
+      var tuuid = this.object.uuid;
+      if(suuid == tuuid){
+        s = true;
+      }
+    }
+    return s;
   }
 
-  this.selected = function(){
-    var r = false;
-    if(selected.length > 0){
-
-      for(i=0;i<selected.length;i++){
-        
-        if(selected[i].type == "connection"){
-          
-          if(selected[i].index == this.index){
-
-            r = true;
-
-          }
-        }
+  this.remove = function(){
+    scene.remove(this.object);
+    for(i=0;i<connections.length;i++){
+      var suuid = connections[i].object.uuid;
+      var tuuid = this.object.uuid;
+      if(suuid == tuuid){
+        connections.splice(i, 1);
       }
-      return r
-    }else{
-      return false
-    }
+    } 
   }
 
 }

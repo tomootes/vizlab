@@ -1,56 +1,52 @@
 function Marker(index){
-    this.index = index;
+  this.index = index;
+  
+  this.draw = function(){
+    var geometry = new THREE.SphereGeometry(markerRadius , 16, 16 );
+    var is_selected = this.isSelected(selected);
+
+    if(selected){
+      var color = selectedMarkerColor;
+    }else{
+      var color = markerColor;
+    }
+
+    var material = new THREE.MeshPhongMaterial( {color: color } );
+    var marker = new THREE.Mesh( geometry, material );
     
-    this.draw = function(){
-      var geometry = new THREE.SphereGeometry(markerRadius , 16, 16 );
-      var is_selected = this.isSelected(selected);
+    marker.position.set(coordinates[0][this.index][0],coordinates[0][this.index][1],coordinates[0][this.index][2]);
 
-      if(selected){
-        var color = selectedMarkerColor;
-      }else{
-        var color = markerColor;
-      }
+    marker.type = "marker";
+    marker.receiveShadow = true;
+    marker.castShadow = true;
+    marker.index = this.index;
+    this.object = marker;
+    scene.add(this.object);
+  }
 
-      var material = new THREE.MeshPhongMaterial( {color: color } );
-      var marker = new THREE.Mesh( geometry, material );
-      
-      marker.position.set(coordinates[0][this.index][0],coordinates[0][this.index][1],coordinates[0][this.index][2]);
-
-      marker.type = "marker";
-      marker.receiveShadow = true;
-      marker.castShadow = true;
-      marker.index = this.index;
-      this.object = marker;
-      scene.add(this.object);
+  this.update = function(selected, coordinates, iteration){
+    this.object.position.set(coordinates[iteration][index][0], coordinates[iteration][index][1], coordinates[iteration][index][2]);
+    var selected = this.isSelected(selected);
+    if(selected){
+      this.object.material.color.set( selectedMarkerColor );
+    }else{
+      this.object.material.color.set( markerColor );
     }
+  }
 
-    this.update = function(selected, coordinates, iteration){
-      this.object.position.set(coordinates[iteration][index][0], coordinates[iteration][index][1], coordinates[iteration][index][2]);
-      var selected = this.isSelected(selected);
-      if(selected){
-        this.object.material.color.set( selectedMarkerColor );
-      }else{
-        this.object.material.color.set( markerColor );
+  this.isSelected = function(){
+    var s = false;
+    for(o=0;o<selected.length;o++){
+      var suuid = selected[o].uuid;
+      var tuuid = this.object.uuid;
+      if(suuid == tuuid){
+        s = true;
       }
     }
+    return s;
+  }
 
-    this.remove = function(){
-      scene.remove(this.object);
-    }
-
-    this.isSelected = function(selected){
-      var r = false;
-      if(selected.length > 0){
-        for(i=0;i<selected.length;i++){
-          if( selected[i].type == "marker" ){
-            if( selected[i].index == this.index ){
-              r = true;
-            }
-          }
-        }
-        return r
-      }else{
-        return false
-      }
-    }
+  this.remove = function(){
+    scene.remove(this.object);
+  }
 }
