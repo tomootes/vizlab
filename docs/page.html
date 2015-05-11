@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>index.php</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>index.php</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt;Vizlab 1&lt;/title&gt;
+		&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"&gt;&lt;/script&gt;
+		&lt;script src="js/webgl-debug.js"&gt;&lt;/script&gt;
+		&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"&gt;&lt;/script&gt;
+		&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.js"&gt;&lt;/script&gt;
+		&lt;script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"&gt;&lt;/script&gt;
+		&lt;script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"&gt;&lt;/script&gt;
+
+		&lt;script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"&gt;&lt;/script&gt;
+		&lt;script src="js/tsv.js"&gt;&lt;/script&gt;
+		&lt;script src="js/marker.js"&gt;&lt;/script&gt;
+
+		&lt;script src="js/connection.js"&gt;&lt;/script&gt;
+		&lt;script src="js/websocket.js"&gt;&lt;/script&gt;
+
+
+		&lt;script src="js/animate_from_file.js"&gt;&lt;/script&gt;
+		&lt;script src="js/animate_from_socket.js"&gt;&lt;/script&gt;
+		&lt;script src="js/animate.js"&gt;&lt;/script&gt;
+
+		&lt;script src="js/OrbitalControls.js"&gt;&lt;/script&gt;
+
+		&lt;link rel="stylesheet" type="text/css" href="css/style.css"&gt;
+		&lt;link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+
+		&lt;div class="file-title-holder"&gt;
+			&lt;h1 class="file-title"&gt;&lt;/h1&gt;
+		&lt;/div&gt;
+
+		&lt;div class="container"&gt;
+			&lt;div id="draw-controls-container"&gt;
+
+				&lt;div class="draw-controls skeleton-controls"&gt;&lt;!-- SKELETON BUTTONS --&gt;
+					
+					&lt;span class="btn-group-title"&gt;Skeleton&lt;/span&gt; 
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="toggle-skeleton" type="button" class="btn btn-default"&gt;	
+							&lt;span id="skeleton-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="add-connection" type="button" class="btn btn-default"&gt;
+							&lt;span class="glyphicon glyphicon-plus-sign" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;	
+						&lt;button type="button" id="delete" class="btn btn-default"&gt;
+							&lt;span class="glyphicon glyphicon-trash" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;	
+					&lt;/div&gt;
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="show-load-skeleton-modal" type="button" class="btn btn-default"&gt;	
+							&lt;span class="glyphicon glyphicon-open" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+
+						&lt;button id="show-save-skeleton-modal" type="button" class="btn btn-default"&gt;	
+							&lt;span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt; 
+
+				&lt;div class="draw-controls selected-controls"&gt;&lt;!-- SELECTED BUTTONS --&gt;
+					&lt;span class="btn-group-title"&gt;Selected&lt;/span&gt;
+				
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="toggle-show-selected" type="button" class="btn btn-default"&gt;	
+							&lt;span id="selected-toggle-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;	
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="deselect-all" type="button" class="btn btn-default"&gt;	
+							&lt;img src="images/deselect.svg"&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button type="button" class="btn btn-default" id="selected-larger"&gt;
+							&lt;span class="glyphicon glyphicon-plus" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+						&lt;button type="button" class="btn btn-default" id="selected-smaller"&gt;	
+							&lt;span class="glyphicon glyphicon-minus" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+
+				&lt;/div&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+		&lt;div id="controls"&gt;
+			&lt;div class="container" id="controls-container"&gt;
+				&lt;div id="buttons-holder"&gt;
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="show-socket-modal" type="button" class="btn btn-default"&gt;		
+							&lt;span class="glyphicon glyphicon-transfer"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+
+					&lt;div class="btn-group btn-group-md animate-file-btn-grp" role="group" aria-label="..." style="display:none;"&gt;
+						&lt;button id="animate-file" type="button" class="btn btn-default"&gt;		
+							&lt;span class="glyphicon glyphicon-file"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+
+					&lt;div class="btn-group btn-group-md connect-socket-btn-grp" role="group" aria-label="..."&gt;
+						&lt;button id="show-files-list" type="button" class="btn btn-default"&gt;	
+							&lt;span class="glyphicon glyphicon-th-list" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+
+					&lt;div class="btn-group btn-group-md" role="group" aria-label="..."&gt;
+						&lt;button id="slowdown-animation" type="button" class="btn btn-default"&gt;
+							&lt;span class="glyphicon glyphicon-backward" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+						&lt;button id="play-button" type="button" class="btn btn-default"&gt;
+							&lt;span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+						&lt;button  id="speedup-animation" type="button" class="btn btn-default"&gt;
+							&lt;span class="glyphicon glyphicon-forward" aria-hidden="true"&gt;&lt;/span&gt;
+						&lt;/button&gt;
+					&lt;/div&gt;
+				&lt;/div&gt;
+
+				&lt;span id="animation-speed-label"&gt;Default&lt;/span&gt;
+				&lt;span class="iteration-label" id="iteration"&gt;Default&lt;/span&gt;
+
+				&lt;div id="slider-holder"&gt;
+					&lt;div id="slider"&gt;&lt;/div&gt;
+				&lt;/div&gt;
+
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div class="alerts"&gt;
+			&lt;div class="alert alert-success" role="alert"&gt;
+			  &lt;a href="#" class="alert-link"&gt;...&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class="alert alert-info" role="alert"&gt;
+			  &lt;a href="#" class="alert-link"&gt;...&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class="alert alert-warning" role="alert"&gt;
+			  &lt;a href="#" class="alert-link"&gt;...&lt;/a&gt;
+			&lt;/div&gt;
+			&lt;div class="alert alert-danger" role="alert"&gt;
+			  &lt;a href="#" class="alert-link"&gt;...&lt;/a&gt;
+			&lt;/div&gt;
+		&lt;/div&gt;
+
+
+		&lt;div id="show-files-modal" class="modal fade"&gt;
+			&lt;div class="modal-dialog"&gt;
+				&lt;div class="modal-content"&gt;
+					&lt;div class="modal-header"&gt;
+						&lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;
+						&lt;h4 class="modal-title"&gt;Load files&lt;/h4&gt;
+					&lt;/div&gt;
+					&lt;div class="modal-body"&gt;
+						&lt;ul&gt;
+							&lt;?php
+								foreach(glob('data/*.tsv') as $filename){
+									echo "&lt;li&gt;&lt;a class='coordinate-file-url'&gt;" . $filename . "&lt;/a&gt;&lt;/li&gt;";
+								}
+							?&gt;
+						&lt;/ul&gt;
+		      &lt;/div&gt;
+		    &lt;/div&gt;
+		  &lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div id="socket-adress-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"&gt;
+			&lt;div class="modal-dialog"&gt;
+				&lt;div class="modal-content"&gt;
+					
+					&lt;div class="modal-header"&gt;
+						&lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;
+						&lt;h4 class="modal-title"&gt;Connect to socket&lt;/h4&gt;
+					&lt;/div&gt;
+
+					&lt;div class="modal-body"&gt;
+
+						&lt;p&gt;Please fill in the sockets' adress&lt;/p&gt;
+													
+						&lt;div class="input-group"&gt;
+						  &lt;span class="input-group-btn"&gt;
+						    &lt;button class="btn btn-default" id="connect-to-socket" type="button"&gt;Connect&lt;/button&gt;
+						  &lt;/span&gt;
+						  &lt;input type="text" class="form-control" id="socket-adress" placeholder="ws://localhost:27015" value="" autofocus=":autofocus"&gt;						      
+						&lt;/div&gt;&lt;!-- /input-group --&gt;
+
+						&lt;div class="row"&gt;
+							&lt;div class="center-block"&gt;
+  							&lt;img id="socket-loader" style="display: none; width:auto; height: 34px;" src="images/reload.svg"/&gt;
+  						&lt;/div&gt;
+  					&lt;/div&gt;
+
+  				&lt;/div&gt;
+		    &lt;/div&gt;
+		  &lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div id="save-skeleton-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"&gt;
+			&lt;div class="modal-dialog"&gt;
+				&lt;div class="modal-content"&gt;
+					
+					&lt;div class="modal-header"&gt;
+						&lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;
+						&lt;h4 class="modal-title"&gt;Save skeleton&lt;/h4&gt;
+					&lt;/div&gt;
+
+					&lt;div class="modal-body"&gt;
+
+						&lt;p&gt;Please fill in the skeletons' name&lt;/p&gt;
+													
+						&lt;div class="input-group"&gt;
+						  &lt;span class="input-group-btn"&gt;
+						    &lt;button class="btn btn-default" id="save-skeleton" type="button"&gt;Save&lt;/button&gt;
+						  &lt;/span&gt;
+						  &lt;input type="text" class="form-control" id="skeleton-name" placeholder="skeleton name" value="" autofocus=":autofocus"&gt;						      
+						&lt;/div&gt;&lt;!-- /input-group --&gt;
+
+						&lt;div class="alert alert-danger" id="enter-name" role="alert"&gt;
+					    &lt;span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"&gt;&lt;/span&gt;
+					    &lt;span class="sr-only"&gt;Error:&lt;/span&gt; please enter a name
+					  &lt;/div&gt;
+
+						&lt;div class="row"&gt;
+							&lt;div class="center-block"&gt;
+  							&lt;img id="socket-loader" style="display: none; width:auto; height: 34px;" src="images/reload.svg"/&gt;
+  						&lt;/div&gt;
+  					&lt;/div&gt;
+
+  				&lt;/div&gt;
+		    &lt;/div&gt;
+		  &lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;div id="load-skeleton-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"&gt;
+			&lt;div class="modal-dialog"&gt;
+				&lt;div class="modal-content"&gt;
+					
+					&lt;div class="modal-header"&gt;
+						&lt;button type="button" class="close" data-dismiss="modal" aria-hidden="true"&gt;&amp;times;&lt;/button&gt;
+						&lt;h4 class="modal-title"&gt;Load skeleton&lt;/h4&gt;
+					&lt;/div&gt;
+
+					&lt;div class="modal-body"&gt;
+
+						&lt;ul id="skeleton-files"&gt;
+
+					  &lt;/ul&gt;
+												
+						&lt;div class="row"&gt;
+							&lt;div class="center-block"&gt;
+  							&lt;img id="socket-loader" style="display: none; width:auto; height: 34px;" src="images/reload.svg"/&gt;
+  						&lt;/div&gt;
+  					&lt;/div&gt;
+
+  				&lt;/div&gt;
+		    &lt;/div&gt;
+		  &lt;/div&gt;
+		&lt;/div&gt;
+
+		&lt;script&gt;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>All variables over here are global variables and can be changed and used throughout the application</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">var</span> camera, scene, raycaster, canvasRenderer, webglRenderer;
+		<span class="hljs-keyword">var</span> controls;
+		<span class="hljs-keyword">var</span> container;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>These </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">var</span> pointerDetectRay, projector, mouse2D;  
+
+		<span class="hljs-keyword">var</span> selected = [];
+		<span class="hljs-keyword">var</span> markers = [];
+		<span class="hljs-keyword">var</span> connections = [];</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Connections global variables</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">var</span> connectionWidth = <span class="hljs-number">5</span>;
+		<span class="hljs-keyword">var</span> connectionColor = <span class="hljs-string">"#000000"</span>;
+		<span class="hljs-keyword">var</span> selectedConnectionColor = <span class="hljs-string">"#72D874"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Markers global variables</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">var</span> markerRadius = <span class="hljs-number">10</span>;
+		<span class="hljs-keyword">var</span> markerColor = <span class="hljs-string">"#000000"</span>;
+		<span class="hljs-keyword">var</span> selectedMarkerColor = <span class="hljs-string">"#72D874"</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Animation variaibles </p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre> 	  <span class="hljs-keyword">var</span> id;
+		<span class="hljs-keyword">var</span> iteration = <span class="hljs-number">0</span>;
+		<span class="hljs-keyword">var</span> animationSpeed = <span class="hljs-number">1</span>;
+		<span class="hljs-keyword">var</span> paused = <span class="hljs-keyword">false</span>;
+		<span class="hljs-keyword">var</span> selectedVisible = <span class="hljs-keyword">true</span>;
+		<span class="hljs-keyword">var</span> skeletonVisible = <span class="hljs-keyword">true</span>;
+		<span class="hljs-keyword">var</span> inputDisabled = <span class="hljs-keyword">false</span>;
+
+		<span class="hljs-keyword">var</span> stats = <span class="hljs-keyword">new</span> Stats();
+
+
+		<span class="hljs-keyword">var</span> filePath = <span class="hljs-string">'data/waving.tsv'</span>;
+		<span class="hljs-keyword">var</span> coordinates = [];
+		<span class="hljs-keyword">var</span> numberOfCoordinates;
+
+		animateFile(filePath);
+
+		&lt;/script&gt;
+		&lt;script src=<span class="hljs-string">"js/controls.js"</span>&gt;&lt;/script&gt;
+
+	&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

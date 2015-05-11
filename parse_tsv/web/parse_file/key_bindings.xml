@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<dartKeyBindings version="1">
+<!--The format is straightforward, consisting of three attributes plus one that is optional.
+The required attributes are the command name, which is the same as it appears in
+menus, and the key sequence, which is all uppercase. The context is an internal identifier
+used to indicate in which portion of the UI the binding is active. The optional attribute
+is the name of the platform to which the binding applies if it is not universal.-->
+<keyBinding commandName="Activate Editor" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+F12" platform="cocoa"/>
+<keyBinding commandName="Backward History" context="org.eclipse.ui.contexts.window" keySequence="ALT+ARROW_LEFT"/>
+<keyBinding commandName="Backward History" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Backward History" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+[" platform="cocoa"/>
+<keyBinding commandName="Close" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+W"/>
+<keyBinding commandName="Close All" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+W"/>
+<keyBinding commandName="Close Glance" context="com.xored.glance.ui.context" keySequence="ESC"/>
+<keyBinding commandName="Content Assist" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="ALT+/"/>
+<keyBinding commandName="Content Assist" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="CTRL+SPACE"/>
+<keyBinding commandName="Copy" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+C"/>
+<keyBinding commandName="Copy Lines" context="org.eclipse.ui.textEditorScope" keySequence="ALT+COMMAND+ARROW_DOWN"/>
+<keyBinding commandName="Cut" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+X"/>
+<keyBinding commandName="Cut to End of Line" context="org.eclipse.ui.textEditorScope" keySequence="ALT+COMMAND+SHIFT+DEL"/>
+<keyBinding commandName="Declaration in Workspace" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+SHIFT+D"/>
+<keyBinding commandName="Delete" context="org.eclipse.ui.contexts.window" keySequence="DEL"/>
+<keyBinding commandName="Delete Line" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+D"/>
+<keyBinding commandName="Delete Next Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+DEL"/>
+<keyBinding commandName="Delete Next Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+DEL" platform="cocoa"/>
+<keyBinding commandName="Delete Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+BS"/>
+<keyBinding commandName="Delete Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+BS" platform="cocoa"/>
+<keyBinding commandName="Delete to End of Line" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+DEL"/>
+<keyBinding commandName="Duplicate Lines" context="org.eclipse.ui.textEditorScope" keySequence="ALT+COMMAND+ARROW_UP"/>
+<keyBinding commandName="Extract Local Variable" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+L" platform="cocoa"/>
+<keyBinding commandName="Extract Method" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+M" platform="cocoa"/>
+<keyBinding commandName="Find Next" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+G"/>
+<keyBinding commandName="Find Next" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+K"/>
+<keyBinding commandName="Find Previous" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+G"/>
+<keyBinding commandName="Find Previous" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+K"/>
+<keyBinding commandName="Find and Replace" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F"/>
+<keyBinding commandName="Format Element" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+R"/>
+<keyBinding commandName="Forward History" context="org.eclipse.ui.contexts.window" keySequence="ALT+ARROW_RIGHT"/>
+<keyBinding commandName="Forward History" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Forward History" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+]" platform="cocoa"/>
+<keyBinding commandName="Go to Line" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+L"/>
+<keyBinding commandName="Go to Matching Bracket" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+SHIFT+P"/>
+<keyBinding commandName="Inline" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+I" platform="cocoa"/>
+<keyBinding commandName="Insert Line Above Current Line" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+CR"/>
+<keyBinding commandName="Insert Line Below Current Line" context="org.eclipse.ui.textEditorScope" keySequence="SHIFT+CR"/>
+<keyBinding commandName="Join Lines" context="org.eclipse.ui.textEditorScope" keySequence="ALT+COMMAND+J"/>
+<keyBinding commandName="Line End" context="org.eclipse.ui.textEditorScope" keySequence="END"/>
+<keyBinding commandName="Line End" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Line Start" context="org.eclipse.ui.textEditorScope" keySequence="HOME"/>
+<keyBinding commandName="Line Start" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Manage Launches" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+M"/>
+<keyBinding commandName="Maximize Active View or Editor" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+M"/>
+<keyBinding commandName="Maximize Active View or Editor" context="org.eclipse.ui.contexts.window" keySequence="CTRL+M" platform="cocoa"/>
+<keyBinding commandName="Move Lines Down" context="org.eclipse.ui.textEditorScope" keySequence="ALT+ARROW_DOWN"/>
+<keyBinding commandName="Move Lines Up" context="org.eclipse.ui.textEditorScope" keySequence="ALT+ARROW_UP"/>
+<keyBinding commandName="New File..." context="org.eclipse.ui.contexts.window" keySequence="COMMAND+N"/>
+<keyBinding commandName="Next Editor" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+F6"/>
+<keyBinding commandName="Next Tab" context="org.eclipse.ui.textEditorScope" keySequence="CTRL+TAB"/>
+<keyBinding commandName="Next Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+ARROW_RIGHT"/>
+<keyBinding commandName="Next Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Open Class Hierarchy" context="org.eclipse.ui.contexts.window" keySequence="F4"/>
+<keyBinding commandName="Open Declaration" context="com.google.dart.tools.ui.dartViewScope" keySequence="F3"/>
+<keyBinding commandName="Open Existing Folder..." context="org.eclipse.ui.contexts.window" keySequence="COMMAND+O"/>
+<keyBinding commandName="Open Glance" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+F"/>
+<keyBinding commandName="Open Selection" context="org.eclipse.wst.sse.ui.structuredTextEditorScope" keySequence="F3"/>
+<keyBinding commandName="Open Structure" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+F3"/>
+<keyBinding commandName="Paste" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+V"/>
+<keyBinding commandName="Previous Editor" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F6"/>
+<keyBinding commandName="Previous Tab" context="org.eclipse.ui.textEditorScope" keySequence="CTRL+SHIFT+TAB"/>
+<keyBinding commandName="Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+ARROW_LEFT"/>
+<keyBinding commandName="Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Properties" context="org.eclipse.ui.contexts.window" keySequence="ALT+CR"/>
+<keyBinding commandName="Properties" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+I" platform="cocoa"/>
+<keyBinding commandName="Quick Fix" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+1"/>
+<keyBinding commandName="Quick Hierarchy" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+T"/>
+<keyBinding commandName="Quick Outline" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+O"/>
+<keyBinding commandName="Quick Switch Editor" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+E"/>
+<keyBinding commandName="Reanalyze Sources" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+SHIFT+B"/>
+<keyBinding commandName="Recenter" context="org.eclipse.ui.textEditorScope" keySequence="ALT+CTRL+SHIFT+R"/>
+<keyBinding commandName="Redo" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+SHIFT+Z"/>
+<keyBinding commandName="References in Workspace" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+SHIFT+U"/>
+<keyBinding commandName="Rename" context="org.eclipse.wst.html.core.htmlsource" keySequence="ALT+COMMAND+R" platform="cocoa"/>
+<keyBinding commandName="Rename - Refactoring " context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+R" platform="cocoa"/>
+<keyBinding commandName="Restore Last Selection" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+SHIFT+ARROW_DOWN"/>
+<keyBinding commandName="Restore Last Selection" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+CTRL+SHIFT+ARROW_DOWN" platform="cocoa"/>
+<keyBinding commandName="Resume" context="org.eclipse.debug.ui.debugging" keySequence="F8"/>
+<keyBinding commandName="Run" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+R"/>
+<keyBinding commandName="Run Script" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F1"/>
+<keyBinding commandName="Run Script" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F2"/>
+<keyBinding commandName="Run Script" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F3"/>
+<keyBinding commandName="Run Script" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F4"/>
+<keyBinding commandName="Run Script" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+F5"/>
+<keyBinding commandName="Save" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+S"/>
+<keyBinding commandName="Save All" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+S"/>
+<keyBinding commandName="Scroll Line Down" context="org.eclipse.ui.textEditorScope" keySequence="CTRL+ARROW_DOWN"/>
+<keyBinding commandName="Scroll Line Up" context="org.eclipse.ui.textEditorScope" keySequence="CTRL+ARROW_UP"/>
+<keyBinding commandName="Search Box" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+3"/>
+<keyBinding commandName="Select All" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+A"/>
+<keyBinding commandName="Select All" context="com.xored.glance.ui.context" keySequence="COMMAND+F"/>
+<keyBinding commandName="Select Enclosing Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+SHIFT+ARROW_UP"/>
+<keyBinding commandName="Select Enclosing Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+CTRL+SHIFT+ARROW_UP" platform="cocoa"/>
+<keyBinding commandName="Select Line End" context="org.eclipse.ui.textEditorScope" keySequence="SHIFT+END"/>
+<keyBinding commandName="Select Line End" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Select Line Start" context="org.eclipse.ui.textEditorScope" keySequence="SHIFT+HOME"/>
+<keyBinding commandName="Select Line Start" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Select Next Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+SHIFT+ARROW_RIGHT"/>
+<keyBinding commandName="Select Next Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="CTRL+SHIFT+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Select Next Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+ARROW_RIGHT"/>
+<keyBinding commandName="Select Next Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+SHIFT+ARROW_RIGHT" platform="cocoa"/>
+<keyBinding commandName="Select Previous Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="ALT+SHIFT+ARROW_LEFT"/>
+<keyBinding commandName="Select Previous Element" context="com.google.dart.tools.ui.dartEditorScope" keySequence="CTRL+SHIFT+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Select Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+ARROW_LEFT"/>
+<keyBinding commandName="Select Previous Word" context="org.eclipse.ui.textEditorScope" keySequence="ALT+SHIFT+ARROW_LEFT" platform="cocoa"/>
+<keyBinding commandName="Select Text End" context="org.eclipse.ui.textEditorScope" keySequence="SHIFT+END" platform="cocoa"/>
+<keyBinding commandName="Select Text Start" context="org.eclipse.ui.textEditorScope" keySequence="SHIFT+HOME" platform="cocoa"/>
+<keyBinding commandName="Shift Left" context="org.eclipse.ui.textEditorScope" keySequence="ALT+CTRL+SHIFT+ARROW_LEFT"/>
+<keyBinding commandName="Shift Right" context="org.eclipse.ui.textEditorScope" keySequence="ALT+CTRL+SHIFT+ARROW_RIGHT"/>
+<keyBinding commandName="Show Key Assist" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+SHIFT+L"/>
+<keyBinding commandName="Show Ruler Context Menu" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+F10"/>
+<keyBinding commandName="Show in Finder" context="org.eclipse.ui.contexts.window" keySequence="ALT+COMMAND+SHIFT+F"/>
+<keyBinding commandName="Step Into" context="org.eclipse.debug.ui.debugging" keySequence="F5"/>
+<keyBinding commandName="Step Over" context="org.eclipse.debug.ui.debugging" keySequence="F6"/>
+<keyBinding commandName="Step Return" context="org.eclipse.debug.ui.debugging" keySequence="F7"/>
+<keyBinding commandName="Terminate" context="org.eclipse.debug.ui.debugging" keySequence="COMMAND+F2"/>
+<keyBinding commandName="Text End" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+END"/>
+<keyBinding commandName="Text End" context="org.eclipse.ui.textEditorScope" keySequence="END" platform="cocoa"/>
+<keyBinding commandName="Text Start" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+HOME"/>
+<keyBinding commandName="Text Start" context="org.eclipse.ui.textEditorScope" keySequence="HOME" platform="cocoa"/>
+<keyBinding commandName="To Lower Case" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+Y"/>
+<keyBinding commandName="To Upper Case" context="org.eclipse.ui.textEditorScope" keySequence="COMMAND+SHIFT+X"/>
+<keyBinding commandName="Toggle Breakpoint" context="org.eclipse.ui.contexts.window" keySequence="COMMAND+SHIFT+B"/>
+<keyBinding commandName="Toggle Comment" context="com.google.dart.tools.ui.dartEditorScope" keySequence="COMMAND+/"/>
+<keyBinding commandName="Toggle Overwrite" context="org.eclipse.ui.textEditorScope" keySequence="INSERT"/>
+<keyBinding commandName="Undo" context="org.eclipse.ui.contexts.dialogAndWindow" keySequence="COMMAND+Z"/>
+</dartKeyBindings>

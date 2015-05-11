@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>stats.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="OrbitalControls.html">
+                  OrbitalControls.js
+                </a>
+              
+                
+                <a class="source" href="animate.html">
+                  animate.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_file.html">
+                  animate_from_file.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_socket.html">
+                  animate_from_socket.js
+                </a>
+              
+                
+                <a class="source" href="animation.html">
+                  animation.js
+                </a>
+              
+                
+                <a class="source" href="connection.html">
+                  connection.js
+                </a>
+              
+                
+                <a class="source" href="controls.html">
+                  controls.js
+                </a>
+              
+                
+                <a class="source" href="init.html">
+                  init.js
+                </a>
+              
+                
+                <a class="source" href="marker.html">
+                  marker.js
+                </a>
+              
+                
+                <a class="source" href="stats.html">
+                  stats.js
+                </a>
+              
+                
+                <a class="source" href="tsv.html">
+                  tsv.js
+                </a>
+              
+                
+                <a class="source" href="webgl-debug.html">
+                  webgl-debug.js
+                </a>
+              
+                
+                <a class="source" href="websocket.html">
+                  websocket.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>stats.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * @author mrdoob / http://mrdoob.com/
+ */</span>
+
+<span class="hljs-keyword">var</span> Stats = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+	<span class="hljs-keyword">var</span> startTime = <span class="hljs-built_in">Date</span>.now(), prevTime = startTime;
+	<span class="hljs-keyword">var</span> ms = <span class="hljs-number">0</span>, msMin = <span class="hljs-literal">Infinity</span>, msMax = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">var</span> fps = <span class="hljs-number">0</span>, fpsMin = <span class="hljs-literal">Infinity</span>, fpsMax = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">var</span> frames = <span class="hljs-number">0</span>, mode = <span class="hljs-number">0</span>;
+
+	<span class="hljs-keyword">var</span> container = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	container.id = <span class="hljs-string">'stats'</span>;
+	container.addEventListener( <span class="hljs-string">'mousedown'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( event )</span> </span>{ event.preventDefault(); setMode( ++ mode % <span class="hljs-number">2</span> ) }, <span class="hljs-literal">false</span> );
+	container.style.cssText = <span class="hljs-string">'width:80px;opacity:0.9;cursor:pointer'</span>;
+
+	<span class="hljs-keyword">var</span> fpsDiv = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	fpsDiv.id = <span class="hljs-string">'fps'</span>;
+	fpsDiv.style.cssText = <span class="hljs-string">'padding:0 0 3px 3px;text-align:left;background-color:#002'</span>;
+	container.appendChild( fpsDiv );
+
+	<span class="hljs-keyword">var</span> fpsText = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	fpsText.id = <span class="hljs-string">'fpsText'</span>;
+	fpsText.style.cssText = <span class="hljs-string">'color:#0ff;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px'</span>;
+	fpsText.innerHTML = <span class="hljs-string">'FPS'</span>;
+	fpsDiv.appendChild( fpsText );
+
+	<span class="hljs-keyword">var</span> fpsGraph = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	fpsGraph.id = <span class="hljs-string">'fpsGraph'</span>;
+	fpsGraph.style.cssText = <span class="hljs-string">'position:relative;width:74px;height:30px;background-color:#0ff'</span>;
+	fpsDiv.appendChild( fpsGraph );
+
+	<span class="hljs-keyword">while</span> ( fpsGraph.children.length &lt; <span class="hljs-number">74</span> ) {
+
+		<span class="hljs-keyword">var</span> bar = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'span'</span> );
+		bar.style.cssText = <span class="hljs-string">'width:1px;height:30px;float:left;background-color:#113'</span>;
+		fpsGraph.appendChild( bar );
+
+	}
+
+	<span class="hljs-keyword">var</span> msDiv = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	msDiv.id = <span class="hljs-string">'ms'</span>;
+	msDiv.style.cssText = <span class="hljs-string">'padding:0 0 3px 3px;text-align:left;background-color:#020;display:none'</span>;
+	container.appendChild( msDiv );
+
+	<span class="hljs-keyword">var</span> msText = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	msText.id = <span class="hljs-string">'msText'</span>;
+	msText.style.cssText = <span class="hljs-string">'color:#0f0;font-family:Helvetica,Arial,sans-serif;font-size:9px;font-weight:bold;line-height:15px'</span>;
+	msText.innerHTML = <span class="hljs-string">'MS'</span>;
+	msDiv.appendChild( msText );
+
+	<span class="hljs-keyword">var</span> msGraph = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'div'</span> );
+	msGraph.id = <span class="hljs-string">'msGraph'</span>;
+	msGraph.style.cssText = <span class="hljs-string">'position:relative;width:74px;height:30px;background-color:#0f0'</span>;
+	msDiv.appendChild( msGraph );
+
+	<span class="hljs-keyword">while</span> ( msGraph.children.length &lt; <span class="hljs-number">74</span> ) {
+
+		<span class="hljs-keyword">var</span> bar = <span class="hljs-built_in">document</span>.createElement( <span class="hljs-string">'span'</span> );
+		bar.style.cssText = <span class="hljs-string">'width:1px;height:30px;float:left;background-color:#131'</span>;
+		msGraph.appendChild( bar );
+
+	}
+
+	<span class="hljs-keyword">var</span> setMode = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( value )</span> </span>{
+
+		mode = value;
+
+		<span class="hljs-keyword">switch</span> ( mode ) {
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:
+				fpsDiv.style.display = <span class="hljs-string">'block'</span>;
+				msDiv.style.display = <span class="hljs-string">'none'</span>;
+				<span class="hljs-keyword">break</span>;
+			<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+				fpsDiv.style.display = <span class="hljs-string">'none'</span>;
+				msDiv.style.display = <span class="hljs-string">'block'</span>;
+				<span class="hljs-keyword">break</span>;
+		}
+
+	};
+
+	<span class="hljs-keyword">var</span> updateGraph = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( dom, value )</span> </span>{
+
+		<span class="hljs-keyword">var</span> child = dom.appendChild( dom.firstChild );
+		child.style.height = value + <span class="hljs-string">'px'</span>;
+
+	};
+
+	<span class="hljs-keyword">return</span> {
+
+		REVISION: <span class="hljs-number">12</span>,
+
+		domElement: container,
+
+		setMode: setMode,
+
+		begin: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+			startTime = <span class="hljs-built_in">Date</span>.now();
+
+		},
+
+		end: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+			<span class="hljs-keyword">var</span> time = <span class="hljs-built_in">Date</span>.now();
+
+			ms = time - startTime;
+			msMin = <span class="hljs-built_in">Math</span>.min( msMin, ms );
+			msMax = <span class="hljs-built_in">Math</span>.max( msMax, ms );
+
+			msText.textContent = ms + <span class="hljs-string">' MS ('</span> + msMin + <span class="hljs-string">'-'</span> + msMax + <span class="hljs-string">')'</span>;
+			updateGraph( msGraph, <span class="hljs-built_in">Math</span>.min( <span class="hljs-number">30</span>, <span class="hljs-number">30</span> - ( ms / <span class="hljs-number">200</span> ) * <span class="hljs-number">30</span> ) );
+
+			frames ++;
+
+			<span class="hljs-keyword">if</span> ( time &gt; prevTime + <span class="hljs-number">1000</span> ) {
+
+				fps = <span class="hljs-built_in">Math</span>.round( ( frames * <span class="hljs-number">1000</span> ) / ( time - prevTime ) );
+				fpsMin = <span class="hljs-built_in">Math</span>.min( fpsMin, fps );
+				fpsMax = <span class="hljs-built_in">Math</span>.max( fpsMax, fps );
+
+				fpsText.textContent = fps + <span class="hljs-string">' FPS ('</span> + fpsMin + <span class="hljs-string">'-'</span> + fpsMax + <span class="hljs-string">')'</span>;
+				updateGraph( fpsGraph, <span class="hljs-built_in">Math</span>.min( <span class="hljs-number">30</span>, <span class="hljs-number">30</span> - ( fps / <span class="hljs-number">100</span> ) * <span class="hljs-number">30</span> ) );
+
+				prevTime = time;
+				frames = <span class="hljs-number">0</span>;
+
+			}
+
+			<span class="hljs-keyword">return</span> time;
+
+		},
+
+		update: <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+			startTime = <span class="hljs-keyword">this</span>.end();
+
+		}
+
+	}
+
+};
+
+<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">typeof</span> <span class="hljs-built_in">module</span> === <span class="hljs-string">'object'</span> ) {
+
+	<span class="hljs-built_in">module</span>.exports = Stats;
+
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

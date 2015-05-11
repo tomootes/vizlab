@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>Instructions</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="js/webgl-debug.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="../css/style.css">
+  <link rel="stylesheet" type="text/css" href="../css/docs.css">
+</head>
+<body>
+  <div class="container docs-container white">
+    <h1>Technical instructions</h1>
+    <p>On this page it is explained how to download and setup the application on a webserver.</p>
+
+    <h3>1. Downloading and hosting the project</h3>
+    <p>This project is freely available at the following URL:</p>
+    <a target="_blank" href="https://github.com/zenocitum/vizlab">https://github.com/zenocitum/vizlab</a>
+    <p></p>
+    <p>There are two ways to obtain the project. The first way is the most simple solution. You can obtain the project this way by going to the given URL which brings you to the Github page of the project. On this page you can download the whole project as a zip file. </p>
+    <p>The second way requires the command line version tool called "git". Git is not hard to learn, though it uses some exploration to get into. If you have installed git you can obtain the project in the following way:</p>
+    <ol>
+      <li>Open your command line tool.</li>
+      <li>Go to the directory where you want to clone the project. On mac in terminal you can do this by: <br><code>$user cd /path/to/file</code></li>
+      <li>Now type the following command: <br><code>$user git clone https://github.com/zenocitum/vizlab</code>
+      <li>When the process is finished the output will show "done". Now you can find the project directory on the place where you downloaded it.</li>
+    </ol>
+    <p>When the project is downloaded it can be transferred the a webspace. The only requirement for the webspace is that it has to support PHP. For the rest the application has to work right away from the directory where its placed when its accesible to a domain.</p>
+
+    <h3>2. Setting up a socket connection</h3>
+    <p>When you have downloaded the project you have acces to the files that are needed to setup the socket connection. The TCP-socket connection in the vizlab has to be translated to a websocket. The web-application needs to receive realtime coorindates via a websocket because this is the only socket supported by browsers. We will now explain the steps to take to setup the socket connection. All the files you needed are located in the the project directory. First i will explain how to translate the TCP-connection </p>
+    <ol>
+      <li>The file(s) that have to be executed are located in a directory called 'websockify' which has the following path:  'vizlab/websockify'</li>
+      <li>Go to the directory where you want to clone the project. On mac in terminal you can do this by: <br><code>$user cd /path/to/file</code></li>
+      <li>Now type the following command: <br><code>$user git clone https://github.com/zenocitum/vizlab</code>
+      <li>When the process is finished the output will show "done". Now you can find the project directory on the place where you downloaded it.</li>
+    </ol>
+
+  </div>
+</body> 
+</html>
