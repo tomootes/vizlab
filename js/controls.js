@@ -535,7 +535,7 @@ function onDocumentMouseDown( event ) {
 
   // intersects contains an array of objects that might have been hit
 
-  var intersects = raycaster.intersectObjects(scene.children, true);
+  var intersects = raycaster.intersectObjects(objects, true);
   
   for(i=0;i<intersects.length;i++){
     var o = intersects[i].object.name;

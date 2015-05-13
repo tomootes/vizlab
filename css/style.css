@@ -73,15 +73,15 @@ a{
 
 #slider{
   width: 100%;
-  background: darkgrey;
-  /* border: 1px solid darkgrey; */
+  background: white;
+  outline: 1px solid #ccc;
   float: right;
   height: 11px;
   margin-top: 9px;
 }
 
 #draw-controls-container{
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #ccc;
   display: inline-block;
   float: left;
   margin: 5px;
@@ -104,12 +104,19 @@ a{
   margin: 5px 0px;
 }
 
+.marker-controls{
+  outline: 1px solid rgba(0, 0, 0, 1);
+  background: rgba(0, 0, 0, 0.4);
+}
+
 .skeleton-controls{
-  background: rgba(136, 136, 136, 0.2);
+  outline: 1px solid rgba(136, 136, 136, 1);
+  background: rgba(136, 136, 136, 0.4);
 }
 
 .selected-controls{
-  background: rgba(114, 216, 116, 0.2);
+  outline: 1px solid rgba(0, 134, 255,1);
+  background: rgba(0, 134, 255, 0.4);
 }
 
 #controls{
@@ -135,7 +142,7 @@ a{
   padding: 0px;
   height: 20px;
   background: white;
-  border: 1px solid grey;
+  border: 1px solid #bbb;
   cursor: pointer;
   -ms-touch-action: none;
   touch-action: none;
