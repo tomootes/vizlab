@@ -9,6 +9,10 @@ canvas {
 img{
   margin: 5px 0px;
 }
+ol img{
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
 a{
   cursor: pointer;
 }
@@ -20,9 +24,12 @@ a{
   margin-bottom: 70px;
 }
 code{
-  background: white;
 }
-.c
+.chapter{
+  border: 3px solid #eee;
+  margin: 10px 0px;
+  padding: 0px 10px;
+}
 .alerts{
   position: absolute;
   top: 0px;
@@ -90,6 +97,7 @@ code{
   padding: 5px;
   margin: 0px 15px;
   float: left;
+  pointer-events: none;
 }
 
 .skeleton-controls{

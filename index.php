@@ -47,6 +47,14 @@
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
+						<button id="select-all-connections" type="button" class="btn btn-default">	
+							<img src="images/select_all.svg">
+						</button>
+					</div>
+				</div>	
+
+				<div class="btn-row">
+					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="add-connection" type="button" class="btn btn-default">
 							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
 						</button>	
@@ -61,7 +69,6 @@
 						<button id="show-load-skeleton-modal" type="button" class="btn btn-default">	
 							<span class="glyphicon glyphicon-open" aria-hidden="true"></span>
 						</button>
-
 						<button id="show-save-skeleton-modal" type="button" class="btn btn-default">	
 							<span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span>
 						</button>
@@ -69,14 +76,32 @@
 				</div>
 			</div> 
 
-			<div class="draw-controls selected-controls"><!-- SELECTED BUTTONS -->
+			<div class="draw-controls marker-controls"><!-- Marker tools -->
+				<div class="btn-row">
+					<div class="btn-group btn-group-md" role="group" aria-label="...">
+						<button id="toggle-show-markers" type="button" class="btn btn-default">	
+							<span id="markers-visible-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+						</button>
+					</div>
+				</div>
+
+				<div class="btn-row">
+					<div class="btn-group btn-group-md" role="group" aria-label="...">
+						<button id="select-all-markers" type="button" class="btn btn-default">	
+							<img src="images/select_all.svg">
+						</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="draw-controls selected-controls"><!-- Select tools BUTTONS -->
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="toggle-show-selected" type="button" class="btn btn-default">	
 							<span id="selected-toggle-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 						</button>
 					</div>
-				</div>	
+				</div>
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
@@ -85,6 +110,7 @@
 						</button>
 					</div>
 				</div>
+
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
@@ -275,7 +301,7 @@
 
 		<script>
 			// All variables over here are global variables and can be changed and used throughout the application
-			var camera, scene, raycaster, canvasRenderer, webglRenderer;
+			var camera, scene, canvasRenderer, webglRenderer;
 			var controls;
 			var container;
 
@@ -289,20 +315,25 @@
 			// Connections global variables
 			var connectionWidth = 5;
 			var connectionColor = "#888888";
-			var selectedConnectionColor = "#72D874";
+			var selectedConnectionColor = "#0086ff";
 
 			// Markers global variables
 			var markerRadius = 10;
 			var markerColor = "#000000";
-			var selectedMarkerColor = "#72D874";
+			var selectedMarkerColor = "#0086ff";
+
+			// Set plane variables
+			var groundMaterialColor = "#72D874";
 
 			// Animation variaibles
 			var id;
 			var iteration = 0;
-			var animationSpeed = 1;
+			var animationSpeed = 8;
 			var paused = false;
-			var selectedVisible = true;
 			var skeletonVisible = true;
+			var markersVisible = true;
+			var selectedVisible = true;
+			
 			var inputDisabled = false;
 			var alertShown = false;
 			var addingObjects = false;

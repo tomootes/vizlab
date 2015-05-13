@@ -34,6 +34,7 @@ window.addEventListener('resize', onWindowResize, false);
 
 // Delete connections if they are selected
 function deleteConnections(){
+
   var numberOfConnections = connections.length;
   var counterOfRemoved = 0;
 
@@ -48,7 +49,7 @@ function deleteConnections(){
       counterOfRemoved = counterOfRemoved + 1;
     }
   }
-
+  selected = [];
 }
 
 // Function for pausing the animation
@@ -105,18 +106,46 @@ function somethingSelected(){
 }
 
 // This function clears that selected array or shows an alert which says: "Nothing selected"
+function selectAllConnections(){
+  selected = [];
+  for(i=0;i<connections.length;i++){
+    selected.push(connections[i].object);
+    console.log(selected);
+  }
+}
+
+// This function clears that selected array or shows an alert which says: "Nothing selected"
+function selectAllMarkers(){
+  selected = [];
+  for(i=0;i<markers.length;i++){
+    selected.push(markers[i].object);
+  }
+}
+
+// This function clears that selected array or shows an alert which says: "Nothing selected"
 function deselectAll(){
   if(somethingSelected()){
-    selected = [];  
+    selected = [];
   }
   else{
     showAlert(".alert-info", "Nothing selected");
   }
 }
 
+
 // deselectAll() is triggered on the click of #deselect-all
 $( "#deselect-all" ).click(function() {
   deselectAll();
+});
+
+// deselectAll() is triggered on the click of #deselect-all
+$( "#select-all-connections" ).click(function() {
+  selectAllConnections();
+});
+
+// deselectAll() is triggered on the click of #deselect-all
+$( "#select-all-connections" ).click(function() {
+  selectAllConnections();
 });
 
 // Toggle of visibility of the skeleton
@@ -139,6 +168,28 @@ function toggleSkeleton(){
 //  Trigger toggleSkeleton(); if #toggle-skeleton is being clicked
 $( "#toggle-skeleton" ).click(function() {
   toggleSkeleton();
+});
+
+// Toggle of visibility of the skeleton
+function toggleMarkers(){
+  if(markersVisible == true){                // If the skeleton is visible
+    for(i=0;i<markers.length;i++){        // Set them al to invisible
+      markers[i].object.visible = false;
+    }
+    markersVisible = false;                  // As the global variable
+    document.getElementById("markers-visible-icon").className = "glyphicon glyphicon-eye-close";     // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
+  }else{                                      // If skeleton is not visible
+    for(i=0;i<markers.length;i++){        // Make all connections visible again
+      markers[i].object.visible = true;
+    }
+    markersVisible = true                    // As the global variable
+    document.getElementById("markers-visible-icon").className = "glyphicon glyphicon-eye-open";      // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
+  }
+}
+
+//  Trigger toggleSkeleton(); if #toggle-skeleton is being clicked
+$( "#toggle-show-markers" ).click(function() {
+  toggleMarkers();
 });
 
 function hideSelectedObjects(){
@@ -479,12 +530,22 @@ function onDocumentMouseDown( event ) {
   var raycaster = new THREE.Raycaster(camera.position, vector.sub(camera.position).normalize());
 
   raycaster.linePrecision = connectionWidth;
+
+  console.log()
+
   // intersects contains an array of objects that might have been hit
 
-  var intersects = raycaster.intersectObjects(scene.children);
-  console.log(intersects);
+  var intersects = raycaster.intersectObjects(scene.children, true);
+  
+  for(i=0;i<intersects.length;i++){
+    var o = intersects[i].object.name;
+    if(o == "plane"){
+      intersects.splice(i, 1);
+      break;
+    }
+  }
 
-  var result = null;
+  console.log(intersects);
 
   if ( intersects.length > 0 ) {
     // If array is not empty

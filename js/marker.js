@@ -11,7 +11,7 @@ function Marker(index){
       var color = markerColor;
     }
 
-    var material = new THREE.MeshPhongMaterial( {color: color } );
+    var material = new THREE.MeshBasicMaterial( {color: color } );
     var marker = new THREE.Mesh( geometry, material );
     
     marker.position.set(coordinates[0][this.index][0],coordinates[0][this.index][1],coordinates[0][this.index][2]);
