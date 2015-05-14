@@ -28,10 +28,8 @@ function Connection(m1, m2){
     connection.matrixAutoUpdate = true;
     connection.index = this.index;
     connection.type = "connection";
-    connection.material.side = THREE.DoubleSided
     this.object = connection;
     scene.add(this.object);
-    objects.push(this.object);
   }
 
   this.update = function(selected, markers){

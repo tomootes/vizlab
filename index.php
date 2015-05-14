@@ -304,7 +304,6 @@
 			var camera, scene, canvasRenderer, webglRenderer;
 			var controls;
 			var container;
-			var objects = [];
 
 			// These 
 			var pointerDetectRay, projector, mouse2D;  

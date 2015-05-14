@@ -144,7 +144,7 @@ $( "#select-all-connections" ).click(function() {
 });
 
 // deselectAll() is triggered on the click of #deselect-all
-$( "#select-all-connections" ).click(function() {
+$( "#select-all-markers" ).click(function() {
   selectAllConnections();
 });
 
@@ -531,11 +531,9 @@ function onDocumentMouseDown( event ) {
 
   raycaster.linePrecision = connectionWidth;
 
-  console.log()
-
   // intersects contains an array of objects that might have been hit
 
-  var intersects = raycaster.intersectObjects(objects, true);
+  var intersects = raycaster.intersectObjects(scene.children, true);
   
   for(i=0;i<intersects.length;i++){
     var o = intersects[i].object.name;
@@ -544,8 +542,6 @@ function onDocumentMouseDown( event ) {
       break;
     }
   }
-
-  console.log(intersects);
 
   if ( intersects.length > 0 ) {
     // If array is not empty
