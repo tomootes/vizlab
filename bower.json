@@ -1,0 +1,20 @@
+{
+  "name": "vizlab",
+  "version": "0.0.0",
+  "homepage": "https://github.com/zenocitum/vizlab",
+  "authors": [
+    "Tom Ootes <tomootes@gmail.com>"
+  ],
+  "description": "vizlab web-application dependencies",
+  "main": "index.php",
+  "keywords": [
+    "threejs",
+    "jquery"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "threejs": "*",
+    "bootstrap": "~3.3.2",
+    "jquery": "~2.1.4"
+  }
+}
