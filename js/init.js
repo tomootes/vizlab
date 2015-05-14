@@ -59,7 +59,6 @@ function init(){
   webglRenderer.domElement.style.position = "relative";
   webglRenderer.shadowMapEnabled = true;
   webglRenderer.shadowMapSoft = true;
-  webglRenderer.context.canvas = WebGLDebugUtils.makeLostContextSimulatingCanvas(webglRenderer.context.canvas);
 
   // Define the controls
   controls = new THREE.OrbitControls( camera );

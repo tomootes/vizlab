@@ -1,6 +1,6 @@
 function animate(){ 
   // Start timing the events from here
-  stats.begin();
+  // stats.begin();
 
   // Set the slider value to the current iteration
   $('#slider').slider('value', iteration);
@@ -27,7 +27,7 @@ function animate(){
   webglRenderer.render(scene, camera);
 
   // Stop timing the events from here
-  stats.end();
+  // stats.end();
 
   // Execute animate() again after its executed and rendered again
   requestAnimationFrame(animate);

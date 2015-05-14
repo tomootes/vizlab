@@ -1,14 +1,13 @@
 <html>
 <head>
-	<title>Vizlab 1</title>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="js/webgl-debug.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-	<script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
-	<!-- stats -->
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/stats.js/r11/Stats.min.js"></script>
+	<title>Vizlab web-app</title>
+
+	<script src="bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="bower_components/threejs/build/three.min.js"></script>
+
+
 	<script src="js/tsv.js"></script>
 	<script src="js/marker.js"></script>
 
@@ -23,7 +22,8 @@
 	<script src="js/OrbitalControls.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.css">
+	<!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"> -->
 </head>
 <body>
 	<div class="overlay">
@@ -338,7 +338,7 @@
 			var alertShown = false;
 			var addingObjects = false;
 
-			var stats = new Stats();			
+			// var stats = new Stats();			
 
 			var coordinates = [];
 			var numberOfCoordinates;
