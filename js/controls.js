@@ -41,10 +41,8 @@ function deleteConnections(){
   var toBeDeleted = [];
 
   for(c=0;c<numberOfConnections;c++){
-    console.log(c);
     var s = connections[c - counterOfRemoved].isSelected();
     if(s == true){
-      console.log("JA DEZE !!" + c);
       connections[c - counterOfRemoved].remove();
       counterOfRemoved = counterOfRemoved + 1;
     }
@@ -145,7 +143,7 @@ $( "#select-all-connections" ).click(function() {
 
 // deselectAll() is triggered on the click of #deselect-all
 $( "#select-all-markers" ).click(function() {
-  selectAllConnections();
+  selectAllMarkers();
 });
 
 // Toggle of visibility of the skeleton
@@ -535,6 +533,8 @@ function onDocumentMouseDown( event ) {
 
   var intersects = raycaster.intersectObjects(scene.children, true);
   
+  console.log(intersects);
+
   for(i=0;i<intersects.length;i++){
     var o = intersects[i].object.name;
     if(o == "plane"){

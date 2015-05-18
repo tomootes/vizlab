@@ -81,17 +81,17 @@ a{
 }
 
 #draw-controls-container{
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc; */
   display: inline-block;
   float: left;
-  margin: 5px;
+  /* margin: 5px; */
 }
 #draw-controls-container .draw-controls:first-child{
   margin: 5px 5px 5px;
 }
 
 .draw-controls{
-  padding: 0px 5px;
+  padding: 2px 5px 2px;
   margin: 0px 5px 5px;
   display: inline-block;
   text-align: center;
@@ -100,23 +100,27 @@ a{
   width: 90px;
 }
 
+.draw-controls h5{
+  font-style: normal;
+  margin: 4px;
+  font-weight: normal;
+  color: white;
+}
+
 .draw-controls .btn-row{
   margin: 5px 0px;
 }
 
 .marker-controls{
-  outline: 1px solid rgba(0, 0, 0, 1);
-  background: rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.7);
 }
 
 .skeleton-controls{
-  outline: 1px solid rgba(136, 136, 136, 1);
-  background: rgba(136, 136, 136, 0.4);
+  background: rgba(136, 136, 136, 0.7);
 }
 
 .selected-controls{
-  outline: 1px solid rgba(0, 134, 255,1);
-  background: rgba(0, 134, 255, 0.4);
+  background: rgba(0, 134, 255, 0.7);
 }
 
 #controls{

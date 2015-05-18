@@ -23,6 +23,12 @@ function animate(){
     iteration = iteration + (1 * animationSpeed );
   }
 
+  if(replay == true){
+    if(iteration >= ( (coordinates.length -1) - animationSpeed ) ){
+      iteration = 0;
+    }
+  }
+
   // Executed render with the scene and camera as input
   webglRenderer.render(scene, camera);
 

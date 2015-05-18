@@ -3,7 +3,7 @@ function Connection(m1, m2){
   this.m2 = m2;
 
   this.draw = function(){
-    var x1 = markers[m1].object.position.x;
+    var x1 = markers[this.m1].object.position.x;
     var y1 = markers[m1].object.position.y;
     var z1 = markers[m1].object.position.z;
     var x2 = markers[m2].object.position.x;

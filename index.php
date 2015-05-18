@@ -37,6 +37,7 @@
 		<div id="draw-controls-container">
 
 			<div class="draw-controls skeleton-controls"><!-- SKELETON BUTTONS -->
+				<h5>Skeleton</h5>
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="toggle-skeleton" type="button" class="btn btn-default">	
@@ -78,6 +79,7 @@
 
 			<div class="draw-controls marker-controls"><!-- Marker tools -->
 				<div class="btn-row">
+					<h5>Markers</h5>
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="toggle-show-markers" type="button" class="btn btn-default">	
 							<span id="markers-visible-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
@@ -96,6 +98,7 @@
 
 			<div class="draw-controls selected-controls"><!-- Select tools BUTTONS -->
 				<div class="btn-row">
+					<h5>Selected</h5>
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="toggle-show-selected" type="button" class="btn btn-default">	
 							<span id="selected-toggle-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
@@ -330,6 +333,7 @@
 			var iteration = 0;
 			var animationSpeed = 8;
 			var paused = false;
+			var replay = true;
 			var skeletonVisible = true;
 			var markersVisible = true;
 			var selectedVisible = true;
