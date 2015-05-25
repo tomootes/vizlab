@@ -208,11 +208,14 @@ function hideSelectedObjects(){
 }
 
 function showSelectedObjects(){
-  for(i=0;i<markers.length;i++){
-    markers[i].object.visible = true;
-  }
-  for(i=0;i<connections.length;i++){
-    connections[i].object.visible = true;
+  if(selected[0].type == "marker"){
+    for(i=0;i<markers.length;i++){
+      markers[i].object.visible = true;
+    }
+  }else{
+    for(i=0;i<connections.length;i++){
+      connections[i].object.visible = true;
+    }
   }
 }
 

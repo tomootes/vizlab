@@ -3,6 +3,27 @@ body {
   overflow: auto;
   background: #EFEFEF;
 }
+body{counter-reset: section}
+h2{counter-reset: sub-section}
+h3{counter-reset: composite}
+h4{counter-reset: detail}
+
+h2:before{
+ counter-increment: section;
+ content: counter(section) " ";
+}
+h3:before{
+ counter-increment: sub-section;
+ content: counter(section) "." counter(sub-section) " ";
+}
+h4:before{
+ counter-increment: composite;
+ content: counter(section) "." counter(sub-section) "." counter(composite) " ";
+}
+h5:before{
+ counter-increment: detail;
+ content: counter(section) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";
+}
 canvas { 
   width: 100%; height: 100% 
 }
@@ -29,6 +50,45 @@ code{
   border: 3px solid #eee;
   margin: 10px 0px;
   padding: 0px 10px;
+}
+.chapter img{
+  border-radius: 5px;
+}
+.row{
+  margin: 0px;
+}
+.chapter .thumbnail{
+  display: inline-block !important;
+  float: left;
+  text-align: center;
+  max-width: 220px;
+}
+.chapter .thumbnail .title{
+  width: 100%;
+  clear: both;
+  display: inline-block;
+  padding: 10px 10px;
+  font-weight: bold;
+  font-size: 22px;
+}
+.chapter .thumbnail .btn-group-md{
+  margin: 10px 0px 0px 0px;
+  clear: both;
+}
+.chapter .thumbnail img{
+  /* min-height: 100px; */
+  /* max-width: 250px; */
+}
+.chapter .inline-text{
+  display: inline-block;
+  width: auto;
+  float: left;
+  font-weight: bold;
+  font-size: 55px;
+  margin: 0 20px;
+}
+.selected{
+  background-color: #BAFFC1;
 }
 .alerts{
   position: absolute;

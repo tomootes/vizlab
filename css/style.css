@@ -4,10 +4,6 @@ body {
   background: #ddd;
 }
 
-
-
-
-
 .overlay{
   position: absolute;
   left: 0px;
@@ -37,7 +33,7 @@ a{
 .btn-group-lg button img{
   height: 18px;
 }
-#loader{
+#loader{q
   position: absolute;
   left: 0px;
   top: 0px;
@@ -110,6 +106,7 @@ a{
   margin: 4px;
   font-weight: normal;
   color: white;
+  font-size: 12px;
 }
 
 .draw-controls .btn-row{

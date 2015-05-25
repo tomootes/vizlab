@@ -37,7 +37,7 @@
 		<div id="draw-controls-container">
 
 			<div class="draw-controls skeleton-controls"><!-- SKELETON BUTTONS -->
-				<h5>Skeleton</h5>
+				<h5>Connections</h5>
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="toggle-skeleton" type="button" class="btn btn-default">	

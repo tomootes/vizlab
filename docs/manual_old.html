@@ -17,138 +17,99 @@
     <h1 class="file-title">Instructions</h1>
     <p>On this page it is explained how to achieve certain tasks within the Vizlab web-application.</p>
 
-    <div class="chapter"><!-- chap ter 1 -->
-      <h2>Interacting with the visualization</h2>
-      <p>In this chapter it is explained how to interact with the visualization in order to control it or change the point of view.</p>
+    <div class="chapter"><!-- chap ter one -->
+      <h3>1. Skeleton</h3>
+      <p>In this chapter it is explained how to <b>add</b>, <b>remove</b>, <b>hide</b>, <b>save</b> and <b>load</b> parts of a skeleton. To be able to refer to certain buttons i created an overview of the skeleton-buttons.</p>
 
-      <h3>Rotating the point of view in relation to the visualization.</h3>
       <div class="row">
-        <div class="thumbnail">
-          <img src="../images/mousedown.svg"/>
-          <span class="title">Click</span>
-        </div>
-        <p class="inline-text">+</p>
-        <div class="thumbnail">
-          <img src="../images/move.svg"/>
-          <span class="title">Drag</span>
-        </div>
-        <p class="inline-text">=</p>
-        <div class="thumbnail">
-          <img src="../images/rotate.svg"/>
-          <span class="title">Rotation</span>
-        </div>
-      </div>
-      <p>In order to rotate the point of view you have to click and drag around the mouse.<p>
-    
-      <h3>Zooming in on the visualization.</h3>
-      <div class="row">
-        <div class="thumbnail">
-          <img src="../images/scroll.svg"/>
-          <span class="title">Scroll</span>
-        </div>
-        <p class="inline-text">=</p>
-        <div class="thumbnail">
-          <img src="../images/zoom.svg" style="height: 90px;"/>
-          <span class="title">Zoom</span>
-        </div>
-      </div>
-
-      <h3>Playing and pausing the animation.</h3>
-      <div class="row">
-        <div class="thumbnail">
-          <div class="btn-group btn-group-md" role="group" aria-label="...">
-            <button id="slowdown-animation" type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
-            </button>
-            <button id="play-button" type="button selected" class="btn btn-default selected">
-              <span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </button>
-            <button  id="speedup-animation" type="button" class="btn btn-default">
-              <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
-            </button>
+        <div class="draw-controls skeleton-controls"><!-- SKELETON BUTTONS -->
+          <div class="btn-row">
+            <div class="btn-group btn-group-md" role="group" aria-label="...">
+              <button id="toggle-skeleton" type="button" class="btn btn-default"> 
+                <span id="skeleton-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                <span class="badge">1</span>
+              </button>
+            </div>
           </div>
-          <span class="title">Click</span>
-          <p>Click the button in the middle</p>
-        </div>
-        <p class="inline-text">=</p>
-        <div class="thumbnail">
-          <img src="../images/playpause.svg"/>
-          <span class="title">Pause / Play</span>
-        </div>
-      </div>
 
-      <h3>Controlling animation speed</h3>
-      <div class="row">
-        <div class="thumbnail">
-          <div class="btn-group btn-group-md" role="group" aria-label="...">
-            <button id="slowdown-animation" type="button" class="btn btn-default selected">
-              <span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
-            </button>
-            <button id="play-button" type="button" class="btn btn-default">
-              <span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
-            </button>
-            <button  id="speedup-animation" type="button" class="btn btn-default selected">
-              <span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
-            </button>
+          <div class="btn-row">
+            <div class="btn-group btn-group-md" role="group" aria-label="...">
+              <button id="add-connection" type="button" class="btn btn-default">
+                <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+                <span class="badge">2</span>
+              </button> 
+              <button type="button" id="delete" class="btn btn-default">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+                <span class="badge">3</span>
+              </button> 
+            </div>
           </div>
-          <span class="title">Click</span>
-          <p>Click the left or right button button to either slowdown the animation or speed it up.</p>
-        </div>
-        <p class="inline-text">=</p>
-        <div class="thumbnail">
-          <img src="../images/fastforward.svg"/>
-          <span class="title">Speed up / slow down</span>
-        </div>
-      </div>
 
-      <h3>Controlling animation time</h3>
-      <div class="row">
-        <div class="thumbnail">
-          <img src="../images/scroll_bar.png"/>
-          <span class="title">Drag</span>
-          <p>Drag the handle of the scrollbar to start the animation from a certain point in time.</p>
-        </div>
-          <p class="inline-text">=</p>
-          <div class="thumbnail">
-            <img src="../images/time.svg"/>
-            <span class="title">Change time</span>
+          <div class="btn-row">
+            <div class="btn-group btn-group-md" role="group" aria-label="...">
+              <button id="show-load-skeleton-modal" type="button" class="btn btn-default">  
+                <span class="glyphicon glyphicon-open" aria-hidden="true"></span>
+                <span class="badge">4</span>
+              </button>
+
+              <button id="show-save-skeleton-modal" type="button" class="btn btn-default">  
+                <span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span>
+                  <span class="badge">5</span>
+              </button>
+            </div>
           </div>
         </div>
       </div>
-    <div class="chapter"><!-- chap ter 2 -->
-      <h2>Loading data</h2>      
-      <h3>Loading files</h3>      
-      <div class="row">
-        <div class="thumbnail">
-          <div class="btn-group btn-group-md connect-socket-btn-grp" role="group" aria-label="...">
-            <button id="show-files-list" type="button" class="btn btn-default"> 
-              <span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
-            </button>
-          </div>
-          <span class="title">Click</span>
-          <p>Click this button to load other files.</p>
-        </div>
-        <p class="inline-text">=</p>
-        <img src="../images/load_files_modal.png"/>
-      </div>
+      
+      <p><b>Image: an overview of the buttons</b></p>
 
-      <h3>Connecting to a websocket connection</h3>      
-      <div class="row">
-        <div class="thumbnail">
-          <div class="btn-group btn-group-md" role="group" aria-label="...">
-            <button id="show-socket-modal" type="button" class="btn btn-default">   
-              <span class="glyphicon glyphicon-transfer"></span>
-            </button>
-          </div>
-          <span class="title">Click</span>
-          <p>Click this button to show a modal in which you can connect to a websocket connection.</p>
-        </div>
-        <p class="inline-text">=</p>
-        <img src="../images/connect_to_socket.png"/>
-      </div>
+      <h3>1.1 Drawing a skeleton-connection</h3>
+      <ol>
+        <img src="../images/select_marker.png"/>
+        <li>First select a marker.</li>
+        <img src="../images/select_second_marker.png"/>
+        <li>Then select another marker.</li>
+        <img src="../images/click_add_connection_button.png"/>
+        <li>Click button 2 or press the "a" character on your keyboard.</li>
+        <img src="../images/connection_added.png"/>
+        <li>A connection has been drawn.</li>
+      </ol>
+
+      <h3>1.2 Deleting a skeleton-connection</h3>
+      <ol>
+        <img src="../images/connection_select.png"/>
+        <li>First select a connetion.</li>
+        <img src="../images/delete_button.png"/>
+        <li>Click button 3 or press the "d" character on your keyboard.</li>
+      </ol>
+
+      <h3>1.3 Hiding the skeleton</h3>
+      <ol>
+        <li>Make sure a skeleton is loaded or drawn.</li>
+        <img src="../images/hide_skeleton.png"/>
+        <li>Click button 1 to hide the skeleton.</li>
+        <li>To show the skeleton click the button again.</li>
+      </ol>
+      <h3>1.4 Saving a skeleton</h3>
+      <ol>
+        <li>Make sure a skeleton is loaded or drawn.</li>
+        <img src="../images/button_5.png"/>
+        <li>Click button 5 to open the window for saving the skeleton.</li>
+        <img src="../images/save_skeleton_input.png"/>
+        <li>Type in the preferred name for the skeleton.</li>
+        <img src="../images/save_skeleton_button.png"/>
+        <li>Click the save button and the skeleton will be saved.</li>
+      </ol>
+      <h3>1.5 Loading a skeleton</h3>
+      <ol>
+        <img src="../images/button_4.png"/>
+        <li>Click button 4 to open the window for choosing loading the skeleton.</li>
+        <img src="../images/load_skeleton.png"/>
+        <li>Click the preferred skeleton to be loaded.</li>    
+      </ol>
     </div>
 
-    <div class="chapter"><!-- chap ter 3 -->
+    <div class="chapter"><!-- chap ter one -->
     <h3>1. Skeleton</h3>
     <p>In this chapter it is explained how to <b>add</b>, <b>remove</b>, <b>hide</b>, <b>save</b> and <b>load</b> parts of a skeleton. To be able to refer to certain buttons i created an overview of the skeleton-buttons.</p>
 
