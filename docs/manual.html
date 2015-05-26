@@ -1,12 +1,11 @@
 <html>
 <head>
-  <title>Instructions</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="js/webgl-debug.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <title>User instructions</title>
+
+  <script src="bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="bower_components/threejs/build/three.min.js"></script>
 
   <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
@@ -48,7 +47,7 @@
         </div>
         <p class="inline-text">=</p>
         <div class="thumbnail">
-          <img src="../images/zoom.svg" style="height: 90px;"/>
+          <img src="../images/zoom.svg"/>
           <span class="title">Zoom</span>
         </div>
       </div>
@@ -70,7 +69,17 @@
           <span class="title">Click</span>
           <p>Click the button in the middle</p>
         </div>
+
+        <p class="inline-text">or</p>
+
+        <div class="thumbnail">
+          <img src="../images/computer_key_Space_bar.png" style="width: 100%; width; max-width: none; height: auto;" />
+          <span class="title">Press space</span>
+          <p>The spacebar can also be pressed to pause the animation</p>
+        </div>
+
         <p class="inline-text">=</p>
+        
         <div class="thumbnail">
           <img src="../images/playpause.svg"/>
           <span class="title">Pause / Play</span>
@@ -103,8 +112,8 @@
 
       <h3>Controlling animation time</h3>
       <div class="row">
-        <div class="thumbnail">
-          <img src="../images/scroll_bar.png"/>
+        <div class="thumbnail" style="width: 250px; max-width: none; ">
+          <img src="../images/scroll_bar.png" style="width: 100%; width; max-width: none; height: auto;" />
           <span class="title">Drag</span>
           <p>Drag the handle of the scrollbar to start the animation from a certain point in time.</p>
         </div>
@@ -148,8 +157,8 @@
       </div>
     </div>
 
-    <div class="chapter"><!-- chap ter 3 -->
-    <h3>1. Skeleton</h3>
+    <div class="chapter"> <!-- chap ter one -->
+    <h2>Creating connections</h2>
     <p>In this chapter it is explained how to <b>add</b>, <b>remove</b>, <b>hide</b>, <b>save</b> and <b>load</b> parts of a skeleton. To be able to refer to certain buttons i created an overview of the skeleton-buttons.</p>
 
     <div class="row">
@@ -194,7 +203,7 @@
     
     <p><b>Image: an overview of the buttons</b></p>
 
-    <h3>1.1 Drawing a skeleton-connection</h3>
+    <h3>Drawing a skeleton-connection</h3>
     <ol>
       <img src="../images/select_marker.png"/>
       <li>First select a marker.</li>
@@ -206,7 +215,7 @@
       <li>A connection has been drawn.</li>
     </ol>
 
-    <h3>1.2 Deleting a skeleton-connection</h3>
+    <h3>Deleting a skeleton-connection</h3>
     <ol>
       <img src="../images/connection_select.png"/>
       <li>First select a connetion.</li>
@@ -214,14 +223,14 @@
       <li>Click button 3 or press the "d" character on your keyboard.</li>
     </ol>
 
-    <h3>1.3 Hiding the skeleton</h3>
+    <h3>Hiding the skeleton</h3>
     <ol>
       <li>Make sure a skeleton is loaded or drawn.</li>
       <img src="../images/hide_skeleton.png"/>
       <li>Click button 1 to hide the skeleton.</li>
       <li>To show the skeleton click the button again.</li>
     </ol>
-    <h3>1.4 Saving a skeleton</h3>
+    <h3>Saving a skeleton</h3>
     <ol>
       <li>Make sure a skeleton is loaded or drawn.</li>
       <img src="../images/button_5.png"/>
@@ -231,7 +240,7 @@
       <img src="../images/save_skeleton_button.png"/>
       <li>Click the save button and the skeleton will be saved.</li>
     </ol>
-    <h3>1.5 Loading a skeleton</h3>
+    <h3>Loading a skeleton</h3>
     <ol>
       <img class="media-object" src="../images/button_4.png"/>
       <li>Click button 4 to open the window for choosing loading the skeleton.</li>
@@ -241,7 +250,7 @@
   </div>
 
   <div class="chapter">
-    <h3>2. Selected</h3>
+    <h2>Selected</h2>
     <p>In this chapter it is explained how to make selected items <b>smaller</b>, <b>bigger</b>, <b>hide</b> them or <b>unselect</b> them.</p>
     
     <div class="row">
@@ -281,7 +290,7 @@
 
     <p><b>Image: an overview of the buttons</b></p>
 
-    <h3>2.1 Hiding selected items</h3>
+    <h3>Hiding selected items</h3>
     <ol>
       <li>Make sure something is selected.</li>
       <img src="../images/hide_selected.png"/>
@@ -289,14 +298,14 @@
       <li>Al selected markers disappeared</li>
     </ol>
 
-    <h3>2.2 Deselect all objects</h3>
+    <h3>Deselect all objects</h3>
     <ol>
       <li>Make sure something is selected.</li>
       <li>Click button 7 with the corresponding deselect icon.</li>
       <li>No object is selected anymore.</li>
     </ol>
 
-    <h3>2.3 Change the size of selected object type</h3>
+    <h3>Change the size of selected object type</h3>
     <ol>
       <li>Make sure something is selected.</li>
       <img src="../images/bigger_smaller.png"/>

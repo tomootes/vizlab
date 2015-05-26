@@ -1,4 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="19.407px" height="19.406px" viewBox="0.97035 -1.9406 19.407 26.1981" enable-background="new 0 0 19.407 19.406" xml:space="preserve">
-<path d="M19.028,17.206l-4.984-4.985c2.476-3.483,1.659-8.313-1.823-10.789C8.736-1.044,3.907-0.228,1.431,3.255  c-2.475,3.482-1.66,8.312,1.824,10.787c2.684,1.908,6.281,1.908,8.965,0l4.985,4.985c0.503,0.504,1.32,0.504,1.822,0  C19.533,18.525,19.533,17.708,19.028,17.206z M7.738,13.263c-3.053,0-5.527-2.475-5.527-5.525c0-3.053,2.475-5.527,5.527-5.527  c3.05,0,5.524,2.474,5.524,5.527C13.262,10.789,10.788,13.263,7.738,13.263z"/>
-<polygon points="9.868,6.511 7.748,2.839 5.627,6.511 7.027,6.511 7.027,9.083 5.627,9.083 7.748,12.755 9.868,9.083 8.445,9.083   8.445,6.511 "/>
-<text x="0.0" y="22.80205" font-size="0.9703" font-weight="bold" font-family="Helvetica Neue, Helvetica, Arial-Unicode, Arial, Sans-serif" fill="#000000">Created by Ryan Canning</text><text x="0.0" y="23.77235" font-size="0.9703" font-weight="bold" font-family="Helvetica Neue, Helvetica, Arial-Unicode, Arial, Sans-serif" fill="#000000">from the Noun Project</text></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="14.376px" height="14.374px" viewBox="2.767 0 14.376 14.374" enable-background="new 2.767 0 14.376 14.374"
+	 xml:space="preserve">
+<path d="M16.862,12.745L13.17,9.052c1.834-2.579,1.229-6.157-1.351-7.991C9.238-0.773,5.661-0.169,3.827,2.411
+	c-1.833,2.579-1.229,6.157,1.351,7.99c1.988,1.413,4.653,1.413,6.641,0l3.693,3.692c0.372,0.374,0.978,0.374,1.35,0
+	C17.237,13.722,17.237,13.116,16.862,12.745z M8.499,9.824c-2.261,0-4.094-1.833-4.094-4.093c0-2.261,1.833-4.094,4.094-4.094
+	c2.259,0,4.091,1.833,4.091,4.094C12.59,7.992,10.758,9.824,8.499,9.824z"/>
+<polygon points="10.077,4.823 8.506,2.103 6.936,4.823 7.973,4.823 7.973,6.728 6.936,6.728 8.506,9.448 10.077,6.728 9.023,6.728 
+	9.023,4.823 "/>
+</svg>
