@@ -137,7 +137,7 @@
 
     <!-- Chap-ter 3 -->
     <h2>Animating file</h2>
-    <h3>3.1 animateFile(filepath.tsv)
+    <h3>animateFile(filepath.tsv)
       <a class="btn btn-primary btn-sm" href="animate_from_file.html" role="button" target="_blank">animate_from_file.js</a>
     </h3>
     <p>This function is called while the page is being loaded, but can also be loaded from within the application itself while the app is already loaded. This function is similar to animateFromSocket() but of course with different functionalities. Within this function the file is being retrieved and translated into a usable array of vector-coordinates.</p>
