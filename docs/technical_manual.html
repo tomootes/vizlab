@@ -17,7 +17,7 @@
     <h1>Technical instructions</h1>
     <p>On this page it is explained how the web-application of the vizlab technically can be set up. We will explain how to download and setup the application on a webserver. Also we will explain how to set up a socket connection between the installations' TCP-socket and the browser-application. All the code examples are examples when executed on OS X, take care that commands can be different on windows computers. The commandline commands are probably the same for ubuntu or other linux distributions.</p>
 
-    <h3>1. Downloading and hosting the project</h3>
+    <h2>Downloading and hosting the project</h2>
     <p>This project is freely available at the following URL:</p>
     <a target="_blank" href="https://github.com/zenocitum/vizlab">https://github.com/zenocitum/vizlab</a>
     <p></p>
@@ -29,22 +29,32 @@
       <li>Now type the following command: <br><code>$user git clone https://github.com/zenocitum/vizlab</code>
       <li>When the process is finished the output will show "done". Now you can find the project directory on the place where you downloaded it.</li>
     </ol>
-    <p>When the project is downloaded it can be transferred the a webspace. The only requirement for the webspace is that it has to support PHP. For the rest the application has to work right away from the directory where its placed when its accesible to a domain.</p>
-
-    <h3>2. Setting up a socket connection</h3>
-    <p>When you have downloaded the project you have acces to the files that are needed to setup the socket connection. The TCP-socket connection in the vizlab has to be translated to a websocket. The web-application needs to receive realtime coorindates via a websocket because this is the only socket supported by browsers. We will now explain the steps to take to setup the socket connection. All the files you needed are located in the the project directory. First i will explain how to translate the TCP-connection </p>
+    <h3>Hosting</h3>
+    <p>When the project is downloaded it can be transferred to a server. There are not much requirements to the server, for the application is rather simple. The requirements are:</p>
+    <ul>
+      <li>The server has to have PHP installed, because some pages are generated with PHP.</li>
+      <li>The server has to be connected to a certain domain.</li>
+    </ul>  
+    <p>When a server has been setup that meets this requirements, the files can simply be transferred to the webspace.</p>
+    <h2>Setting up a socket connection</h2>
+    <p>When you have downloaded the project you have acces to the files that are needed to setup the socket connection. The TCP-socket connection in the vizlab has to be translated to a websocket. The web-application needs to receive realtime coorindates via a websocket because this is the only socket supported by browsers. We will now explain the steps to take to setup the socket connection. All the files you needed are located in the the project directory. First i will explain how to translate the TCP-connection. For this manual is required:</p>
+    <ul>
+      <li>Python installed</li>
+      <li>Project downloaded</li>
+      <li>Ruby installed</li>
+      <li>Command line tool</li>
+    </ul>
     <ol>
       <li>The file(s) that have to be executed are located in a directory called 'websockify' which has the following path:  'vizlab/websockify'. In order to load the files go the this directory in your command line tool: <br><code>$user cd vizlab/websockify</code></li>
       <li>Now you can execute the program which translates the socket connections. The program is written in the language <a href="https://www.python.org/">Python</a> so make sure you have Python installed. The program can be executed in the following way:<br>
-      <code>python websockify.py localhost:27015 localhost:27016</code>
-      <p>You can see that first "python" is called, this causes the file to be executed in the Python language. Second the path of the file is entered which is solely <code>"websockify.py"</code>. Then it gets interesting, two arguments are given to the file to execute: <code>"localhost:27015"</code> and <code>"localhost:27016"</code>. The first argument in this case is <code>"localhost:27015"</code>, this tells us that we will broadcast the socket connection to the that adress. So the websocket will have the following adress: <code>"localhost:27015"</code>. The second argument is the adress of the existing TCP-socket that the program needs to know to wait for incoming information, in the case of this example this is <code>"localhost:27016"</code>. Both ports 27015 and 27016 are in a very high range and thus normally free to use. After the given code has been ran, the program will give the following output: " - proxying from localhost:27015 to localhost:27016". The values are of course dependant on which adresses you gave to the program.</p>
+      <code>python websockify.py localhost:27015 vizlab:1250</code>
+      <p>You can see that first "python" is called, this causes the file to be executed in the Python language. Second the path of the file is entered which is solely <code>"websockify.py"</code>. Then it gets interesting, two arguments are given to the file to execute: <code>"localhost:27015"</code> and <code>"vizlab:1250"</code>. The first argument in this case is <code>"localhost:27015"</code>, this tells us that we will broadcast the socket connection to the that adress. So the created websocket will have the following adress: <code>"localhost:27015"</code>. The second argument is the adress of the existing TCP-socket that will send the coordinates to the application. In the case of this example this is <code>"vizlab:1250"</code>. After the given code has been ran, the program will give the following output: " - proxying from localhost:27015 to vizlab:1250". The values are of course variable and depend on which adresses you gave to the program.</p>
       </li>
     </ol>
     <p>Now you can you can provide the data for the application by a TCP-socket connection on the given adress.</p>
-    <h4>2.1 Spoofing coordinate data</h4>
+    <h4>Spoofing coordinate data</h4>
       <p>For testing purposes, a small program was created that sends coordinate-data that was already gathered datafile from the vizlab. This program can be executed from the same location as websockify.py by the following command:<br><code>$user ruby tcp_socket.rb</code></p>
       <p>The file will send lines of coordinates to the application coming from a file, to localhost:27016. The adress of the connection can of course be edited in the program for it is very small and not complex at all.</p>
-
       </li>
     </ol>
 

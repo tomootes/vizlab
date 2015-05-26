@@ -78,6 +78,20 @@ $( "#play-button" ).click(function(){
   togglePause();
 });
 
+// If this function is executed the animation will play or pause dependant on the variable paused
+function toggleFullscreen(){
+  if($(".overlay").is(':visible')){
+    $(".overlay").fadeOut();
+  }else{
+    $(".overlay").fadeIn();
+  }
+}
+
+// Toggle pause if id="play-button" is clicked
+$( ".full-screen" ).click(function(){
+  toggleFullscreen();
+});
+
 $(document).bind("keyup",function(e){
   // Create a variable which beholds pressed key
   var value = String.fromCharCode(e.keyCode);

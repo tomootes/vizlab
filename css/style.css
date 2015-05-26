@@ -3,7 +3,15 @@ body {
   overflow:hidden;
   background: #ddd;
 }
-
+.full-screen{
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  z-index: 999;
+}
 .overlay{
   position: absolute;
   left: 0px;
@@ -51,15 +59,17 @@ a{
 .file-title-holder{
   display: inline-block;
   width: 100%;
-  padding: 4px;
+  padding: 4px 0px 5px;
   background: rgba(0,0,0,0.1);
   text-align: center;
 }
 
 .file-title-holder .instructions{
   float: right;
-  display: inline-block;
-  font-size: 25px;
+  /* display: inline-block; */
+  font-size: 20px;
+  margin: 0 30px 0 5px;
+  color: black;
 }
 
 .active{
@@ -67,9 +77,13 @@ a{
 }
 
 .file-title-holder h1{
-  display: inline-block;
-  margin: 0px !important;
+  /* display: inline-block; */
+  /* margin: 0px !important; */
   font-size: 20px;
+  top: 0px;
+  margin: 2px 0px 0px 0px;
+  position: absolute;
+  width: 100%;
 }
 
 #slider{

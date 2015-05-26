@@ -26,6 +26,9 @@
 	<!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"> -->
 </head>
 <body>
+	<span class="full-screen"> 
+		<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+	</span>
 	<div class="overlay">
 		<div class="file-title-holder">
 			<h1 class="file-title"></h1>

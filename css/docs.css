@@ -28,7 +28,6 @@ canvas {
   width: 100%; height: 100% 
 }
 img{
-  margin: 5px 0px;
 }
 ol img{
   border: 1px solid #ccc;
@@ -45,6 +44,7 @@ a{
   margin-bottom: 70px;
 }
 code{
+    background-color: white;
 }
 .chapter{
   border: 3px solid #eee;
@@ -83,12 +83,12 @@ code{
   max-width: 80px;
   height: 70px;
   max-width: 80px}
-.chapter .inline-text{
+.inline-text{
   display: inline-block;
   width: auto;
   float: left;
   font-weight: bold;
-  font-size: 55px;
+  font-size: 35px;
   margin: 0 20px;
 }
 .selected{
