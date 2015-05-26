@@ -27,7 +27,11 @@
 </head>
 <body>
 	<span class="full-screen"> 
+
+
 		<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
+
+		
 	</span>
 	<div class="overlay">
 		<div class="file-title-holder">
@@ -242,6 +246,9 @@
 				</div>
 			</div>
 		</div>
+
+
+
 
 		<div id="save-skeleton-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
