@@ -3,14 +3,18 @@ body {
   overflow:hidden;
   background: #ddd;
 }
-.full-screen{
+.top-buttons{
   position: absolute;
   top: 0px;
   right: 0px;
-  font-size: 20px;
-  cursor: pointer;
   padding: 4px;
   z-index: 999;
+}
+.top-buttons .icon{
+  height: 19px;
+  margin: 0px 2px;
+  padding: 0px !important;
+  cursor: pointer;
 }
 .overlay{
   position: absolute;
@@ -20,8 +24,9 @@ body {
   height: 100%;
 }
 
-
-
+.minimize-icon{
+  
+}
 
 canvas { 
   width: 100%; height: 100% 
@@ -61,7 +66,6 @@ a{
 }
 
 .file-title-holder{
-  display: inline-block;
   width: 100%;
   padding: 4px 0px 5px;
   background: rgba(0,0,0,0.1);
@@ -70,10 +74,12 @@ a{
 
 .file-title-holder .instructions{
   float: right;
-  /* display: inline-block; */
   font-size: 20px;
   margin: 0 30px 0 5px;
   color: black;
+}
+.file-title-holder .instructions .glyphicon{
+  top: 0px;
 }
 
 .active{
@@ -81,13 +87,8 @@ a{
 }
 
 .file-title-holder h1{
-  /* display: inline-block; */
-  /* margin: 0px !important; */
   font-size: 20px;
-  top: 0px;
-  margin: 2px 0px 0px 0px;
-  position: absolute;
-  width: 100%;
+  margin: 0px;
 }
 
 #slider{
@@ -186,7 +187,7 @@ a{
 }
 
 #slider-holder{
-  margin-left: 260px;
+  margin-left: 295px;
   margin-right: 120px;
 }
 
@@ -290,4 +291,3 @@ a{
 
 .function-container .arrow .function{
 }
- 

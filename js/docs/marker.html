@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>marker.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="OrbitalControls.html">
+                  OrbitalControls.js
+                </a>
+              
+                
+                <a class="source" href="animate.html">
+                  animate.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_file.html">
+                  animate_from_file.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_socket.html">
+                  animate_from_socket.js
+                </a>
+              
+                
+                <a class="source" href="animation.html">
+                  animation.js
+                </a>
+              
+                
+                <a class="source" href="connection.html">
+                  connection.js
+                </a>
+              
+                
+                <a class="source" href="controls.html">
+                  controls.js
+                </a>
+              
+                
+                <a class="source" href="init.html">
+                  init.js
+                </a>
+              
+                
+                <a class="source" href="marker.html">
+                  marker.js
+                </a>
+              
+                
+                <a class="source" href="stats.html">
+                  stats.js
+                </a>
+              
+                
+                <a class="source" href="tsv.html">
+                  tsv.js
+                </a>
+              
+                
+                <a class="source" href="webgl-debug.html">
+                  webgl-debug.js
+                </a>
+              
+                
+                <a class="source" href="websocket.html">
+                  websocket.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>marker.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Marker</span><span class="hljs-params">(index)</span></span>{
+  <span class="hljs-keyword">this</span>.index = index;
+  
+  <span class="hljs-keyword">this</span>.draw = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">var</span> geometry = <span class="hljs-keyword">new</span> THREE.SphereGeometry(markerRadius , <span class="hljs-number">16</span>, <span class="hljs-number">16</span> );
+    <span class="hljs-keyword">var</span> is_selected = <span class="hljs-keyword">this</span>.isSelected(selected);
+
+    <span class="hljs-keyword">if</span>(selected){
+      <span class="hljs-keyword">var</span> color = selectedMarkerColor;
+    }<span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">var</span> color = markerColor;
+    }
+
+    <span class="hljs-keyword">var</span> material = <span class="hljs-keyword">new</span> THREE.MeshBasicMaterial( {color: color } );
+    <span class="hljs-keyword">var</span> marker = <span class="hljs-keyword">new</span> THREE.Mesh( geometry, material );
+    
+    marker.position.set(coordinates[<span class="hljs-number">0</span>][<span class="hljs-keyword">this</span>.index][<span class="hljs-number">0</span>],coordinates[<span class="hljs-number">0</span>][<span class="hljs-keyword">this</span>.index][<span class="hljs-number">1</span>],coordinates[<span class="hljs-number">0</span>][<span class="hljs-keyword">this</span>.index][<span class="hljs-number">2</span>]);
+
+    marker.type = <span class="hljs-string">"marker"</span>;
+    marker.receiveShadow = <span class="hljs-literal">true</span>;
+    marker.castShadow = <span class="hljs-literal">true</span>;
+    marker.index = <span class="hljs-keyword">this</span>.index;
+    <span class="hljs-keyword">this</span>.object = marker;
+    scene.add(<span class="hljs-keyword">this</span>.object);
+  }
+
+  <span class="hljs-keyword">this</span>.update = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(selected, coordinates, iteration)</span></span>{
+    <span class="hljs-keyword">this</span>.object.position.set(coordinates[iteration][index][<span class="hljs-number">0</span>], coordinates[iteration][index][<span class="hljs-number">1</span>], coordinates[iteration][index][<span class="hljs-number">2</span>]);
+    <span class="hljs-keyword">var</span> selected = <span class="hljs-keyword">this</span>.isSelected(selected);
+    <span class="hljs-keyword">if</span>(selected){
+      <span class="hljs-keyword">this</span>.object.material.color.set( selectedMarkerColor );
+    }<span class="hljs-keyword">else</span>{
+      <span class="hljs-keyword">this</span>.object.material.color.set( markerColor );
+    }
+  }
+
+  <span class="hljs-keyword">this</span>.isSelected = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">var</span> s = <span class="hljs-literal">false</span>;
+    <span class="hljs-keyword">for</span>(o=<span class="hljs-number">0</span>;o&lt;selected.length;o++){
+      <span class="hljs-keyword">var</span> suuid = selected[o].uuid;
+      <span class="hljs-keyword">var</span> tuuid = <span class="hljs-keyword">this</span>.object.uuid;
+      <span class="hljs-keyword">if</span>(suuid == tuuid){
+        s = <span class="hljs-literal">true</span>;
+      }
+    }
+    <span class="hljs-keyword">return</span> s;
+  }
+
+  <span class="hljs-keyword">this</span>.remove = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    scene.remove(<span class="hljs-keyword">this</span>.object);
+  }
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -39,7 +39,7 @@ function init(){
   scene.add(light);
 
   // Draw markers for the first line in coordinates[]
-  for(var i=0;i<coordinates[0].length;i++){
+  for(var i=0;i<coordinates[1].length;i++){
     var marker = new Marker(i); 
     marker.draw(markerRadius, selected, coordinates, scene);
     markers.push(marker);

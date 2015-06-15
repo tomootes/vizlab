@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>tsv.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="OrbitalControls.html">
+                  OrbitalControls.js
+                </a>
+              
+                
+                <a class="source" href="animate.html">
+                  animate.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_file.html">
+                  animate_from_file.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_socket.html">
+                  animate_from_socket.js
+                </a>
+              
+                
+                <a class="source" href="animation.html">
+                  animation.js
+                </a>
+              
+                
+                <a class="source" href="connection.html">
+                  connection.js
+                </a>
+              
+                
+                <a class="source" href="controls.html">
+                  controls.js
+                </a>
+              
+                
+                <a class="source" href="init.html">
+                  init.js
+                </a>
+              
+                
+                <a class="source" href="marker.html">
+                  marker.js
+                </a>
+              
+                
+                <a class="source" href="stats.html">
+                  stats.js
+                </a>
+              
+                
+                <a class="source" href="tsv.html">
+                  tsv.js
+                </a>
+              
+                
+                <a class="source" href="webgl-debug.html">
+                  webgl-debug.js
+                </a>
+              
+                
+                <a class="source" href="websocket.html">
+                  websocket.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>tsv.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Tsv</span><span class="hljs-params">(path)</span></span>{
+  <span class="hljs-keyword">this</span>.path = path;
+
+  <span class="hljs-keyword">this</span>.getFile = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">()</span></span>{
+    <span class="hljs-keyword">var</span> xmlHttp = <span class="hljs-literal">null</span>;
+    xmlHttp = <span class="hljs-keyword">new</span> XMLHttpRequest();
+    xmlHttp.open( <span class="hljs-string">"GET"</span>, <span class="hljs-keyword">this</span>.path, <span class="hljs-literal">false</span> );
+    xmlHttp.send( <span class="hljs-literal">null</span> );
+    <span class="hljs-keyword">return</span> xmlHttp.responseText;
+  };
+
+  <span class="hljs-keyword">this</span>.toArray = <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(s, first_row)</span></span>{
+    <span class="hljs-keyword">var</span> coordinates = [];
+    coordinates[<span class="hljs-number">0</span>] = [];
+    <span class="hljs-keyword">var</span> first_row = first_row;
+    <span class="hljs-keyword">var</span> char_index = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">var</span> current_line = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">var</span> line_iterator = <span class="hljs-number">0</span>;
+    <span class="hljs-keyword">var</span> current_coordinates = [];
+
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">var</span> i = <span class="hljs-number">0</span>; i &lt; s.length; i++){
+
+      <span class="hljs-keyword">if</span>(line_iterator &gt;= first_row &amp;&amp; s[i] == <span class="hljs-string">'\t'</span>){
+        <span class="hljs-keyword">var</span> sub = s.substr(char_index, (i - char_index));
+        sub = <span class="hljs-built_in">parseFloat</span>(sub);
+        current_coordinates.push(sub);
+        char_index = i;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>Check how much coordinates are in the array, if 3 push to line array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span>(current_coordinates.length == <span class="hljs-number">3</span>){
+          coordinates[current_line].push(current_coordinates); <span class="hljs-comment">// Push coordinates to array</span>
+          current_coordinates = []; <span class="hljs-comment">// Empty array</span>
+        }
+      }
+
+      <span class="hljs-keyword">if</span>(s[i] == <span class="hljs-string">'\n'</span>){
+        line_iterator = line_iterator + <span class="hljs-number">1</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>If we are at the firstline &gt; begin to push coordinates</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>        <span class="hljs-keyword">if</span>(line_iterator &gt; first_row){
+
+          <span class="hljs-keyword">var</span> sub = s.substr(char_index, (i - char_index));
+
+          sub = <span class="hljs-built_in">parseFloat</span>(sub);
+          current_coordinates.push(sub);
+          char_index = i;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Check how much coordinates are in the array, if 3 push to line array</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          coordinates[current_line].push(current_coordinates); <span class="hljs-comment">// Push coordinates to array</span>
+          current_coordinates = []; <span class="hljs-comment">// Empty array</span>
+          current_line = current_line + <span class="hljs-number">1</span>;
+          coordinates[current_line] = [];
+        }
+      }
+
+    }  
+  <span class="hljs-keyword">return</span> coordinates;
+  } 
+}</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

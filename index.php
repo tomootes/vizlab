@@ -7,10 +7,8 @@
 	<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<script src="bower_components/threejs/build/three.min.js"></script>
 
-
 	<script src="js/tsv.js"></script>
 	<script src="js/marker.js"></script>
-
 	<script src="js/connection.js"></script>
 	<script src="js/websocket.js"></script>
 
@@ -26,28 +24,28 @@
 	<!-- <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"> -->
 </head>
 <body>
-	<span class="full-screen"> 
-
-
-		<span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-
-		
-	</span>
+	<div class="top-buttons"> 
+		<a target="_blank" href="docs/manual.html">
+			<img class="help-icon icon" src="images/help.svg">
+		</a>
+		<img class="overlay-icon icon" src="images/overlay.svg">
+		<img class="maximize-icon fullscreen-icon icon" src="images/maximize.svg">
+		<img class="minimize-icon fullscreen-icon icon" src="images/minimize.svg" style="display:none;">
+	</div>
+	
 	<div class="overlay">
 		<div class="file-title-holder">
 			<h1 class="file-title"></h1>
-  		<a target="_blank" class="instructions" href="docs/manual.html">
-  			<span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>
-  		</a>
+			<a target="_blank" class="instructions" href="docs/manual.html">
+			</a>
 		</div>
 
 		<div id="draw-controls-container">
-
 			<div class="draw-controls skeleton-controls"><!-- SKELETON BUTTONS -->
 				<h5>Connections</h5>
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="toggle-skeleton" type="button" class="btn btn-default">	
+						<button id="toggle-skeleton" type="button" class="btn btn-default" title="Hide/show connections">	
 							<span id="skeleton-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 						</button>
 					</div>
@@ -55,29 +53,40 @@
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="select-all-connections" type="button" class="btn btn-default">	
+						<button id="select-all-connections" type="button" class="btn btn-default" title="Select all">	
 							<img src="images/select_all.svg">
 						</button>
 					</div>
-				</div>	
+				</div>
+
+				<div class="btn-row">
+					<div class="btn-group btn-group-md" role="group" aria-label="...">
+						<button type="button" class="btn btn-default connections-larger" title="Increase connection width">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-default connections-smaller">
+							<span class="glyphicon glyphicon-minus" aria-hidden="true" title="Decrease connection width"></span>
+						</button>
+					</div>
+				</div>
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
 						<button id="add-connection" type="button" class="btn btn-default">
-							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-plus-sign" aria-hidden="true" title="Add connection"></span>
 						</button>	
 						<button type="button" id="delete" class="btn btn-default">
-							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-trash" aria-hidden="true" title="Delete connection"></span>
 						</button>	
 					</div>
 				</div>
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="show-load-skeleton-modal" type="button" class="btn btn-default">	
+						<button id="show-load-skeleton-modal" type="button" class="btn btn-default" title="Open skeleton file">	
 							<span class="glyphicon glyphicon-open" aria-hidden="true"></span>
 						</button>
-						<button id="show-save-skeleton-modal" type="button" class="btn btn-default">	
+						<button id="show-save-skeleton-modal" type="button" class="btn btn-default" title="Save skeleton file">	
 							<span class="glyphicon glyphicon glyphicon-save" aria-hidden="true"></span>
 						</button>
 					</div>
@@ -85,10 +94,11 @@
 			</div> 
 
 			<div class="draw-controls marker-controls"><!-- Marker tools -->
+
 				<div class="btn-row">
 					<h5>Markers</h5>
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="toggle-show-markers" type="button" class="btn btn-default">	
+						<button id="toggle-show-markers" type="button" class="btn btn-default" title="Hide/show markers">	
 							<span id="markers-visible-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 						</button>
 					</div>
@@ -96,8 +106,19 @@
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="select-all-markers" type="button" class="btn btn-default">	
+						<button id="select-all-markers" type="button" class="btn btn-default" title="Select all markers">	
 							<img src="images/select_all.svg">
+						</button>
+					</div>
+				</div>
+
+				<div class="btn-row">
+					<div class="btn-group btn-group-md" role="group" aria-label="...">
+						<button type="button" class="btn btn-default markers-larger" title="Increase marker radius">
+							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						</button>
+						<button type="button" class="btn btn-default markers-smaller">	
+							<span class="glyphicon glyphicon-minus" aria-hidden="true" title="Decrease marker radius"></span>
 						</button>
 					</div>
 				</div>
@@ -107,7 +128,7 @@
 				<div class="btn-row">
 					<h5>Selected</h5>
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="toggle-show-selected" type="button" class="btn btn-default">	
+						<button id="toggle-show-selected" type="button" class="btn btn-default" title="Hide/show selected items">	
 							<span id="selected-toggle-icon" class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
 						</button>
 					</div>
@@ -115,57 +136,51 @@
 
 				<div class="btn-row">
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="deselect-all" type="button" class="btn btn-default">	
+						<button id="deselect-all" type="button" class="btn btn-default" title="Deselect all">	
 							<img src="images/deselect.svg">
 						</button>
 					</div>
 				</div>
-
-
-				<div class="btn-row">
-					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button type="button" class="btn btn-default" id="selected-larger">
-							<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-						</button>
-						<button type="button" class="btn btn-default" id="selected-smaller">	
-							<span class="glyphicon glyphicon-minus" aria-hidden="true"></span>
-						</button>
-					</div>
-				</div>
-
 			</div>
 		</div>
+
 		<div id="controls">
 			<div class="container" id="controls-container">
 				<div id="buttons-holder">
 
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="show-socket-modal" type="button" class="btn btn-default">		
+						<button id="show-socket-modal" type="button" class="btn btn-default" title="Show socket connection popup">		
 							<span class="glyphicon glyphicon-transfer"></span>
 						</button>
 					</div>
 
+					<div class="btn-group btn-group-md close-connection-btn-grp" role="group" aria-label="..." style="display:none;">
+						<button id="close-connection" type="button" class="btn btn-default" title="Close connection">		
+							<span class="glyphicon glyphicon glyphicon-off"></span>
+						</button>
+					</div>
+
 					<div class="btn-group btn-group-md animate-file-btn-grp" role="group" aria-label="..." style="display:none;">
-						<button id="animate-file" type="button" class="btn btn-default">		
+						<button id="animate-file" type="button" class="btn btn-default" title="Go back to file environment">		
 							<span class="glyphicon glyphicon-file"></span>
 						</button>
 					</div>
 
 					<div class="btn-group btn-group-md connect-socket-btn-grp" role="group" aria-label="...">
-						<button id="show-files-list" type="button" class="btn btn-default">	
+						<button id="show-files-list" type="button" class="btn btn-default" title="Open other files">	
 							<span class="glyphicon glyphicon-th-list" aria-hidden="true"></span>
 						</button>
 					</div>
 
 					<div class="btn-group btn-group-md" role="group" aria-label="...">
-						<button id="slowdown-animation" type="button" class="btn btn-default">
+						<button id="slowdown-animation" type="button" class="btn btn-default" title="Slow down animation">
 							<span class="glyphicon glyphicon-backward" aria-hidden="true"></span>
 						</button>
 						<button id="play-button" type="button" class="btn btn-default">
-							<span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true"></span>
+							<span id="play-icon" class="glyphicon glyphicon-pause" aria-hidden="true" title="Play/pause animation"></span>
 						</button>
 						<button  id="speedup-animation" type="button" class="btn btn-default">
-							<span class="glyphicon glyphicon-forward" aria-hidden="true"></span>
+							<span class="glyphicon glyphicon-forward" aria-hidden="true" title="Speed up animation"></span>
 						</button>
 					</div>
 				</div>
@@ -176,7 +191,6 @@
 				<div id="slider-holder">
 					<div id="slider"></div>
 				</div>
-
 			</div>
 		</div>
 
@@ -194,7 +208,6 @@
 				<a href="#" class="alert-link">...</a>
 			</div>
 		</div>
-
 
 		<div id="show-files-modal" class="modal fade">
 			<div class="modal-dialog">
@@ -233,7 +246,7 @@
 							<span class="input-group-btn">
 								<button class="btn btn-default" id="connect-to-socket" type="button">Connect</button>
 							</span>
-							<input type="text" class="form-control" id="socket-adress" placeholder="ws://localhost:27015" value="" autofocus=":autofocus">						      
+							<input type="text" class="form-control" id="socket-adress" placeholder="ws://localhost:27015" value="ws://localhost:27015" autofocus=":autofocus">						      
 						</div><!-- /input-group -->
 
 						<div class="row">
@@ -246,9 +259,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
 
 		<div id="save-skeleton-modal" class="modal fade" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-dialog">
@@ -301,12 +311,6 @@
 
 						</ul>
 
-						<div class="row">
-							<div class="center-block">
-								<img id="socket-loader" style="display: none; width:auto; height: 34px;" src="images/reload.svg"/>
-							</div>
-						</div>
-
 					</div>
 				</div>
 			</div>
@@ -341,18 +345,22 @@
 			// Animation variaibles
 			var id;
 			var iteration = 0;
+			var iterationDelayCounter = 1;
+			var counterMax;
 			var animationSpeed = 8;
 			var paused = false;
 			var replay = true;
 			var skeletonVisible = true;
 			var markersVisible = true;
 			var selectedVisible = true;
+			var fullscreen = false;
 			
+			// Create global socket variable
+			var socket;
+
 			var inputDisabled = false;
 			var alertShown = false;
-			var addingObjects = false;
-
-			// var stats = new Stats();			
+			var addingObjects = false;			
 
 			var coordinates = [];
 			var numberOfCoordinates;
@@ -368,8 +376,8 @@
 
 			animateFromFile(filePath);
 
-			</script>
-			<script src="js/controls.js"></script>
-		</div>
-	</body>
-	</html>
+		</script>
+		<script src="js/controls.js"></script>
+	</div>
+</body>
+</html>

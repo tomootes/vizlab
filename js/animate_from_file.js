@@ -5,11 +5,12 @@ function animateFromFile(filePath){
   $(".file-title-holder").removeClass("active");
   $(".connect-socket-btn-grp").show();
   $(".animate-file-btn-grp").hide();
+  $(".close-connection-btn-grp").hide();
 
   coordinates = [];
   selected = [];
   markers = [];
-  connections = [];
+  removeSkeleton();
 
   var tsv = new Tsv(filePath);
   var s = tsv.getFile();

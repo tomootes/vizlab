@@ -1,24 +1,29 @@
-function Socket(){
+function Socket(adress){
+  var ws = new WebSocket(adress, ['binary','base64']);
+  ws.binaryType = 'arraybuffer';
 
-  this.connect = function(adress){
+  this.close = function(){
+    ws.close();
+  }
+
+  this.connect = function(){
     // Pause the application
     paused = true;
 
     var connected = false;
     var first_array = true;
-    var ws = new WebSocket(adress, ['binary','base64']);
-    ws.binaryType = 'arraybuffer';
-
+    
     ws.onopen = function(){
       console.log("connection opened");
-      ws.send("This is a trigger message");
-      ws.send("This is a trigger message");
+      ws.send("Super secret");
+      ws.send("handshake");
     }
-    
+
+    animationSpeed = 1;
+    markerRadius = 43;
     coordinates = [];
 
     ws.onmessage = function(e){
-
       connected = true;
       var buffer = new Uint8Array(e.data);
       // Turn data into string
@@ -33,7 +38,7 @@ function Socket(){
         coordinates.push(singleCoordinates);  
       }
       
-      if(first_array){
+      if(coordinates.length == 2){
         first_array = false;
         animateFromSocket(adress);
       } 
@@ -41,9 +46,10 @@ function Socket(){
 
     ws.onclose = function(e){
       initSlider();
+      $(".file-title-holder").removeClass("active");
       $("#slider").show();
       showAlert(".alert-info", "Connection closed.");
-      $(".file-title").html("Connection with:" + adress + " closed");
+      $(".file-title").html("Connection with: " + adress + " closed");
     }
 
     function splitArray(s){

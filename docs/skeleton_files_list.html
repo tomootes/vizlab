@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>skeleton_files_list.php</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="README.html">
+                  README.md
+                </a>
+              
+                
+                <a class="source" href="index.html">
+                  index.php
+                </a>
+              
+                
+                <a class="source" href="save_skeleton.html">
+                  save_skeleton.php
+                </a>
+              
+                
+                <a class="source" href="skeleton_files_list.html">
+                  skeleton_files_list.php
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>skeleton_files_list.php</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-preprocessor">&lt;?php</span>
+  <span class="hljs-keyword">foreach</span>(glob(<span class="hljs-string">'upload/*.json'</span>) <span class="hljs-keyword">as</span> <span class="hljs-variable">$filename</span>){
+    <span class="hljs-keyword">echo</span> <span class="hljs-string">"&lt;li&gt;&lt;a class='load-skeleton'&gt;"</span> . <span class="hljs-variable">$filename</span> . <span class="hljs-string">"&lt;/a&gt;&lt;/li&gt;"</span>;
+  }
+<span class="hljs-preprocessor">?&gt;</span></pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

@@ -184,10 +184,9 @@
     <p>Within the iteration a lot of things are being updated, for example the slider and the markers' positions.</p>
 
     <p><br /></p>
-  </div
+  </div>
   <footer class="footer">
     <div class="container">
-      <p class="text-muted">Place sticky footer content here.</p>
     </div>
   </footer>
 </body>

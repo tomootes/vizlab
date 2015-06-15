@@ -34,20 +34,28 @@ window.addEventListener('resize', onWindowResize, false);
 
 // Delete connections if they are selected
 function deleteConnections(){
+  if(connections.length > 0){
+    var numberOfConnections = connections.length;
+    var counterOfRemoved = 0;
 
-  var numberOfConnections = connections.length;
-  var counterOfRemoved = 0;
+    var toBeDeleted = [];
+    var connectionSelected = false;
 
-  var toBeDeleted = [];
-
-  for(c=0;c<numberOfConnections;c++){
-    var s = connections[c - counterOfRemoved].isSelected();
-    if(s == true){
-      connections[c - counterOfRemoved].remove();
-      counterOfRemoved = counterOfRemoved + 1;
+    for(c=0;c<numberOfConnections;c++){
+      var s = connections[c - counterOfRemoved].isSelected();
+      if(s == true){
+        connections[c - counterOfRemoved].remove();
+        counterOfRemoved = counterOfRemoved + 1;
+        connectionSelected = true;
+      }
     }
+    if(connectionSelected == false){
+      showAlert(".alert-info", "Please first select at least 1 connection to be deleted.");    
+    }
+    selected = [];  
+  }else{
+    showAlert(".alert-info", "Please first create connections to be deleted.");  
   }
-  selected = [];
 }
 
 // Function for pausing the animation
@@ -78,17 +86,53 @@ $( "#play-button" ).click(function(){
   togglePause();
 });
 
-// If this function is executed the animation will play or pause dependant on the variable paused
-function toggleFullscreen(){
+function enterFullscreen(element){
+  if(element.requestFullscreen) {
+    element.requestFullscreen();
+  } else if(element.mozRequestFullScreen) {
+    element.mozRequestFullScreen();
+  } else if(element.webkitRequestFullscreen) {
+    element.webkitRequestFullscreen();
+  } else if(element.msRequestFullscreen) {
+    element.msRequestFullscreen();
+  }
+}
+
+function exitFullscreen(){
+    if(document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if(document.mozCancelFullScreen) {
+    document.mozCancelFullScreen();
+  } else if(document.webkitExitFullscreen) {
+    document.webkitExitFullscreen();
+  }
+}
+
+$( ".overlay-icon" ).click(function(){
   if($(".overlay").is(':visible')){
     $(".overlay").fadeOut();
   }else{
     $(".overlay").fadeIn();
   }
+});
+
+// If this function is executed the animation will play or pause dependant on the variable paused
+function toggleFullscreen(){
+  if(fullscreen == false){
+    $(".minimize-icon").show();
+    $(".maximize-icon").hide();
+    enterFullscreen(document.documentElement);
+    fullscreen = true;
+  }else{
+    $(".maximize-icon").show();
+    $(".minimize-icon").hide();
+    exitFullscreen(document.documentElement);
+    fullscreen = false;
+  }
 }
 
 // Toggle pause if id="play-button" is clicked
-$( ".full-screen" ).click(function(){
+$( ".fullscreen-icon" ).click(function(){
   toggleFullscreen();
 });
 
@@ -119,11 +163,14 @@ function somethingSelected(){
 
 // This function clears that selected array or shows an alert which says: "Nothing selected"
 function selectAllConnections(){
-  selected = [];
-  for(i=0;i<connections.length;i++){
-    selected.push(connections[i].object);
-    console.log(selected);
-  }
+  if(connections.length > 0){
+    selected = [];
+    for(i=0;i<connections.length;i++){
+      selected.push(connections[i].object);
+    }  
+  }else{
+    showAlert(".alert-info", "Please first create connections to be selected");
+  } 
 }
 
 // This function clears that selected array or shows an alert which says: "Nothing selected"
@@ -162,18 +209,22 @@ $( "#select-all-markers" ).click(function() {
 
 // Toggle of visibility of the skeleton
 function toggleSkeleton(){
-  if(skeletonVisible == true){                // If the skeleton is visible
-    for(i=0;i<connections.length;i++){        // Set them al to invisible
-      connections[i].object.visible = false;
+  if(connections.length > 0){
+    if(skeletonVisible == true){                // If the skeleton is visible
+      for(i=0;i<connections.length;i++){        // Set them al to invisible
+        connections[i].object.visible = false;
+      }
+      skeletonVisible = false;                  // As the global variable
+      document.getElementById("skeleton-icon").className = "glyphicon glyphicon-eye-close";     // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
+    }else{                                      // If skeleton is not visible
+      for(i=0;i<connections.length;i++){        // Make all connections visible again
+        connections[i].object.visible = true;
+      }
+      skeletonVisible = true                    // As the global variable
+      document.getElementById("skeleton-icon").className = "glyphicon glyphicon-eye-open";      // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
     }
-    skeletonVisible = false;                  // As the global variable
-    document.getElementById("skeleton-icon").className = "glyphicon glyphicon-eye-close";     // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
-  }else{                                      // If skeleton is not visible
-    for(i=0;i<connections.length;i++){        // Make all connections visible again
-      connections[i].object.visible = true;
-    }
-    skeletonVisible = true                    // As the global variable
-    document.getElementById("skeleton-icon").className = "glyphicon glyphicon-eye-open";      // And change the #skeleton-icons' class to ".glyphicon-eye-close" 
+  }else{
+    showAlert(".alert-info", "Please first create connections to hide or show");
   }
 }
 
@@ -207,14 +258,12 @@ $( "#toggle-show-markers" ).click(function() {
 function hideSelectedObjects(){
   for(i=0;i<markers.length;i++){
     var s = markers[i].isSelected();
-
     if(s == true){
       markers[i].object.visible = false;
     }
   }
   for(i=0;i<connections.length;i++){
     var s = connections[i].isSelected();
-
     if(s == true){
       connections[i].object.visible = false;
     }
@@ -222,15 +271,15 @@ function hideSelectedObjects(){
 }
 
 function showSelectedObjects(){
-  if(selected[0].type == "marker"){
-    for(i=0;i<markers.length;i++){
-      markers[i].object.visible = true;
-    }
-  }else{
-    for(i=0;i<connections.length;i++){
-      connections[i].object.visible = true;
-    }
+  
+  for(i=0;i<markers.length;i++){
+    markers[i].object.visible = true;
   }
+
+  for(i=0;i<connections.length;i++){
+    connections[i].object.visible = true;
+  }
+  
 }
 
 $( "#toggle-show-selected" ).click(function() {
@@ -256,43 +305,54 @@ function createConnection(tbc1, tbc2){
 
   // Check for all connections if its similar
   for(p=0;p<connections.length;p++){
-    // Create variables to store in the connections informatio
+    // Create variables to store in the connections information
     // If the information is the same or the same but reversed, the connection already exists and doesnt has to be create another time
     if((tbc1 == connections[p].m1 && tbc2 == connections[p].m2 ) || (tbc1 == connections[p].m2 && tbc2 == connections[p].m1 )){
       alreadyExists = true;
       // showAlert(".alert-info", "Connection already exists!");
     }
   }
-  console.log("This connection already exists: " + alreadyExists);
 
   // var exists = validConnection(c1, c2);
   if(alreadyExists == false){
-    console.log("adding connection" + tbc1 + " & " + tbc2);
     var connection = new Connection(tbc1,tbc2);
     connection.draw();
     connections.push(connection);     
   }else{
-    console.log("NOT! adding connection" + tbc1 + " & " + tbc2);
+    showAlert(".alert-info", "Connection already exists");
   }
 }
 
 // This function creates a connection if two markers are selected
 function addConnections(){
+
+  var numberOfSelected = selected.length;
+  var counterOfRemoved = 0;
+
+  for(c=0;c<numberOfSelected;c++){
+    if(selected[c].type == "connection"){
+      selected.splice(c - counterOfRemoved ,1);
+      counterOfRemoved = counterOfRemoved + 1;
+    }
+  }
+
   if(addingObjects == false){
     addingObjects = true;
     // If at least two are selected
     if(selected[0] && selected[1]){
+      console.log(selected[0] && selected[1]);
       // And both are markers
       if(selected[0].type == "marker" && selected[1].type == "marker"){
         // Draw connection for all selected items minus 1
         for(i=0;i<(selected.length-1);i++){
+          console.log(selected[i].index, selected[i+1].index);
           createConnection(selected[i].index, selected[i+1].index);
         }
       }else{
-        showAlert(".alert-info", "Please make sure to select markers and no other objects.");
+        showAlert(".alert-info", "Please make sure to select markers and no other objects");
       }
     }else{
-      showAlert(".alert-info", "Please select two markers first.");
+      showAlert(".alert-info", "Please select two markers first");
     }  
     addingObjects = false;  
   }
@@ -303,14 +363,14 @@ function validConnection(m1, m2){
   for(p=0;p<connections.length;p++){
     if((connections[p].m1 == m1 && connections[p].m2 == m2) || (connections[p].m1 == m2 && connections[p].m2 == m1)){
       result = true;
-      showAlert(".alert-info", "Connection already exists!");
+      showAlert(".alert-info", "Connection already exists");
     }else{
       result = false;
     }
   }
   if(m1 == m2){
     result = false;
-    showAlert(".alert-info", "Can not connect to same marker.");
+    showAlert(".alert-info", "Can not connect to same marker");
   }
   return result;
 }
@@ -321,65 +381,65 @@ $( "#add-connection" ).click(function() {
 });
 
  // Create a connection, to do so, pass selected points
- $( "#slowdown-animation" ).click(function() {
-  if(animationSpeed > 1){
-    animationSpeed = animationSpeed * 0.5;
+ $( "#slowdown-animation" ).click(function(){ 
+  animationSpeed = animationSpeed * 0.5;
+  if(animationSpeed < 1){
+    iterationDelayCounter = 0;
+    counterMax = 1 / animationSpeed;
+  }
+  $('#animation-speed-label').html(animationSpeed + " x ");  
+});
+
+ // Create a connection, to do so, pass selected points
+ $( "#speedup-animation" ).click(function() {
+  animationSpeed = animationSpeed * 2;
+  if(animationSpeed < 1){
+    iterationDelayCounter = 0;
+    counterMax = 1 / animationSpeed;
   }
   $('#animation-speed-label').html(animationSpeed + " x ");
 });
 
-   // Create a connection, to do so, pass selected points
-   $( "#speedup-animation" ).click(function() {
-    animationSpeed = animationSpeed * 2;
-    $('#animation-speed-label').html(animationSpeed + " x ");
-  });
-
-  // Create a connection, to do so, pass selected points
-  $( "#delete" ).click(function(){
-    deleteConnections();
-  });
-
 // Create a connection, to do so, pass selected points
-$( "#selected-smaller" ).click(function(){
+$( "#delete" ).click(function(){
+  deleteConnections();
+});
 
-  if(selected[0].type == "connection"){
-    if(connectionWidth != 0){
-      connectionWidth = connectionWidth - 1;  
-    }
+$( ".connections-smaller" ).click(function(){
+  if(connectionWidth != 0){
+    connectionWidth = connectionWidth - 1;
   }
+})
 
-  if(selected[0].type == "marker"){
+$( ".connections-larger" ).click(function(){
+  if( connectionWidth < 10 ){
+    connectionWidth = connectionWidth + 1;
+  }
+})
+
+$( ".markers-smaller" ).click(function(){
+  if(markerRadius != 1){
     markerRadius = markerRadius -1;
+    for(var i = 0; i < markers.length; i++){
+      markers[i].remove();
+      markers[i].draw();
+      scene.add(markers[i].object);
+    }  
+  }else{
+    showAlert(".alert-info", "Cannot decrease marker radius anymore");    
+  }
+})
+
+$( ".markers-larger" ).click(function(){
+  if( markerRadius > 0 ){
+    markerRadius = markerRadius +1;
     for(var i = 0; i < markers.length; i++){
       markers[i].remove();
       markers[i].draw();
       scene.add(markers[i].object);
     }
   }
-
-});
-
-// Create a connection, to do so, pass selected points
-$( "#selected-larger" ).click(function(){
-
-  if(selected[0].type == "connection"){
-    if( connectionWidth < 10 ){
-      connectionWidth = connectionWidth + 1;
-    }
-  }
-
-  if(selected[0].type == "marker"){
-    if( markerRadius > 0 ){
-      markerRadius = markerRadius +1;
-      for(var i = 0; i < markers.length; i++){
-        markers[i].remove();
-        markers[i].draw();
-        scene.add(markers[i].object);
-      }
-    }
-  }
-
-});
+})
 
 // Create a connection, to do so, pass selected points
 $( "#reset" ).click(function(){
@@ -395,7 +455,6 @@ function saveSkeleton(){
   var connection_objects = [];
 
   for(var i=0;i<connections.length;i++){
-    console.log(connections[i]);
     var marker_1 = connections[i].m1;
     var marker_2 = connections[i].m2;
     var connection = {m1: marker_1, m2: marker_2}; 
@@ -455,6 +514,10 @@ $( "#show-files-list" ).click(function(){
   $('#show-files-modal').modal('show');
 });
 
+$( "#close-connection" ).click(function(){
+  socket.close();
+});
+
 $( "#show-socket-modal" ).click(function(){
   controls.enabled = false;
   pauseAnimation();
@@ -465,19 +528,18 @@ $( "#show-socket-modal" ).click(function(){
 $("#connect-to-socket").click(function(){
   $('.modal').find('#socket-loader').show();
   var adress = $('#socket-adress').val();
-  var socket = new Socket();
-  socket.connect(adress);
+  socket = new Socket(adress);
+  socket.connect();
   animateFromSocket(adress);
 })
 
 $("#animate-file").click(function(){
-  animateFromFile(url);
+  animateFromFile(filePath);
 })
 
 $( ".coordinate-file-url" ).click(function(){
   $(".modal").modal('hide');
   var url = $(this).text();
-  // webglRenderer.context.canvas.loseContext();
   animateFromFile(url);
 });
 
@@ -485,7 +547,6 @@ function loadSkeleton(url){
   removeSkeleton();
 
   $.getJSON(url, function(json){
-    console.log(json);
     connections.length = 0;
     selected.length = 0;
 
@@ -511,20 +572,13 @@ function showAlert(alert_class, text){
     $(alert_class).html(text);
     $(alert_class).fadeIn();
     
-    setTimeout(hideAlert, 1000);
+    setTimeout(hideAlert, 1500);
 
     function hideAlert(){
       $(alert_class).fadeOut();
       alertShown = false;
     }
   }  
-}
-
-function removeSkeleton(){
-  for(i=0;i<connections.length;i++){
-    scene.remove(connections[i].object);  
-  }
-  connections = [];
 }
 
 function onDocumentMouseDown( event ) {
@@ -549,8 +603,6 @@ function onDocumentMouseDown( event ) {
   // intersects contains an array of objects that might have been hit
 
   var intersects = raycaster.intersectObjects(scene.children, true);
-  
-  console.log(intersects);
 
   for(i=0;i<intersects.length;i++){
     var o = intersects[i].object.name;
@@ -564,9 +616,9 @@ function onDocumentMouseDown( event ) {
     // If array is not empty
     if(selected.length > 0){
       // If clicked item is not similar to selected items, empty array
-      if(intersects[0].object.type != selected[0].type){
-        deselectAll();
-      }
+      // if(intersects[0].object.type != selected[0].type){
+      //   deselectAll();
+      // }
     }
     
     intersected = intersects[0].object;

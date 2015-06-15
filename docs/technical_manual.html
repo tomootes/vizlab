@@ -1,14 +1,13 @@
 <html>
 <head>
-  <title>Instructions</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script src="js/webgl-debug.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r70/three.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.1.0/papaparse.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-  <script src="http://code.jquery.com/ui/1.11.3/jquery-ui.js"></script>
+  <title>Instructions</title> 
 
-  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+  <script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="../bower_components/threejs/build/three.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" type="text/css" href="../css/style.css">
   <link rel="stylesheet" type="text/css" href="../css/docs.css">
 </head>
@@ -52,7 +51,7 @@
       </li>
     </ol>
     <p>Now you can you can provide the data for the application by a TCP-socket connection on the given adress.</p>
-    <h4>Spoofing coordinate data</h4>
+    <h3>Spoofing coordinate data</h3>
       <p>For testing purposes, a small program was created that sends coordinate-data that was already gathered datafile from the vizlab. This program can be executed from the same location as websockify.py by the following command:<br><code>$user ruby tcp_socket.rb</code></p>
       <p>The file will send lines of coordinates to the application coming from a file, to localhost:27016. The adress of the connection can of course be edited in the program for it is very small and not complex at all.</p>
       </li>

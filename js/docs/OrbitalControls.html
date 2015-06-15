@@ -1,0 +1,1318 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>OrbitalControls.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page_wrapper">
+            <div id="jump_page">
+              
+                
+                <a class="source" href="OrbitalControls.html">
+                  OrbitalControls.js
+                </a>
+              
+                
+                <a class="source" href="animate.html">
+                  animate.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_file.html">
+                  animate_from_file.js
+                </a>
+              
+                
+                <a class="source" href="animate_from_socket.html">
+                  animate_from_socket.js
+                </a>
+              
+                
+                <a class="source" href="animation.html">
+                  animation.js
+                </a>
+              
+                
+                <a class="source" href="connection.html">
+                  connection.js
+                </a>
+              
+                
+                <a class="source" href="controls.html">
+                  controls.js
+                </a>
+              
+                
+                <a class="source" href="init.html">
+                  init.js
+                </a>
+              
+                
+                <a class="source" href="marker.html">
+                  marker.js
+                </a>
+              
+                
+                <a class="source" href="stats.html">
+                  stats.js
+                </a>
+              
+                
+                <a class="source" href="tsv.html">
+                  tsv.js
+                </a>
+              
+                
+                <a class="source" href="webgl-debug.html">
+                  webgl-debug.js
+                </a>
+              
+                
+                <a class="source" href="websocket.html">
+                  websocket.js
+                </a>
+              
+            </div>
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>OrbitalControls.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="hljs-comment">/**
+ * @author qiao / https://github.com/qiao
+ * @author mrdoob / http://mrdoob.com
+ * @author alteredq / http://alteredqualia.com/
+ * @author WestLangley / http://github.com/WestLangley
+ * @author erich666 / http://erichaines.com
+ */</span>
+<span class="hljs-comment">/*global THREE, console */</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>This set of controls performs orbiting, dollying (zooming), and panning. It maintains
+the “up” direction as +Y, unlike the TrackballControls. Touch on tablet and phones is
+supported.</p>
+<p>   Orbit - left mouse / touch: one finger move
+   Zoom - middle mouse, or mousewheel / touch: two finger spread or squish
+   Pan - right mouse, or arrow keys / touch: three finter swipe</p>
+<p>This is a drop-in replacement for (most) TrackballControls used in examples.
+That is, include this js file and wherever you see:
+       controls = new THREE.TrackballControls( camera );
+     controls.target.z = 150;
+Simple substitute “OrbitControls” and the control should work as-is.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+THREE.OrbitControls = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( object, domElement )</span> </span>{
+
+	<span class="hljs-keyword">this</span>.object = object;
+	<span class="hljs-keyword">this</span>.domElement = ( domElement !== <span class="hljs-literal">undefined</span> ) ? domElement : <span class="hljs-built_in">document</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>API</p>
+
+            </div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>Set to false to disable this control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.enabled = <span class="hljs-literal">true</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>“target” sets the location of focus, where the control orbits around
+and where it pans with respect to.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.target = <span class="hljs-keyword">new</span> THREE.Vector3();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>center is old, deprecated; use “target” instead</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.center = <span class="hljs-keyword">this</span>.target;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>This option actually enables dollying in and out; left as “zoom” for
+backwards compatibility</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.noZoom = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">this</span>.zoomSpeed = <span class="hljs-number">1.0</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Limits to how far you can dolly in and out</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.minDistance = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">this</span>.maxDistance = <span class="hljs-literal">Infinity</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Set to true to disable this control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.noRotate = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">this</span>.rotateSpeed = <span class="hljs-number">1.0</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Set to true to disable this control</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.noPan = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">this</span>.keyPanSpeed = <span class="hljs-number">7.0</span>;	<span class="hljs-comment">// pixels moved per arrow key push</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-11">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-11">&#182;</a>
+              </div>
+              <p>Set to true to automatically rotate around the target</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.autoRotate = <span class="hljs-literal">false</span>;
+	<span class="hljs-keyword">this</span>.autoRotateSpeed = <span class="hljs-number">2.0</span>; <span class="hljs-comment">// 30 seconds per round when fps is 60</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-12">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-12">&#182;</a>
+              </div>
+              <p>How far you can orbit vertically, upper and lower limits.
+Range is 0 to Math.PI radians.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.minPolarAngle = <span class="hljs-number">0</span>; <span class="hljs-comment">// radians</span>
+	<span class="hljs-keyword">this</span>.maxPolarAngle = <span class="hljs-built_in">Math</span>.PI; <span class="hljs-comment">// radians</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-13">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-13">&#182;</a>
+              </div>
+              <p>How far you can orbit horizontally, upper and lower limits.
+If set, must be a sub-interval of the interval [ - Math.PI, Math.PI ].</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.minAzimuthAngle = - <span class="hljs-literal">Infinity</span>; <span class="hljs-comment">// radians</span>
+	<span class="hljs-keyword">this</span>.maxAzimuthAngle = <span class="hljs-literal">Infinity</span>; <span class="hljs-comment">// radians</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-14">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-14">&#182;</a>
+              </div>
+              <p>Set to true to disable use of the keys</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.noKeys = <span class="hljs-literal">false</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-15">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-15">&#182;</a>
+              </div>
+              <p>The four arrow keys</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.keys = { LEFT: <span class="hljs-number">37</span>, UP: <span class="hljs-number">38</span>, RIGHT: <span class="hljs-number">39</span>, BOTTOM: <span class="hljs-number">40</span> };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-16">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-16">&#182;</a>
+              </div>
+              <p>Mouse buttons</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.mouseButtons = { ORBIT: THREE.MOUSE.LEFT, ZOOM: THREE.MOUSE.MIDDLE, PAN: THREE.MOUSE.RIGHT };</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-17">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-17">&#182;</a>
+              </div>
+              <p>//////////
+internals</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+	<span class="hljs-keyword">var</span> scope = <span class="hljs-keyword">this</span>;
+
+	<span class="hljs-keyword">var</span> EPS = <span class="hljs-number">0.000001</span>;
+
+	<span class="hljs-keyword">var</span> rotateStart = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> rotateEnd = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> rotateDelta = <span class="hljs-keyword">new</span> THREE.Vector2();
+
+	<span class="hljs-keyword">var</span> panStart = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> panEnd = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> panDelta = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> panOffset = <span class="hljs-keyword">new</span> THREE.Vector3();
+
+	<span class="hljs-keyword">var</span> offset = <span class="hljs-keyword">new</span> THREE.Vector3();
+
+	<span class="hljs-keyword">var</span> dollyStart = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> dollyEnd = <span class="hljs-keyword">new</span> THREE.Vector2();
+	<span class="hljs-keyword">var</span> dollyDelta = <span class="hljs-keyword">new</span> THREE.Vector2();
+
+	<span class="hljs-keyword">var</span> theta;
+	<span class="hljs-keyword">var</span> phi;
+	<span class="hljs-keyword">var</span> phiDelta = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">var</span> thetaDelta = <span class="hljs-number">0</span>;
+	<span class="hljs-keyword">var</span> scale = <span class="hljs-number">1</span>;
+	<span class="hljs-keyword">var</span> pan = <span class="hljs-keyword">new</span> THREE.Vector3();
+
+	<span class="hljs-keyword">var</span> lastPosition = <span class="hljs-keyword">new</span> THREE.Vector3();
+	<span class="hljs-keyword">var</span> lastQuaternion = <span class="hljs-keyword">new</span> THREE.Quaternion();
+
+	<span class="hljs-keyword">var</span> STATE = { NONE : -<span class="hljs-number">1</span>, ROTATE : <span class="hljs-number">0</span>, DOLLY : <span class="hljs-number">1</span>, PAN : <span class="hljs-number">2</span>, TOUCH_ROTATE : <span class="hljs-number">3</span>, TOUCH_DOLLY : <span class="hljs-number">4</span>, TOUCH_PAN : <span class="hljs-number">5</span> };
+
+	<span class="hljs-keyword">var</span> state = STATE.NONE;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-18">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-18">&#182;</a>
+              </div>
+              <p>for reset</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+	<span class="hljs-keyword">this</span>.target0 = <span class="hljs-keyword">this</span>.target.clone();
+	<span class="hljs-keyword">this</span>.position0 = <span class="hljs-keyword">this</span>.object.position.clone();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-19">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-19">&#182;</a>
+              </div>
+              <p>so camera.up is the orbit axis</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+	<span class="hljs-keyword">var</span> quat = <span class="hljs-keyword">new</span> THREE.Quaternion().setFromUnitVectors( object.up, <span class="hljs-keyword">new</span> THREE.Vector3( <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span> ) );
+	<span class="hljs-keyword">var</span> quatInverse = quat.clone().inverse();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-20">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-20">&#182;</a>
+              </div>
+              <p>events</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+	<span class="hljs-keyword">var</span> changeEvent = { type: <span class="hljs-string">'change'</span> };
+	<span class="hljs-keyword">var</span> startEvent = { type: <span class="hljs-string">'start'</span>};
+	<span class="hljs-keyword">var</span> endEvent = { type: <span class="hljs-string">'end'</span>};
+
+	<span class="hljs-keyword">this</span>.rotateLeft = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( angle )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( angle === <span class="hljs-literal">undefined</span> ) {
+
+			angle = getAutoRotationAngle();
+
+		}
+
+		thetaDelta -= angle;
+
+	};
+
+	<span class="hljs-keyword">this</span>.rotateUp = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( angle )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( angle === <span class="hljs-literal">undefined</span> ) {
+
+			angle = getAutoRotationAngle();
+
+		}
+
+		phiDelta -= angle;
+
+	};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-21">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-21">&#182;</a>
+              </div>
+              <p>pass in distance in world space to move left</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.panLeft = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( distance )</span> </span>{
+
+		<span class="hljs-keyword">var</span> te = <span class="hljs-keyword">this</span>.object.matrix.elements;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-22">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-22">&#182;</a>
+              </div>
+              <p>get X column of matrix</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		panOffset.set( te[ <span class="hljs-number">0</span> ], te[ <span class="hljs-number">1</span> ], te[ <span class="hljs-number">2</span> ] );
+		panOffset.multiplyScalar( - distance );
+
+		pan.add( panOffset );
+
+	};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-23">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-23">&#182;</a>
+              </div>
+              <p>pass in distance in world space to move up</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.panUp = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( distance )</span> </span>{
+
+		<span class="hljs-keyword">var</span> te = <span class="hljs-keyword">this</span>.object.matrix.elements;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-24">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-24">&#182;</a>
+              </div>
+              <p>get Y column of matrix</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		panOffset.set( te[ <span class="hljs-number">4</span> ], te[ <span class="hljs-number">5</span> ], te[ <span class="hljs-number">6</span> ] );
+		panOffset.multiplyScalar( distance );
+
+		pan.add( panOffset );
+
+	};</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-25">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-25">&#182;</a>
+              </div>
+              <p>pass in x,y of change desired in pixel space,
+right and down are positive</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.pan = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( deltaX, deltaY )</span> </span>{
+
+		<span class="hljs-keyword">var</span> element = scope.domElement === <span class="hljs-built_in">document</span> ? scope.domElement.body : scope.domElement;
+
+		<span class="hljs-keyword">if</span> ( scope.object.fov !== <span class="hljs-literal">undefined</span> ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-26">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-26">&#182;</a>
+              </div>
+              <p>perspective</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-keyword">var</span> position = scope.object.position;
+			<span class="hljs-keyword">var</span> offset = position.clone().sub( scope.target );
+			<span class="hljs-keyword">var</span> targetDistance = offset.length();</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-27">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-27">&#182;</a>
+              </div>
+              <p>half of the fov is center to top of screen</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			targetDistance *= <span class="hljs-built_in">Math</span>.tan( ( scope.object.fov / <span class="hljs-number">2</span> ) * <span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">180.0</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-28">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-28">&#182;</a>
+              </div>
+              <p>we actually don’t use screenWidth, since perspective camera is fixed to screen height</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			scope.panLeft( <span class="hljs-number">2</span> * deltaX * targetDistance / element.clientHeight );
+			scope.panUp( <span class="hljs-number">2</span> * deltaY * targetDistance / element.clientHeight );
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( scope.object.top !== <span class="hljs-literal">undefined</span> ) {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-29">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-29">&#182;</a>
+              </div>
+              <p>orthographic</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			scope.panLeft( deltaX * (scope.object.right - scope.object.left) / element.clientWidth );
+			scope.panUp( deltaY * (scope.object.top - scope.object.bottom) / element.clientHeight );
+
+		} <span class="hljs-keyword">else</span> {</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-30">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-30">&#182;</a>
+              </div>
+              <p>camera neither orthographic or perspective</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			<span class="hljs-built_in">console</span>.warn( <span class="hljs-string">'WARNING: OrbitControls.js encountered an unknown camera type - pan disabled.'</span> );
+
+		}
+
+	};
+
+	<span class="hljs-keyword">this</span>.dollyIn = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( dollyScale )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( dollyScale === <span class="hljs-literal">undefined</span> ) {
+
+			dollyScale = getZoomScale();
+
+		}
+
+		scale /= dollyScale;
+
+	};
+
+	<span class="hljs-keyword">this</span>.dollyOut = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( dollyScale )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( dollyScale === <span class="hljs-literal">undefined</span> ) {
+
+			dollyScale = getZoomScale();
+
+		}
+
+		scale *= dollyScale;
+
+	};
+
+	<span class="hljs-keyword">this</span>.update = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+		<span class="hljs-keyword">var</span> position = <span class="hljs-keyword">this</span>.object.position;
+
+		offset.copy( position ).sub( <span class="hljs-keyword">this</span>.target );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-31">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-31">&#182;</a>
+              </div>
+              <p>rotate offset to “y-axis-is-up” space</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		offset.applyQuaternion( quat );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-32">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-32">&#182;</a>
+              </div>
+              <p>angle from z-axis around y-axis</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+		theta = <span class="hljs-built_in">Math</span>.atan2( offset.x, offset.z );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-33">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-33">&#182;</a>
+              </div>
+              <p>angle from y-axis</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+		phi = <span class="hljs-built_in">Math</span>.atan2( <span class="hljs-built_in">Math</span>.sqrt( offset.x * offset.x + offset.z * offset.z ), offset.y );
+
+		<span class="hljs-keyword">if</span> ( <span class="hljs-keyword">this</span>.autoRotate &amp;&amp; state === STATE.NONE ) {
+
+			<span class="hljs-keyword">this</span>.rotateLeft( getAutoRotationAngle() );
+
+		}
+
+		theta += thetaDelta;
+		phi += phiDelta;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-34">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-34">&#182;</a>
+              </div>
+              <p>restrict theta to be between desired limits</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		theta = <span class="hljs-built_in">Math</span>.max( <span class="hljs-keyword">this</span>.minAzimuthAngle, <span class="hljs-built_in">Math</span>.min( <span class="hljs-keyword">this</span>.maxAzimuthAngle, theta ) );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-35">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-35">&#182;</a>
+              </div>
+              <p>restrict phi to be between desired limits</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		phi = <span class="hljs-built_in">Math</span>.max( <span class="hljs-keyword">this</span>.minPolarAngle, <span class="hljs-built_in">Math</span>.min( <span class="hljs-keyword">this</span>.maxPolarAngle, phi ) );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-36">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-36">&#182;</a>
+              </div>
+              <p>restrict phi to be betwee EPS and PI-EPS</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		phi = <span class="hljs-built_in">Math</span>.max( EPS, <span class="hljs-built_in">Math</span>.min( <span class="hljs-built_in">Math</span>.PI - EPS, phi ) );
+
+		<span class="hljs-keyword">var</span> radius = offset.length() * scale;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-37">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-37">&#182;</a>
+              </div>
+              <p>restrict radius to be between desired limits</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		radius = <span class="hljs-built_in">Math</span>.max( <span class="hljs-keyword">this</span>.minDistance, <span class="hljs-built_in">Math</span>.min( <span class="hljs-keyword">this</span>.maxDistance, radius ) );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-38">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-38">&#182;</a>
+              </div>
+              <p>move target to panned location</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		<span class="hljs-keyword">this</span>.target.add( pan );
+
+		offset.x = radius * <span class="hljs-built_in">Math</span>.sin( phi ) * <span class="hljs-built_in">Math</span>.sin( theta );
+		offset.y = radius * <span class="hljs-built_in">Math</span>.cos( phi );
+		offset.z = radius * <span class="hljs-built_in">Math</span>.sin( phi ) * <span class="hljs-built_in">Math</span>.cos( theta );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-39">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-39">&#182;</a>
+              </div>
+              <p>rotate offset back to “camera-up-vector-is-up” space</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>		offset.applyQuaternion( quatInverse );
+
+		position.copy( <span class="hljs-keyword">this</span>.target ).add( offset );
+
+		<span class="hljs-keyword">this</span>.object.lookAt( <span class="hljs-keyword">this</span>.target );
+
+		thetaDelta = <span class="hljs-number">0</span>;
+		phiDelta = <span class="hljs-number">0</span>;
+		scale = <span class="hljs-number">1</span>;
+		pan.set( <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-40">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-40">&#182;</a>
+              </div>
+              <p>update condition is:
+min(camera displacement, camera rotation in radians)^2 &gt; EPS
+using small-angle approximation cos(x/2) = 1 - x^2 / 8</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>
+		<span class="hljs-keyword">if</span> ( lastPosition.distanceToSquared( <span class="hljs-keyword">this</span>.object.position ) &gt; EPS
+		    || <span class="hljs-number">8</span> * (<span class="hljs-number">1</span> - lastQuaternion.dot(<span class="hljs-keyword">this</span>.object.quaternion)) &gt; EPS ) {
+
+			<span class="hljs-keyword">this</span>.dispatchEvent( changeEvent );
+
+			lastPosition.copy( <span class="hljs-keyword">this</span>.object.position );
+			lastQuaternion.copy (<span class="hljs-keyword">this</span>.object.quaternion );
+
+		}
+
+	};
+
+
+	<span class="hljs-keyword">this</span>.reset = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+		state = STATE.NONE;
+
+		<span class="hljs-keyword">this</span>.target.copy( <span class="hljs-keyword">this</span>.target0 );
+		<span class="hljs-keyword">this</span>.object.position.copy( <span class="hljs-keyword">this</span>.position0 );
+
+		<span class="hljs-keyword">this</span>.update();
+
+	};
+
+	<span class="hljs-keyword">this</span>.getPolarAngle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+		<span class="hljs-keyword">return</span> phi;
+
+	};
+
+	<span class="hljs-keyword">this</span>.getAzimuthalAngle = <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">()</span> </span>{
+
+		<span class="hljs-keyword">return</span> theta
+
+	};
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getAutoRotationAngle</span><span class="hljs-params">()</span> </span>{
+
+		<span class="hljs-keyword">return</span> <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI / <span class="hljs-number">60</span> / <span class="hljs-number">60</span> * scope.autoRotateSpeed;
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">getZoomScale</span><span class="hljs-params">()</span> </span>{
+
+		<span class="hljs-keyword">return</span> <span class="hljs-built_in">Math</span>.pow( <span class="hljs-number">0.95</span>, scope.zoomSpeed );
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onMouseDown</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+		event.preventDefault();
+
+		<span class="hljs-keyword">if</span> ( event.button === scope.mouseButtons.ORBIT ) {
+			<span class="hljs-keyword">if</span> ( scope.noRotate === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			state = STATE.ROTATE;
+
+			rotateStart.set( event.clientX, event.clientY );
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( event.button === scope.mouseButtons.ZOOM ) {
+			<span class="hljs-keyword">if</span> ( scope.noZoom === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			state = STATE.DOLLY;
+
+			dollyStart.set( event.clientX, event.clientY );
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( event.button === scope.mouseButtons.PAN ) {
+			<span class="hljs-keyword">if</span> ( scope.noPan === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			state = STATE.PAN;
+
+			panStart.set( event.clientX, event.clientY );
+
+		}
+
+		<span class="hljs-keyword">if</span> ( state !== STATE.NONE ) {
+			<span class="hljs-built_in">document</span>.addEventListener( <span class="hljs-string">'mousemove'</span>, onMouseMove, <span class="hljs-literal">false</span> );
+			<span class="hljs-built_in">document</span>.addEventListener( <span class="hljs-string">'mouseup'</span>, onMouseUp, <span class="hljs-literal">false</span> );
+			scope.dispatchEvent( startEvent );
+		}
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onMouseMove</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+
+		event.preventDefault();
+
+		<span class="hljs-keyword">var</span> element = scope.domElement === <span class="hljs-built_in">document</span> ? scope.domElement.body : scope.domElement;
+
+		<span class="hljs-keyword">if</span> ( state === STATE.ROTATE ) {
+
+			<span class="hljs-keyword">if</span> ( scope.noRotate === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			rotateEnd.set( event.clientX, event.clientY );
+			rotateDelta.subVectors( rotateEnd, rotateStart );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-41">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-41">&#182;</a>
+              </div>
+              <p>rotating across whole screen goes 360 degrees around</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			scope.rotateLeft( <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-42">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-42">&#182;</a>
+              </div>
+              <p>rotating up and down along whole screen attempts to go 360, but limited to 180</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			scope.rotateUp( <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
+
+			rotateStart.copy( rotateEnd );
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( state === STATE.DOLLY ) {
+
+			<span class="hljs-keyword">if</span> ( scope.noZoom === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			dollyEnd.set( event.clientX, event.clientY );
+			dollyDelta.subVectors( dollyEnd, dollyStart );
+
+			<span class="hljs-keyword">if</span> ( dollyDelta.y &gt; <span class="hljs-number">0</span> ) {
+
+				scope.dollyIn();
+
+			} <span class="hljs-keyword">else</span> {
+
+				scope.dollyOut();
+
+			}
+
+			dollyStart.copy( dollyEnd );
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( state === STATE.PAN ) {
+
+			<span class="hljs-keyword">if</span> ( scope.noPan === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+			panEnd.set( event.clientX, event.clientY );
+			panDelta.subVectors( panEnd, panStart );
+
+			scope.pan( panDelta.x, panDelta.y );
+
+			panStart.copy( panEnd );
+
+		}
+
+		<span class="hljs-keyword">if</span> ( state !== STATE.NONE ) scope.update();
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onMouseUp</span><span class="hljs-params">( <span class="hljs-comment">/* event */</span> )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+
+		<span class="hljs-built_in">document</span>.removeEventListener( <span class="hljs-string">'mousemove'</span>, onMouseMove, <span class="hljs-literal">false</span> );
+		<span class="hljs-built_in">document</span>.removeEventListener( <span class="hljs-string">'mouseup'</span>, onMouseUp, <span class="hljs-literal">false</span> );
+		scope.dispatchEvent( endEvent );
+		state = STATE.NONE;
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onMouseWheel</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> || scope.noZoom === <span class="hljs-literal">true</span> || state !== STATE.NONE ) <span class="hljs-keyword">return</span>;
+
+		event.preventDefault();
+		event.stopPropagation();
+
+		<span class="hljs-keyword">var</span> delta = <span class="hljs-number">0</span>;
+
+		<span class="hljs-keyword">if</span> ( event.wheelDelta !== <span class="hljs-literal">undefined</span> ) { <span class="hljs-comment">// WebKit / Opera / Explorer 9</span>
+
+			delta = event.wheelDelta;
+
+		} <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> ( event.detail !== <span class="hljs-literal">undefined</span> ) { <span class="hljs-comment">// Firefox</span>
+
+			delta = - event.detail;
+
+		}
+
+		<span class="hljs-keyword">if</span> ( delta &gt; <span class="hljs-number">0</span> ) {
+
+			scope.dollyOut();
+
+		} <span class="hljs-keyword">else</span> {
+
+			scope.dollyIn();
+
+		}
+
+		scope.update();
+		scope.dispatchEvent( startEvent );
+		scope.dispatchEvent( endEvent );
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">onKeyDown</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> || scope.noKeys === <span class="hljs-literal">true</span> || scope.noPan === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+		<span class="hljs-keyword">switch</span> ( event.keyCode ) {
+
+			<span class="hljs-keyword">case</span> scope.keys.UP:
+				scope.pan( <span class="hljs-number">0</span>, scope.keyPanSpeed );
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> scope.keys.BOTTOM:
+				scope.pan( <span class="hljs-number">0</span>, - scope.keyPanSpeed );
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> scope.keys.LEFT:
+				scope.pan( scope.keyPanSpeed, <span class="hljs-number">0</span> );
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> scope.keys.RIGHT:
+				scope.pan( - scope.keyPanSpeed, <span class="hljs-number">0</span> );
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+		}
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">touchstart</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+
+		<span class="hljs-keyword">switch</span> ( event.touches.length ) {
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:	<span class="hljs-comment">// one-fingered touch: rotate</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noRotate === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+				state = STATE.TOUCH_ROTATE;
+
+				rotateStart.set( event.touches[ <span class="hljs-number">0</span> ].pageX, event.touches[ <span class="hljs-number">0</span> ].pageY );
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:	<span class="hljs-comment">// two-fingered touch: dolly</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noZoom === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+				state = STATE.TOUCH_DOLLY;
+
+				<span class="hljs-keyword">var</span> dx = event.touches[ <span class="hljs-number">0</span> ].pageX - event.touches[ <span class="hljs-number">1</span> ].pageX;
+				<span class="hljs-keyword">var</span> dy = event.touches[ <span class="hljs-number">0</span> ].pageY - event.touches[ <span class="hljs-number">1</span> ].pageY;
+				<span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.sqrt( dx * dx + dy * dy );
+				dollyStart.set( <span class="hljs-number">0</span>, distance );
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: <span class="hljs-comment">// three-fingered touch: pan</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noPan === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+
+				state = STATE.TOUCH_PAN;
+
+				panStart.set( event.touches[ <span class="hljs-number">0</span> ].pageX, event.touches[ <span class="hljs-number">0</span> ].pageY );
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">default</span>:
+
+				state = STATE.NONE;
+
+		}
+
+		<span class="hljs-keyword">if</span> ( state !== STATE.NONE ) scope.dispatchEvent( startEvent );
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">touchmove</span><span class="hljs-params">( event )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+
+		event.preventDefault();
+		event.stopPropagation();
+
+		<span class="hljs-keyword">var</span> element = scope.domElement === <span class="hljs-built_in">document</span> ? scope.domElement.body : scope.domElement;
+
+		<span class="hljs-keyword">switch</span> ( event.touches.length ) {
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">1</span>: <span class="hljs-comment">// one-fingered touch: rotate</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noRotate === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+				<span class="hljs-keyword">if</span> ( state !== STATE.TOUCH_ROTATE ) <span class="hljs-keyword">return</span>;
+
+				rotateEnd.set( event.touches[ <span class="hljs-number">0</span> ].pageX, event.touches[ <span class="hljs-number">0</span> ].pageY );
+				rotateDelta.subVectors( rotateEnd, rotateStart );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-43">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-43">&#182;</a>
+              </div>
+              <p>rotating across whole screen goes 360 degrees around</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				scope.rotateLeft( <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI * rotateDelta.x / element.clientWidth * scope.rotateSpeed );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-44">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-44">&#182;</a>
+              </div>
+              <p>rotating up and down along whole screen attempts to go 360, but limited to 180</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>				scope.rotateUp( <span class="hljs-number">2</span> * <span class="hljs-built_in">Math</span>.PI * rotateDelta.y / element.clientHeight * scope.rotateSpeed );
+
+				rotateStart.copy( rotateEnd );
+
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">2</span>: <span class="hljs-comment">// two-fingered touch: dolly</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noZoom === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+				<span class="hljs-keyword">if</span> ( state !== STATE.TOUCH_DOLLY ) <span class="hljs-keyword">return</span>;
+
+				<span class="hljs-keyword">var</span> dx = event.touches[ <span class="hljs-number">0</span> ].pageX - event.touches[ <span class="hljs-number">1</span> ].pageX;
+				<span class="hljs-keyword">var</span> dy = event.touches[ <span class="hljs-number">0</span> ].pageY - event.touches[ <span class="hljs-number">1</span> ].pageY;
+				<span class="hljs-keyword">var</span> distance = <span class="hljs-built_in">Math</span>.sqrt( dx * dx + dy * dy );
+
+				dollyEnd.set( <span class="hljs-number">0</span>, distance );
+				dollyDelta.subVectors( dollyEnd, dollyStart );
+
+				<span class="hljs-keyword">if</span> ( dollyDelta.y &gt; <span class="hljs-number">0</span> ) {
+
+					scope.dollyOut();
+
+				} <span class="hljs-keyword">else</span> {
+
+					scope.dollyIn();
+
+				}
+
+				dollyStart.copy( dollyEnd );
+
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">case</span> <span class="hljs-number">3</span>: <span class="hljs-comment">// three-fingered touch: pan</span>
+
+				<span class="hljs-keyword">if</span> ( scope.noPan === <span class="hljs-literal">true</span> ) <span class="hljs-keyword">return</span>;
+				<span class="hljs-keyword">if</span> ( state !== STATE.TOUCH_PAN ) <span class="hljs-keyword">return</span>;
+
+				panEnd.set( event.touches[ <span class="hljs-number">0</span> ].pageX, event.touches[ <span class="hljs-number">0</span> ].pageY );
+				panDelta.subVectors( panEnd, panStart );
+
+				scope.pan( panDelta.x, panDelta.y );
+
+				panStart.copy( panEnd );
+
+				scope.update();
+				<span class="hljs-keyword">break</span>;
+
+			<span class="hljs-keyword">default</span>:
+
+				state = STATE.NONE;
+
+		}
+
+	}
+
+	<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">touchend</span><span class="hljs-params">( <span class="hljs-comment">/* event */</span> )</span> </span>{
+
+		<span class="hljs-keyword">if</span> ( scope.enabled === <span class="hljs-literal">false</span> ) <span class="hljs-keyword">return</span>;
+
+		scope.dispatchEvent( endEvent );
+		state = STATE.NONE;
+
+	}
+
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'contextmenu'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-params">( event )</span> </span>{ event.preventDefault(); }, <span class="hljs-literal">false</span> );
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'mousedown'</span>, onMouseDown, <span class="hljs-literal">false</span> );
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'mousewheel'</span>, onMouseWheel, <span class="hljs-literal">false</span> );
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'DOMMouseScroll'</span>, onMouseWheel, <span class="hljs-literal">false</span> ); <span class="hljs-comment">// firefox</span>
+
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'touchstart'</span>, touchstart, <span class="hljs-literal">false</span> );
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'touchend'</span>, touchend, <span class="hljs-literal">false</span> );
+	<span class="hljs-keyword">this</span>.domElement.addEventListener( <span class="hljs-string">'touchmove'</span>, touchmove, <span class="hljs-literal">false</span> );
+
+	<span class="hljs-built_in">window</span>.addEventListener( <span class="hljs-string">'keydown'</span>, onKeyDown, <span class="hljs-literal">false</span> );</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-45">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-45">&#182;</a>
+              </div>
+              <p>force an update at start</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	<span class="hljs-keyword">this</span>.update();
+
+};
+
+THREE.OrbitControls.prototype = <span class="hljs-built_in">Object</span>.create( THREE.EventDispatcher.prototype );
+THREE.OrbitControls.prototype.constructor = THREE.OrbitControls;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

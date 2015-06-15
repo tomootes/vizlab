@@ -84,5 +84,12 @@ function Connection(m1, m2){
       }
     } 
   }
+}
 
+
+function removeSkeleton(){
+  for(i=0;i<connections.length;i++){
+    scene.remove(connections[i].object);  
+  }
+  connections = [];
 }
